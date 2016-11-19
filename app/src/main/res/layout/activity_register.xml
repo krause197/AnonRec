@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.epicodus.droid_anonrec_week1.RegisterActivity"
-    android:background="@drawable/registerBackground">
+    android:background="@drawable/register">
 
     <TextView
         android:layout_width="wrap_content"
@@ -64,7 +64,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="AnonRec wishes for you to retain your anonymity, so we may place principles before personalites.  We will not share any personal information with any outside party."
         android:id="@+id/AnonExplaintextView"
-        android:layout_above="@+id/button"
+        android:layout_above="@+id/submitButton"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="94dp"
         android:background="@color/primary_light" />

@@ -15,8 +15,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".RegisterActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.epicodus.droid_anonrec_week1.MainActivity">
+            </meta-data>
+        </activity>>
+        <activity android:name=".ProfileActivity">
+            <meta-data
+                android:name="andoid.support.PARENT_ACTIVITY"
+                android:value="com.epicodus.droid_anonrec_week1.RegisterActivity">
+            </meta-data>
+        </activity>
     </application>
 
 </manifest>
