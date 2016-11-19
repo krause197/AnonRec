@@ -24,5 +24,8 @@ public class ProfileActivity extends AppCompatActivity {
         String name = intent.getStringExtra("name");
         String homegroup = intent.getStringExtra("homegroup");
         String neighborhood = intent.getStringExtra("neighborhood");
+        mName.setText(name);
+        mHomegroup.setText(homegroup);
+        mNeighborhood.setText(neighborhood);
     }
 }
