@@ -44,7 +44,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/NeighborhoodEditText"
+        android:id="@+id/neighborhoodEditText"
         android:background="@color/highlighted_text_material_dark"
         android:layout_marginTop="15dp"
         android:layout_below="@+id/homeGroupEditText2"
@@ -55,7 +55,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Submit"
-        android:id="@+id/button"
+        android:id="@+id/submitButton"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:background="@color/accent_material_light"
