@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
-        android:id="@+id/textView"
+        android:id="@+id/name"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="27dp" />
@@ -21,10 +21,10 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Medium Text"
-        android:id="@+id/textView2"
-        android:layout_below="@+id/textView"
-        android:layout_alignLeft="@+id/textView"
-        android:layout_alignStart="@+id/textView"
+        android:id="@+id/homegroup"
+        android:layout_below="@+id/name"
+        android:layout_alignLeft="@+id/name"
+        android:layout_alignStart="@+id/name"
         android:layout_marginTop="44dp" />
 
     <TextView
@@ -32,18 +32,18 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Medium Text"
-        android:id="@+id/textView3"
-        android:layout_below="@+id/textView2"
+        android:id="@+id/neighborhood"
+        android:layout_below="@+id/homegroup"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView"
+        android:id="@+id/defaultUserIcon"
         android:layout_marginTop="24dp"
         android:src="@drawable/userIcon"
-        android:layout_below="@+id/textView3"
+        android:layout_below="@+id/neighborhood"
         android:layout_centerHorizontal="true" />
 
     <TextView
@@ -51,7 +51,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="User Icon"
-        android:id="@+id/userIcon"
-        android:layout_below="@+id/imageView"
+        android:id="@+id/userIconDescription"
+        android:layout_below="@+id/defaultUserIcon"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>
