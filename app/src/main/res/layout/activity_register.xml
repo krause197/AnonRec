@@ -9,4 +9,63 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.epicodus.droid_anonrec_week1.RegisterActivity">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register with AnonRec!"
+        android:id="@+id/RegisterTitle"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/nameEditText"
+        android:layout_below="@+id/RegisterTitle"
+        android:hint="First Name"
+        android:layout_marginTop="40dp"
+        android:inputType="text"
+        android:background="@color/highlighted_text_material_dark" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/homeGroupEditText2"
+        android:background="@color/highlighted_text_material_dark"
+        android:layout_below="@id/nameEditText"
+        android:layout_marginTop="15dp"
+        android:hint="Home Group"
+        android:inputType="text"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/NeighborhoodEditText"
+        android:background="@color/highlighted_text_material_dark"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/homeGroupEditText2"
+        android:hint="PDX Neighborhood"
+        android:inputType="text" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:id="@+id/button"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="AnonRec wishes for you to retain your anonymity, so we may place principles before personalites.  We will not share any personal information with any outside party."
+        android:id="@+id/AnonExplaintextView"
+        android:layout_above="@+id/button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="94dp"
+        android:background="@color/primary_light" />
 </RelativeLayout>
