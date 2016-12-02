@@ -27,7 +27,9 @@
                 android:value="com.epicodus.droid_anonrec_week1.RegisterActivity" />
         </activity>
         <activity android:name=".HomePageActivity" />
-        <activity android:name=".MeetingActivity"></activity>
+        <activity android:name=".MeetingActivity" />
+        <activity android:name=".MeetupActivity" />
+        <activity android:name=".MessageActivity"></activity>
     </application>
 
 </manifest>
