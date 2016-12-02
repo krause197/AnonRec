@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.epicodus.droid_anonrec_week1.MeetingActivity"
+    android:background="@drawable/register">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="AA Meetings in Your Area"
+        android:id="@+id/meetingTitle"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="AnonRec Apologizes!  This Feature is Currently Under Construction, Thank You for Your Understanding..."
+        android:id="@+id/AnonExplaintextView"
+        android:layout_below="@+id/meetingTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="114dp"
+        android:background="@color/primary_light" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:id="@+id/backButton"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/accent_material_light"
+        android:textSize="26sp"
+        android:textStyle="bold|italic" />
+
+</RelativeLayout>
