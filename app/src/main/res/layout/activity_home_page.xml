@@ -29,5 +29,39 @@
         android:layout_below="@+id/name"
         android:layout_centerHorizontal="true" />
 
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Message Boards"
+        android:id="@+id/messageButton"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/accent_material_light"
+        android:textSize="26sp"
+        android:textStyle="bold|italic" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Sober Meetups in Portland"
+        android:id="@+id/meetupButton"
+        android:layout_above="@+id/messageButton"
+        android:layout_centerHorizontal="true"
+        android:background="@color/accent_material_light"
+        android:textSize="26sp"
+        android:textStyle="bold|italic" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="AA Meetings in your area"
+        android:id="@+id/meetingButton"
+        android:layout_above="@+id/meetupButton"
+        android:layout_centerHorizontal="true"
+        android:background="@color/accent_material_light"
+        android:textSize="26sp"
+        android:textStyle="bold|italic" />
+
+
 
 </RelativeLayout>
