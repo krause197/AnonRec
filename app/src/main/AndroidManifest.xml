@@ -18,15 +18,15 @@
         <activity android:name=".RegisterActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.droid_anonrec_week1.MainActivity">
-            </meta-data>
-        </activity>>
+                android:value="com.epicodus.droid_anonrec_week1.MainActivity"></meta-data>
+        </activity>
+        >
         <activity android:name=".ProfileActivity">
             <meta-data
                 android:name="andoid.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.droid_anonrec_week1.RegisterActivity">
-            </meta-data>
+                android:value="com.epicodus.droid_anonrec_week1.RegisterActivity"></meta-data>
         </activity>
+        <activity android:name=".HomePageActivity"></activity>
     </application>
 
 </manifest>

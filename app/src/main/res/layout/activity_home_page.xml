@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.epicodus.droid_anonrec_week1.HomePageActivity"
+    android:background="@drawable/register">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="name"
+        android:id="@+id/name"
+        android:layout_marginTop="28dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/highlighted_text_material_dark"
+        android:textColor="@color/button_material_dark"
+        android:textStyle="bold"
+        android:textSize="40sp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/defaultUserIcon"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/icon"
+        android:layout_below="@+id/name"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>
