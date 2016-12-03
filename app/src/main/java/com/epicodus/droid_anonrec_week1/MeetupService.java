@@ -1,5 +1,9 @@
 package com.epicodus.droid_anonrec_week1;
 
+import org.json.JSONException;
+
+import java.io.IOException;
+
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.HttpUrl;
@@ -32,5 +36,30 @@ public class MeetupService {
         Call call = client.newCall(request);
         call.enqueue(callback);
 
+    }
+
+    public ArrayList<Event> processResults(Response response) {
+        ArrayList<Event> events = new ArrayList<>();
+
+        try {
+            String jsonData = response.body().string();
+            Log.v(TAG, "Events: "+ jsonData.toString());
+            if(response.isSuccessful()){
+                JSONObject eventsJSON = new JSONObject(jsonData);
+                JSONArray listJSON = eventsJSON.getJSONArray("list");
+                for (int i = 0; i < listJSON.length(); i++) {
+                    JSONObject eventJSON = listJSON.getJSONObject(i);
+                    String placeholder =
+                    String placeholder2 =
+
+                    Event event = new Event(placeholder, placeholder2);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return events;
     }
 }
