@@ -47,8 +47,20 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
         return mEvents.size();
     }
 
-    public class EventViewHolder extents RecyclerView.ViewHolder {
-        @Bind(R.id.placeholderTextView) TextView mPlaceholderTextView;
+    public class EventViewHolder extents RecyclerView.ViewHolder{
+        @Bind(R.id.nameTextView) TextView mNameTextView;
+        @Bind(R.id.descriptionTextView) TextView mDescriptionTextView;
+        @Bind(R.id.timeTextView) TextView mTimeTextView;
+        @Bind(R.id.event_urlTextView) TextView mEvent_urlTextView;
+        @Bind(R.id.addressTextView) TextView mAddressTextView;
+        @Bind(R.id.cityTextView) TextView mCityTextView;
+        @Bind(R.id.stateTextView) TextView mStateTextView;
+        @Bind(R.id.zipTextView) TextView mZipTextView;
+        @Bind(R.id.yes_rsvp_countTextView) TextView mYes_rsvp_countTextView;
+        @Bind(R.id.maybe_rsvp_countTextView) TextView mMaybe_rsvp_countTextView;
+        @Bind(R.id.group_nameTextView) TextView mGroup_nameTextView;
+        @Bind(R.id.whoTextView) TextView mWhoTextView;
+
 
         private Context mContext;
 
