@@ -70,8 +70,19 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
             mContext = itemView.getContext();
         }
 
-        public void bindEvent(Event event){
-            mPlaceholderTextView.setText(event.getPlaceholder());
+        public void bindEvent(Event event) {
+            mNameTextView.setText(event.getName());
+            mDescriptionTextView.setText(event.getDescription());
+            mTimeTextView.setText(event.getTime());
+            mEvent_urlTextView.setText(event.getEvent_Url());
+            mAddressTextView.setText(event.getAddress());
+            mCityTextView.setText(event.getCity());
+            mStateTextView.setText(event.getState());
+            mZipTextView.setText(event.getZip());
+            mYes_rsvp_countTextView.setText(event.getYes_rsvp_count());
+            mMaybe_rsvp_countTextView.setText(event.getMaybe_rsvp_count());
+            mGroup_nameTextView.setText(event.getGroup_name());
+            mWhoTextView.setText(event.getWho());
         }
     }
 }
