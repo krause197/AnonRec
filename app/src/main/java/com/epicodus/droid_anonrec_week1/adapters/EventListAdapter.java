@@ -2,6 +2,7 @@ package com.epicodus.droid_anonrec_week1.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +15,9 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-import butterknife.ButterKnife;
 import butterknife.Bind;
+import butterknife.ButterKnife;
+
 
 /**
  * Created by Guest on 12/2/16.
@@ -38,7 +40,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
     }
 
     @Override
-    public void onBindViewHolder(EventListAdapter.EventViewHolder holder, int position) {
+    public void onBindViewHolder(EventListAdapter.EventViewHolder holder, int position){
         holder.bindEvent(mEvents.get(position));
     }
 
@@ -47,7 +49,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
         return mEvents.size();
     }
 
-    public class EventViewHolder extents RecyclerView.ViewHolder{
+    public class EventViewHolder extends RecyclerView.ViewHolder{
         @Bind(R.id.nameTextView) TextView mNameTextView;
         @Bind(R.id.descriptionTextView) TextView mDescriptionTextView;
         @Bind(R.id.timeTextView) TextView mTimeTextView;
