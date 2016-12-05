@@ -4,6 +4,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.epicodus.droid_anonrec_week1.services.MeetupService;
 import com.epicodus.droid_anonrec_week1.R;
@@ -16,6 +22,7 @@ import java.util.ArrayList;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import okhttp3.Call;
+import okhttp3.Callback;
 import okhttp3.Response;
 
 public class MeetupActivity extends AppCompatActivity {
@@ -40,7 +47,7 @@ public class MeetupActivity extends AppCompatActivity {
 
     private void getEvents(String groupName) {
         final MeetupService meetupService = new MeetupService();
-        meetupService.getEvents(groupName, new CallBack() {
+        meetupService.findEvents(groupName, new CallBack() {
 
             @Override
             public void onFailure(Call call, IOException e) {
