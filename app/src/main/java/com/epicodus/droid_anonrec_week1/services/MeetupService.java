@@ -4,9 +4,7 @@ import android.util.Log;
 
 import com.epicodus.droid_anonrec_week1.MeetupConstants;
 import com.epicodus.droid_anonrec_week1.models.Event;
-import com.example.guest.weatherclass.Constants;
-import com.example.guest.weatherclass.models.Forcast;
-import com.example.guest.weatherclass.models.Weather;
+
 
 import org.json.JSONException;
 import org.json.JSONArray;
@@ -57,13 +55,23 @@ public class MeetupService {
             Log.v(TAG, "Events: "+ jsonData.toString());
             if(response.isSuccessful()){
                 JSONObject eventsJSON = new JSONObject(jsonData);
-                JSONArray listJSON = eventsJSON.getJSONArray("list");
+                JSONArray listJSON = eventsJSON.getJSONArray("results");
                 for (int i = 0; i < listJSON.length(); i++) {
                     JSONObject eventJSON = listJSON.getJSONObject(i);
-                    String placeholder =
-                    String placeholder2 =
+                    String name = eventJSON.getString("name") + "";
+                    String description = eventJSON.getString("description");
+                    String time = eventJSON.getString("time") + "";
+                    String event_url = eventJSON.getString("event_url");
+                    String address = eventJSON.getJSONObject("venue").getString("address") + "";
+                    String city = eventJSON.getJSONObject("venue").getString("city");
+                    String state = eventJSON.getJSONObject("venue").getString("state");
+                    String zip = eventJSON.getJSONObject("venue").getString("zip") + "";
+                    String yes_rsvp_count = eventJSON.getString("yes_rsvp_count") + "";
+                    String maybe_rsvp_count = eventJSON.getString("maybe_rsvp_count") + "";
+                    String group_name = eventJSON.getJSONObject("group").getString("name");
+                    String who = eventJSON.getJSONObject("group").getString("who");
 
-                    Event event = new Event(placeholder, placeholder2);
+                    Event event = new Event(name, description, time, event_url, address, city, state, zip, yes_rsvp_count, maybe_rsvp_count, group_name, who );
                 }
             }
         } catch (IOException e) {
