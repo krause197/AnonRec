@@ -3,7 +3,7 @@ package com.epicodus.droid_anonrec_week1;
 /**
  * Created by Guest on 12/4/16.
  */
-public class Meetup {
+public class Event {
     private String mName;
     private String mDescription;
     private String mTime;
@@ -17,7 +17,7 @@ public class Meetup {
     private String mGroup_name;
     private String mWho;
 
-    public Meetup (String name, String description, String time, String event_url, String address, String state, String city, String zip, String yes_rsvp_count, String maybe_rsvp_count, String group_name, String who) {
+    public Event (String name, String description, String time, String event_url, String address, String state, String city, String zip, String yes_rsvp_count, String maybe_rsvp_count, String group_name, String who) {
         this.mName = name;
         this.mDescription = description;
         this.mTime = time;
