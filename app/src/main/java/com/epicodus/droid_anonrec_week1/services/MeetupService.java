@@ -72,6 +72,7 @@ public class MeetupService {
                     String who = eventJSON.getJSONObject("group").getString("who");
 
                     Event event = new Event(name, description, time, event_url, address, city, state, zip, yes_rsvp_count, maybe_rsvp_count, group_name, who );
+                    events.add(event);
                 }
             }
         } catch (IOException e) {
