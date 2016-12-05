@@ -30,7 +30,7 @@ public class MeetupActivity extends AppCompatActivity {
 
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
 
-    private EventListAdapter mAdapter;
+    private EventListAdapter mEventAdapter;
 
     public ArrayList<Event> mEvents = new ArrayList<>();
 
@@ -47,7 +47,7 @@ public class MeetupActivity extends AppCompatActivity {
 
     private void getEvents(String groupName) {
         final MeetupService meetupService = new MeetupService();
-        meetupService.findEvents(groupName, new CallBack() {
+        meetupService.findEvents(groupName, new Callback() {
 
             @Override
             public void onFailure(Call call, IOException e) {
@@ -59,11 +59,11 @@ public class MeetupActivity extends AppCompatActivity {
 
                 mEvents = meetupService.processResults(response);
 
-                MeetupService.this.runOnUiThread(new Runnable() {
+                MeetupActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        mEventListAdapter = new EventListAdapter(getApplicationContext(), mEvents);
-                        mRecyclerView.setAdapter(mEventListAdapter);
+                        mEventAdapter = new EventListAdapter(getApplicationContext(), mEvents);
+                        mRecyclerView.setAdapter(mEventAdapter);
                         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MeetupActivity.this);
                         mRecyclerView.setLayoutManager(layoutManager);
                         mRecyclerView.setHasFixedSize(true);
