@@ -11,6 +11,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ArrayList;
 
 import okhttp3.Call;
@@ -60,7 +62,7 @@ public class MeetupService {
                     JSONObject eventJSON = listJSON.getJSONObject(i);
                     String name = eventJSON.getString("name") + "";
                     String description = eventJSON.getString("description");
-                    String time = eventJSON.getString("time") + "";
+                    String timeStamp = eventJSON.getString("time") + "";
                     String event_url = eventJSON.getString("event_url");
                     String address = eventJSON.getJSONObject("venue").getString("address") + "";
                     String city = eventJSON.getJSONObject("venue").getString("city");
@@ -71,7 +73,11 @@ public class MeetupService {
                     String group_name = eventJSON.getJSONObject("group").getString("name");
                     String who = eventJSON.getJSONObject("group").getString("who");
 
-                    Event event = new Event(name, description, time, event_url, address, city, state, zip, yes_rsvp_count, maybe_rsvp_count, group_name, who );
+                    long time = Long.valueOf(timeStamp)*1000;
+                    Date date = new java.util.Date(time);
+                    String dateTimeGroup = new SimpleDateFormat("MM dd, yyyy hh:mma").format(date);
+
+                    Event event = new Event(name, description, dateTimeGroup, event_url, address, city, state, zip, yes_rsvp_count, maybe_rsvp_count, group_name, who );
                     events.add(event);
                 }
             }

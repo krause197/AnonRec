@@ -14,6 +14,7 @@ import com.epicodus.droid_anonrec_week1.models.Event;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -64,6 +65,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
         @Bind(R.id.whoTextView) TextView mWhoTextView;
 
 
+
         private Context mContext;
 
         public EventViewHolder(View itemView){
@@ -75,16 +77,16 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
         public void bindEvent(Event event) {
             mNameTextView.setText(event.getName());
             mDescriptionTextView.setText(event.getDescription());
-            mTimeTextView.setText(event.getTime());
-            mEvent_urlTextView.setText(event.getEvent_Url());
+            mTimeTextView.setText("Time: " + event.getDateTimeGroup());
+            mEvent_urlTextView.setText("View Event Site: " + event.getEvent_Url());
             mAddressTextView.setText(event.getAddress());
             mCityTextView.setText(event.getCity());
             mStateTextView.setText(event.getState());
             mZipTextView.setText(event.getZip());
-            mYes_rsvp_countTextView.setText(event.getYes_rsvp_count());
-            mMaybe_rsvp_countTextView.setText(event.getMaybe_rsvp_count());
-            mGroup_nameTextView.setText(event.getGroup_name());
-            mWhoTextView.setText(event.getWho());
+            mYes_rsvp_countTextView.setText("People going: " + event.getYes_rsvp_count());
+            mMaybe_rsvp_countTextView.setText("People interested in going: " + event.getMaybe_rsvp_count());
+            mGroup_nameTextView.setText("MeetUp Group Name: " + event.getGroup_name());
+            mWhoTextView.setText("Who is invited: " + event.getWho());
         }
     }
 }
