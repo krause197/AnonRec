@@ -27,24 +27,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="description"
-            android:id="@+id/descriptionTextView"
+            android:text="time"
+            android:id="@+id/timeTextView"
             android:layout_below="@+id/nameTextView"
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
             android:textSize="20dp"
             android:textStyle="bold"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="time"
-            android:id="@+id/timeTextView"
-            android:layout_below="@+id/descriptionTextView"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:textSize="20dp"
-            android:textStyle="bold"/>/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -55,7 +44,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
             android:textSize="20dp"
-            android:textStyle="bold"/>/>
+            android:textStyle="bold"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -66,7 +55,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
             android:textSize="20dp"
-            android:textStyle="bold"/>/>
+            android:textStyle="bold"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -77,7 +66,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
             android:textSize="20dp"
-            android:textStyle="bold"/>/>
+            android:textStyle="bold"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -88,7 +77,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
             android:textSize="20dp"
-            android:textStyle="bold"/>/>
+            android:textStyle="bold"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -99,7 +88,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
             android:textSize="20dp"
-            android:textStyle="bold"/>/>
+            android:textStyle="bold"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -110,7 +99,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
             android:textSize="20dp"
-            android:textStyle="bold"/>/>
+            android:textStyle="bold"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -121,7 +110,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
             android:textSize="20dp"
-            android:textStyle="bold"/>/>
+            android:textStyle="bold"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -132,7 +121,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
             android:textSize="20dp"
-            android:textStyle="bold"/>/>
+            android:textStyle="bold"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -143,7 +132,18 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
             android:textSize="20dp"
-            android:textStyle="bold"/>/>
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="description"
+            android:id="@+id/descriptionTextView"
+            android:layout_below="@+id/whoTextView"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
 
 
     </RelativeLayout>

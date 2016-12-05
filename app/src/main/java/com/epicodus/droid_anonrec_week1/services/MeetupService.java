@@ -64,7 +64,7 @@ public class MeetupService {
                     String description = eventJSON.getString("description");
                     String timeStamp = eventJSON.getString("time") + "";
                     String event_url = eventJSON.getString("event_url");
-                    String address = eventJSON.getJSONObject("venue").getString("address") + "";
+                    String address = eventJSON.getJSONObject("venue").getString("address_1") + "";
                     String city = eventJSON.getJSONObject("venue").getString("city");
                     String state = eventJSON.getJSONObject("venue").getString("state");
                     String zip = eventJSON.getJSONObject("venue").getString("zip") + "";
