@@ -1,6 +1,9 @@
-package com.epicodus.droid_anonrec_week1;
+package com.epicodus.droid_anonrec_week1.adapters;
 
 import android.view.ViewGroup;
+
+import com.epicodus.droid_anonrec_week1.R;
+import com.epicodus.droid_anonrec_week1.models.Event;
 
 import butterknife.ButterKnife;
 

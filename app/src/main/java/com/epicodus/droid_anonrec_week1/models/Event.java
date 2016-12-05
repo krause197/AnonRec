@@ -1,4 +1,4 @@
-package com.epicodus.droid_anonrec_week1;
+package com.epicodus.droid_anonrec_week1.models;
 
 /**
  * Created by Guest on 12/4/16.

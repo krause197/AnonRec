@@ -10,28 +10,28 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterActivity">
+        <activity android:name=".ui.RegisterActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.droid_anonrec_week1.MainActivity" />
+                android:value=".ui.MainActivity" />
         </activity>
         >
-        <activity android:name=".ProfileActivity">
+        <activity android:name=".ui.ProfileActivity">
             <meta-data
                 android:name="andoid.support.PARENT_ACTIVITY"
                 android:value="com.epicodus.droid_anonrec_week1.RegisterActivity" />
         </activity>
-        <activity android:name=".HomePageActivity" />
-        <activity android:name=".MeetingActivity" />
-        <activity android:name=".MeetupActivity" />
-        <activity android:name=".MessageActivity"></activity>
+        <activity android:name=".ui.HomePageActivity" />
+        <activity android:name=".ui.MeetingActivity" />
+        <activity android:name=".ui.MeetupActivity" />
+        <activity android:name=".ui.MessageActivity"></activity>
     </application>
 
 </manifest>

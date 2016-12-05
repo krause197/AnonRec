@@ -1,8 +1,19 @@
-package com.epicodus.droid_anonrec_week1;
+package com.epicodus.droid_anonrec_week1.services;
+
+import android.util.Log;
+
+import com.epicodus.droid_anonrec_week1.MeetupConstants;
+import com.epicodus.droid_anonrec_week1.models.Event;
+import com.example.guest.weatherclass.Constants;
+import com.example.guest.weatherclass.models.Forcast;
+import com.example.guest.weatherclass.models.Weather;
 
 import org.json.JSONException;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import okhttp3.Call;
 import okhttp3.Callback;

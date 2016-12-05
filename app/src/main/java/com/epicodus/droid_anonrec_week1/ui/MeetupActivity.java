@@ -1,15 +1,14 @@
-package com.epicodus.droid_anonrec_week1;
+package com.epicodus.droid_anonrec_week1.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ListView;
-import android.widget.TextView;
+
+import com.epicodus.droid_anonrec_week1.services.MeetupService;
+import com.epicodus.droid_anonrec_week1.R;
+import com.epicodus.droid_anonrec_week1.adapters.EventListAdapter;
+import com.epicodus.droid_anonrec_week1.models.Event;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,7 +16,6 @@ import java.util.ArrayList;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import okhttp3.Call;
-import okhttp3.Callback;
 import okhttp3.Response;
 
 public class MeetupActivity extends AppCompatActivity {
