@@ -10,6 +10,7 @@ import android.widget.Toast;
 import com.epicodus.droid_anonrec_week1.R;
 
 import butterknife.Bind;
+import butterknife.ButterKnife;
 
 public class MessageActivity extends AppCompatActivity implements View.OnClickListener {
     @Bind(R.id.backButton)
@@ -19,6 +20,7 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
+        ButterKnife.bind(this);
         mbackButton.setOnClickListener(this);
     }
 
