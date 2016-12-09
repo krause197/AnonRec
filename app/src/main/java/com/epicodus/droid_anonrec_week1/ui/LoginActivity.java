@@ -111,7 +111,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 mAuthProgressDialog.dismiss();
-                Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
+                Log.d(TAG, "signInWithUserName:onComplete:" + task.isSuccessful());
                 if (!task.isSuccessful()) {
                     Log.w(TAG, "signInWithUserName", task.getException());
                     Toast.makeText(LoginActivity.this, "Authentication Failed, Please Try Again", Toast.LENGTH_SHORT).show();

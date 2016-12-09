@@ -34,11 +34,12 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
-
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         ButterKnife.bind(this);
+
         mLoginTextView.setOnClickListener(this);
         mSubmitButton.setOnClickListener(this);
         mAuth = FirebaseAuth.getInstance();
@@ -61,9 +62,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View view) {
+
         if (view == mSubmitButton) {
             createNewUser();
         }
+
         if (view == mLoginTextView ) {
             Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -73,13 +76,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void createNewUser() {
-        final String username = mUserNameEditText.getText().toString().trim();
+        final String email = mUserNameEditText.getText().toString().trim();
         final String homeGroup = mHomeGroupEditText2.getText().toString().trim();
         final String neighborhood = mNeighborhoodEditText.getText().toString().trim();
         String password = mPasswordEditText.getText().toString().trim();
         String confirmPass = mConfirmPassEditText.getText().toString().trim();
 
-        mAuth.createUserWithEmailAndPassword(username, password)
+        mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {

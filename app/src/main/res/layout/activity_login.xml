@@ -34,7 +34,7 @@
         android:layout_below="@+id/userNameEditText"
         android:hint="Password"
         android:layout_marginTop="15dp"
-        android:inputType="text"
+        android:inputType="textPassword"
         android:background="@color/highlighted_text_material_dark" />
 
     <Button

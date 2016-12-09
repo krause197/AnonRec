@@ -34,17 +34,17 @@
         android:layout_below="@+id/userNameEditText"
         android:hint="Password"
         android:layout_marginTop="15dp"
-        android:inputType="text"
+        android:inputType="textPassword"
         android:background="@color/highlighted_text_material_dark" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/confirmPassEditText"
+        android:inputType="textPassword"
         android:layout_below="@+id/passwordEditText"
         android:hint="Confirm Password"
         android:layout_marginTop="15dp"
-        android:inputType="text"
         android:background="@color/highlighted_text_material_dark" />
 
     <EditText
