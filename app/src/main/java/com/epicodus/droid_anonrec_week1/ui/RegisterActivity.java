@@ -77,12 +77,27 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
+    private boolean validPassword(String password, String confirmPassword) {
+        if (password.length() < 6) {
+            mPasswordEditText.setError("Password must be at least 6 characters");
+            return false;
+        } else if (!password.equals(confirmPassword)) {
+            mPasswordEditText.setError("Password does not match");
+            return false;
+        }
+        return true;
+    }
+
     private void createNewUser() {
         final String email = mUserNameEditText.getText().toString().trim();
         final String homeGroup = mHomeGroupEditText2.getText().toString().trim();
         final String neighborhood = mNeighborhoodEditText.getText().toString().trim();
         String password = mPasswordEditText.getText().toString().trim();
         String confirmPassword = mConfirmPasswordEditText.getText().toString().trim();
+
+        boolean validPassword = validPassword(password, confirmPassword);
+
+        if (!validPassword) return;
 
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {

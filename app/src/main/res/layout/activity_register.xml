@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/userNameEditText"
         android:layout_below="@+id/RegisterTitle"
-        android:hint="User Name"
+        android:hint="Email Address"
         android:layout_marginTop="40dp"
         android:inputType="text"
         android:background="@color/highlighted_text_material_dark" />
