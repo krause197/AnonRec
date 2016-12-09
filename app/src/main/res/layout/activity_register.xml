@@ -60,22 +60,13 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/homeGroupEditText2"
+        android:id="@+id/photoUrlEditText"
         android:background="@color/highlighted_text_material_dark"
         android:layout_below="@id/confirmPasswordEditText"
         android:layout_marginTop="15dp"
-        android:hint="Home Group"
+        android:hint="URL of image for Icon. Leave Blank for Default"
         android:inputType="text"/>
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/neighborhoodEditText"
-        android:background="@color/highlighted_text_material_dark"
-        android:layout_marginTop="15dp"
-        android:layout_below="@+id/homeGroupEditText2"
-        android:hint="PDX Neighborhood"
-        android:inputType="text" />
 
     <Button
         android:layout_width="fill_parent"
