@@ -26,7 +26,6 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="35dp"
-        android:fontFamily="@string/abc_font_family_headline_material"
         android:textColor="@color/accent"
         android:textSize="@dimen/abc_text_size_display_3_material"
         android:textStyle="bold" />
