@@ -20,9 +20,9 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/nameEditText"
+        android:id="@+id/userNameEditText"
         android:layout_below="@+id/RegisterTitle"
-        android:hint="First Name"
+        android:hint="User Name"
         android:layout_marginTop="40dp"
         android:inputType="text"
         android:background="@color/highlighted_text_material_dark" />
@@ -31,7 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/passwordEditText"
-        android:layout_below="@+id/nameEditText"
+        android:layout_below="@+id/userNameEditText"
         android:hint="Password"
         android:layout_marginTop="15dp"
         android:inputType="text"
