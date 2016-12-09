@@ -30,9 +30,29 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/passwordEditText"
+        android:layout_below="@+id/nameEditText"
+        android:hint="Password"
+        android:layout_marginTop="15dp"
+        android:inputType="text"
+        android:background="@color/highlighted_text_material_dark" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/confirmPassEditText"
+        android:layout_below="@+id/passwordEditText"
+        android:hint="Confirm Password"
+        android:layout_marginTop="15dp"
+        android:inputType="text"
+        android:background="@color/highlighted_text_material_dark" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/homeGroupEditText2"
         android:background="@color/highlighted_text_material_dark"
-        android:layout_below="@id/nameEditText"
+        android:layout_below="@id/confirmPassEditText"
         android:layout_marginTop="15dp"
         android:hint="Home Group"
         android:inputType="text"/>
@@ -63,9 +83,21 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="AnonRec wishes for you to retain your anonymity, so we may place principles before personalites.  We will not share any personal information with any outside party."
-        android:id="@+id/AnonExplaintextView"
+        android:id="@+id/anonExplainTextView"
         android:layout_above="@+id/submitButton"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="94dp"
+        android:layout_marginBottom="50dp"
         android:background="@color/primary_light" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Already have Registered?  Click here to go to Login Page."
+        android:id="@+id/loginTextView"
+        android:layout_above="@+id/anonExplainTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp"
+        android:background="@color/primary_light" />
+
 </RelativeLayout>
