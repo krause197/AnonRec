@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "554947176421",
+    "firebase_url": "https://anonrec-eed70.firebaseio.com",
+    "project_id": "anonrec-eed70",
+    "storage_bucket": "anonrec-eed70.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:554947176421:android:590b79aab1a9d125",
+        "android_client_info": {
+          "package_name": "com.epicodus.droid_anonrec_week1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "554947176421-p3lm1avekongt2vs6sb0jf50iikunklh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.epicodus.droid_anonrec_week1",
+            "certificate_hash": "02802B0157CE291F073577EDBE9A803710AFA3E3"
+          }
+        },
+        {
+          "client_id": "554947176421-elr1n8k8e09mlam5fbu8n5ru2ip0iblj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgaIzpA9xuKMnbtf72C4ew0CCB7vH3ukU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "554947176421-elr1n8k8e09mlam5fbu8n5ru2ip0iblj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
