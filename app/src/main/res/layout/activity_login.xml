@@ -3,10 +3,60 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.epicodus.droid_anonrec_week1.ui.LoginActivity">
+    tools:context="com.epicodus.droid_anonrec_week1.ui.LoginActivity"
+    android:background="@drawable/register">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login to AnonRec"
+        android:id="@+id/LoginTitle"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/userNameEditText"
+        android:layout_below="@+id/LoginTitle"
+        android:hint="User Name"
+        android:layout_marginTop="40dp"
+        android:inputType="text"
+        android:background="@color/highlighted_text_material_dark" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/passwordEditText"
+        android:layout_below="@+id/userNameEditText"
+        android:hint="Password"
+        android:layout_marginTop="15dp"
+        android:inputType="text"
+        android:background="@color/highlighted_text_material_dark" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:id="@+id/loginButton"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/accent_material_light"
+        android:textSize="26sp"
+        android:textStyle="bold|italic" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Need to Register a Profile?  Click here to go to Register Page."
+        android:id="@+id/loginTextView"
+        android:layout_above="@+id/loginButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="250dp"
+        android:background="@color/primary_light" />
 
 </RelativeLayout>
