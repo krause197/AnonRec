@@ -28,7 +28,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
     public static final String TAG = LoginActivity.class.getSimpleName();
     @Bind(R.id.loginTextView) TextView mLoginTextView;
     @Bind(R.id.loginButton) Button mLoginButton;
-    @Bind(R.id.userNameEditText) EditText mUserNameEditText;
+    @Bind(R.id.emailEditText) EditText mEmailEditText;
     @Bind(R.id.passwordEditText) EditText mPasswordEditText;
 
     private FirebaseAuth mAuth;
@@ -96,10 +96,10 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
     }
 
     private void loginWithPassword() {
-        String username = mUserNameEditText.getText().toString().trim();
+        String email = mEmailEditText.getText().toString().trim();
         String password = mPasswordEditText.getText().toString().trim();
-        if (username.equals("")) {
-            mUserNameEditText.setError("Please enter your User Name.");
+        if (email.equals("")) {
+            mEmailEditText.setError("Please enter your User Name.");
             return;
         }
         mAuthProgressDialog.show();
@@ -107,7 +107,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
             mPasswordEditText.setError("Please enter your Password");
         }
 
-        mAuth.signInWithEmailAndPassword(username, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 mAuthProgressDialog.dismiss();

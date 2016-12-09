@@ -23,6 +23,7 @@ import butterknife.ButterKnife;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener{
     @Bind(R.id.userNameEditText) EditText mUserNameEditText;
+    @Bind(R.id.emailEditText) EditText mEmailEditText;
     @Bind(R.id.passwordEditText) EditText mPasswordEditText;
     @Bind(R.id.confirmPasswordEditText) EditText mConfirmPasswordEditText;
     @Bind(R.id.homeGroupEditText2) EditText mHomeGroupEditText2;
@@ -89,8 +90,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void createNewUser() {
-        final String email = mUserNameEditText.getText().toString().trim();
-        final String homeGroup = mHomeGroupEditText2.getText().toString().trim();
+        final String email = mEmailEditText.getText().toString().trim();
+        final String name = mUserNameEditText.getText().toString().trim();
+        final String homegroup = mHomeGroupEditText2.getText().toString().trim();
         final String neighborhood = mNeighborhoodEditText.getText().toString().trim();
         String password = mPasswordEditText.getText().toString().trim();
         String confirmPassword = mConfirmPasswordEditText.getText().toString().trim();
@@ -122,6 +124,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 if (user != null) {
                     Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    intent.putExtra("name", mUserNameEditText.getText().toString());
+                    intent.putExtra("homegroup", mHomeGroupEditText2.getText().toString());
+                    intent.putExtra("neighborhood", mNeighborhoodEditText.getText().toString());
                     startActivity(intent);
                     finish();
                 }

@@ -29,8 +29,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         Toast.makeText(MainActivity.this, "One Day At A Time", Toast.LENGTH_LONG).show();
         if (v == mWelcomeButton) {
-            Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
+            finish();
 
         }
     }
