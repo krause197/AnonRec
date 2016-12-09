@@ -40,7 +40,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/confirmPassEditText"
+        android:id="@+id/confirmPasswordEditText"
         android:inputType="textPassword"
         android:layout_below="@+id/passwordEditText"
         android:hint="Confirm Password"
@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/homeGroupEditText2"
         android:background="@color/highlighted_text_material_dark"
-        android:layout_below="@id/confirmPassEditText"
+        android:layout_below="@id/confirmPasswordEditText"
         android:layout_marginTop="15dp"
         android:hint="Home Group"
         android:inputType="text"/>

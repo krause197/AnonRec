@@ -24,7 +24,7 @@ import butterknife.ButterKnife;
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener{
     @Bind(R.id.userNameEditText) EditText mUserNameEditText;
     @Bind(R.id.passwordEditText) EditText mPasswordEditText;
-    @Bind(R.id.confirmPassEditText) EditText mConfirmPassEditText;
+    @Bind(R.id.confirmPasswordEditText) EditText mConfirmPasswordEditText;
     @Bind(R.id.homeGroupEditText2) EditText mHomeGroupEditText2;
     @Bind(R.id.neighborhoodEditText) EditText mNeighborhoodEditText;
     @Bind(R.id.loginTextView) TextView mLoginTextView;
@@ -40,10 +40,12 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_register);
         ButterKnife.bind(this);
 
-        mLoginTextView.setOnClickListener(this);
-        mSubmitButton.setOnClickListener(this);
         mAuth = FirebaseAuth.getInstance();
         createAuthStateListener();
+
+        mLoginTextView.setOnClickListener(this);
+        mSubmitButton.setOnClickListener(this);
+
     }
 
     @Override
@@ -80,7 +82,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         final String homeGroup = mHomeGroupEditText2.getText().toString().trim();
         final String neighborhood = mNeighborhoodEditText.getText().toString().trim();
         String password = mPasswordEditText.getText().toString().trim();
-        String confirmPass = mConfirmPassEditText.getText().toString().trim();
+        String confirmPassword = mConfirmPasswordEditText.getText().toString().trim();
 
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
