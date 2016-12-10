@@ -15,6 +15,10 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserInfo;
 import com.squareup.picasso.Picasso;
 
+import org.parceler.Parcels;
+
+import java.net.URI;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -36,26 +40,14 @@ public class ProfileDetailFragment extends AppCompatActivity {
 
     }
 
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mProfile = Parcels.unwrap(getArguements().getParcelable("profile"));
-    }
-
-
-    private FirebaseAuth mAuth;
-    private FirebaseAuth.AuthStateListener mAuthListener;
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstancesState) {
-        View view = inflater.inflate(R.layout.activity_profile_detail_fragment, container, false);
-        ButterKnife.bind(this, view);
-
-        Picasso.with(view.getContext())
-                .load(mProfile.getImageUrl())
-                .resize(MAX_WIDTH, MAX_HEIGHT)
-                .centerCrop()
-                .into(mUserIcon);
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -64,18 +56,46 @@ public class ProfileDetailFragment extends AppCompatActivity {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
                     for (UserInfo profile : user.getProviderData()) {
-                        String name = profile.getDisplayName());
-                        Uri photoUrl = profile.getPhotoUrl()
-
-                    }
-
-                    return name;
-                    return photoUrl;
+                        String name = profile.getDisplayName();
+                        Uri photoUrl = profile.getPhotoUrl();
+                         }
                 }else {
                 }
 
-            };
+            }
+        };
 
-            mName.setText(name);;
+        @Override
+        public void onStart() {
+            super.onStart();
+            mAuth.addAuthStateListener(mAuthListener);
+        }
+
+        @Override
+        public void onStop() {
+            super.onStop();
+            if (mAuthListener != null) {
+                mAuth.removeAuthStateListener(mAuthListener);
+            }
+        }
+
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstancesState) {
+        View view = inflater.inflate(R.layout.activity_profile_detail_fragment, container, false);
+        ButterKnife.bind(this, view);
+
+        String name = mAuthListener.onAuthStateChanged().name;
+        URI photoUrl = mAuthListener.onAuthStateChanged().photUrl;
+
+        Picasso.with(view.getContext())
+                .load(mProfile.getImageUrl())
+                .resize(MAX_WIDTH, MAX_HEIGHT)
+                .centerCrop()
+                .into(mUserIcon);
+
+
+        mName.setText(name);
+        mUserIcon.setImageURI(photoUrl);
     }
 }
