@@ -10,9 +10,7 @@ public class Profile {
     String name;
     String userIcon;
 
-    public Profile () {
-
-    }
+    public Profile () {}
 
     public Profile(String name, String userIcon) {
         this.name = name;
