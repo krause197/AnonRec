@@ -79,7 +79,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         if (view == mSubmitButton) {
             createNewUser();
-            createNewProfile();
         }
 
         if (view == mLoginTextView ) {
@@ -187,7 +186,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 final FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
-                    Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                    createNewProfile();
+                    Intent intent = new Intent(RegisterActivity.this, HomePageActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                     finish();

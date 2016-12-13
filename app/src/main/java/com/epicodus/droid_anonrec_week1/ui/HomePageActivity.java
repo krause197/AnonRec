@@ -9,6 +9,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.epicodus.droid_anonrec_week1.R;
@@ -19,11 +20,10 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class HomePageActivity extends AppCompatActivity implements View.OnClickListener {
-    @Bind(R.id.name) TextView mName;
     @Bind(R.id.meetingButton) Button mMeetingButton;
     @Bind(R.id.meetupButton) Button mMeetupButton;
     @Bind(R.id.messageButton) Button mMessageButton;
-    @Bind(R.id.saveEventButton) Button mSavedEventButton;
+    @Bind(R.id.savedMeetupButton) Button mSavedMeetupButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,13 +31,10 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_home_page);
         ButterKnife.bind(this);
 
-        Intent intent = getIntent();
-        String name = intent.getStringExtra("name");
-        mName.setText(name);
         mMeetingButton.setOnClickListener(this);
         mMeetupButton.setOnClickListener(this);
         mMessageButton.setOnClickListener(this);
-        mSavedEventButton.setOnClickListener(this);
+        mSavedMeetupButton.setOnClickListener(this);
     }
 
     @Override
@@ -54,7 +51,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
             Intent intent = new Intent(HomePageActivity.this, MessageActivity.class);
             startActivity(intent);
         }
-        if (v == mSavedEventButton) {
+        if (v == mSavedMeetupButton) {
             Intent intent = new Intent(HomePageActivity.this, SavedEventListActivity.class);
             startActivity(intent);
         }
