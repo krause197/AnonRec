@@ -6,13 +6,23 @@
     tools:context=".ui.HomePageActivity"
     android:background="@drawable/register">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="AnonRec Hub"
+        android:id="@+id/homePageTitle"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary" />
+
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/defaultUserIcon"
-        android:layout_marginTop="5dp"
-        android:src="@drawable/preamble"
-        android:layout_below="@+id/name"
+        android:src="@drawable/logo2"
+        android:layout_below="@+id/homePageTitle"
         android:layout_centerHorizontal="true" />
 
     <Button
@@ -24,6 +34,7 @@
         android:layout_centerHorizontal="true"
         android:background="@color/accent_material_light"
         android:textSize="26sp"
+        android:paddingBottom="3dp"
         android:textStyle="bold|italic" />
 
     <Button
@@ -35,6 +46,8 @@
         android:layout_centerHorizontal="true"
         android:background="@color/accent_material_light"
         android:textSize="26sp"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
         android:textStyle="bold|italic" />
 
     <Button
@@ -46,6 +59,8 @@
         android:layout_centerHorizontal="true"
         android:background="@color/accent_material_light"
         android:textSize="26sp"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
         android:textStyle="bold|italic" />
 
     <Button
@@ -57,6 +72,7 @@
         android:layout_centerHorizontal="true"
         android:background="@color/accent_material_light"
         android:textSize="26sp"
+        android:paddingTop="3dp"
         android:textStyle="bold|italic" />
 
 
