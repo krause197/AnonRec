@@ -65,16 +65,16 @@ public class MeetupService {
                     String event_url = eventJSON.getString("event_url");
                     String address = eventJSON.getJSONObject("venue").getString("address_1") + "";
                     String city = eventJSON.getJSONObject("venue").getString("city");
-                    String state = eventJSON.getJSONObject("venue").getString("state");
-                    String zip = eventJSON.getJSONObject("venue").getString("zip") + "";
+                    String state = eventJSON.getJSONObject("venue").optString("state", "State not available");
+                    String zip = eventJSON.getJSONObject("venue").optString("zip", "Zip not available") + "";
                     String yes_rsvp_count = eventJSON.getString("yes_rsvp_count") + "";
                     String maybe_rsvp_count = eventJSON.getString("maybe_rsvp_count") + "";
                     String group_name = eventJSON.getJSONObject("group").getString("name");
                     String who = eventJSON.getJSONObject("group").getString("who");
 
-                    long time = Long.valueOf(timeStamp)*1000;
-                    Date date = new java.util.Date(time);
-                    String dateTimeGroup = new SimpleDateFormat("MM dd, yyyy hh:mma").format(date);
+                    long time = Long.parseLong(timeStamp);
+                    Date date = new Date(time);
+                    String dateTimeGroup = new SimpleDateFormat("MM/dd/yyyy HH:mm").format(date);
 
                     Event event = new Event(name, dateTimeGroup, event_url, address, city, state, zip, yes_rsvp_count, maybe_rsvp_count, group_name, who );
                     events.add(event);
