@@ -9,9 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.epicodus.droid_anonrec_week1.MeetupConstants;
 import com.epicodus.droid_anonrec_week1.R;
 import com.epicodus.droid_anonrec_week1.models.Event;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.parceler.Parcels;
 import org.w3c.dom.Text;
@@ -66,6 +70,7 @@ public class MeetupDetailFragment extends Fragment implements View.OnClickListen
 
         mWebsiteLabel.setOnClickListener(this);
         mAddressLabel.setOnClickListener(this);
+        mSaveEventButton.setOnClickListener(this);
 
         return view;
     }
@@ -82,6 +87,11 @@ public class MeetupDetailFragment extends Fragment implements View.OnClickListen
             Intent mapIntent = new Intent(Intent.ACTION_VIEW,
                     Uri.parse("geo:0,0?q=" + addressNoSpace));
             startActivity(mapIntent);
+        }
+        if (v == mSaveEventButton) {
+            DatabaseReference eventRef = FirebaseDatabase.getInstance().getReference(MeetupConstants.FIREBASE_CHILD_EVENTS);
+            eventRef.push().setValue(mEvent);
+            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
         }
     }
 

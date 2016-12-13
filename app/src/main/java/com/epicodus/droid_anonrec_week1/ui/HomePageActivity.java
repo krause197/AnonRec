@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.epicodus.droid_anonrec_week1.R;
+import com.epicodus.droid_anonrec_week1.adapters.SavedEventViewHolder;
 import com.google.firebase.auth.FirebaseAuth;
 
 import butterknife.Bind;
@@ -21,6 +22,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
     @Bind(R.id.meetingButton) Button mMeetingButton;
     @Bind(R.id.meetupButton) Button mMeetupButton;
     @Bind(R.id.messageButton) Button mMessageButton;
+    @Bind(R.id.saveEventButton) Button mSavedEventButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         mMeetingButton.setOnClickListener(this);
         mMeetupButton.setOnClickListener(this);
         mMessageButton.setOnClickListener(this);
+        mSavedEventButton.setOnClickListener(this);
     }
 
     @Override
@@ -48,6 +51,11 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         }
         if (v == mMessageButton) {
             Intent intent = new Intent(HomePageActivity.this, MessageActivity.class);
+            startActivity(intent);
+        }
+        if (v == mSavedEventButton) {
+            Intent intent = new Intent(HomePageActivity.this, SavedEventListActivity.class);
+            startActivity(intent);
         }
     }
 

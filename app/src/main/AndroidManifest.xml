@@ -37,7 +37,8 @@
                 android:value=".ui.MainActivity" />
         </activity>
         <activity android:name=".ui.ProfileDetailFragment" />
-        <activity android:name=".ui.MeetupDetailActivity"></activity>
+        <activity android:name=".ui.MeetupDetailActivity" />
+        <activity android:name=".ui.SavedEventListActivity"></activity>
     </application>
 
 </manifest>
