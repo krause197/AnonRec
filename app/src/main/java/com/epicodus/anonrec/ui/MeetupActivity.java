@@ -1,24 +1,18 @@
-package com.epicodus.droid_anonrec_week1.ui;
+package com.epicodus.anonrec.ui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ListView;
-import android.widget.TextView;
 
-import com.epicodus.droid_anonrec_week1.services.MeetupService;
-import com.epicodus.droid_anonrec_week1.R;
-import com.epicodus.droid_anonrec_week1.adapters.EventListAdapter;
-import com.epicodus.droid_anonrec_week1.models.Event;
+import com.epicodus.anonrec.services.MeetupService;
+import com.epicodus.anonrec.R;
+import com.epicodus.anonrec.adapters.EventListAdapter;
+import com.epicodus.anonrec.models.Event;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.io.IOException;

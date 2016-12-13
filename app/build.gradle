@@ -6,7 +6,7 @@ android {
     useLibrary 'org.apache.http.legacy'
 
     defaultConfig {
-        applicationId "com.epicodus.droid_anonrec_week1"
+        applicationId "com.epicodus.anonrec"
         minSdkVersion 14
         targetSdkVersion 23
         versionCode 1

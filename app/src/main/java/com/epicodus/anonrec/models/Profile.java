@@ -1,7 +1,4 @@
-package com.epicodus.droid_anonrec_week1.models;
-
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+package com.epicodus.anonrec.models;
 
 import org.parceler.Parcel;
 

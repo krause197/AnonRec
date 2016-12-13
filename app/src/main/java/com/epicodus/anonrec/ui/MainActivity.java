@@ -1,4 +1,4 @@
-package com.epicodus.droid_anonrec_week1.ui;
+package com.epicodus.anonrec.ui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.epicodus.droid_anonrec_week1.R;
+import com.epicodus.anonrec.R;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

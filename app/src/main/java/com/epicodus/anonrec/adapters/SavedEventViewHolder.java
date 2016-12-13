@@ -1,4 +1,4 @@
-package com.epicodus.droid_anonrec_week1.adapters;
+package com.epicodus.anonrec.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,10 +6,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-import com.epicodus.droid_anonrec_week1.MeetupConstants;
-import com.epicodus.droid_anonrec_week1.R;
-import com.epicodus.droid_anonrec_week1.models.Event;
-import com.epicodus.droid_anonrec_week1.ui.MeetupDetailActivity;
+import com.epicodus.anonrec.MeetupConstants;
+import com.epicodus.anonrec.R;
+import com.epicodus.anonrec.models.Event;
+import com.epicodus.anonrec.ui.MeetupDetailActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

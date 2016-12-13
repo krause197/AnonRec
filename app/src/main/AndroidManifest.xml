@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.epicodus.droid_anonrec_week1">
+    package="com.epicodus.anonrec">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -10,35 +10,55 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.MainActivity">
+        <activity android:name="com.epicodus.anonrec.ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.RegisterActivity">
+        <activity android:name="com.epicodus.anonrec.ui.RegisterActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.MainActivity" />
+                android:value="com.epicodus.anonrec.ui.MainActivity" />
         </activity>
-        <activity android:name=".ui.ProfileActivity">
+        <activity android:name="com.epicodus.anonrec.ui.ProfileActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.droid_anonrec_week1.ui.RegisterActivity" />
+                android:value="com.epicodus.anonrec.ui.HomePageActivity" />
         </activity>
-        <activity android:name=".ui.HomePageActivity" />
-        <activity android:name=".ui.MeetingActivity" />
-        <activity android:name=".ui.MeetupActivity" />
-        <activity android:name=".ui.MessageActivity" />
-        <activity android:name=".ui.LoginActivity">
+        <activity android:name="com.epicodus.anonrec.ui.HomePageActivity" />
+        <activity android:name="com.epicodus.anonrec.ui.MeetingActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.MainActivity" />
+                android:value="com.epicodus.anonrec.ui.HomePageActivity"/>
         </activity>
-        <activity android:name=".ui.ProfileDetailFragment" />
-        <activity android:name=".ui.MeetupDetailActivity" />
-        <activity android:name=".ui.SavedEventListActivity"></activity>
+        <activity android:name="com.epicodus.anonrec.ui.MeetupActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.epicodus.anonrec.ui.HomePageActivity"/>
+        </activity>
+        <activity android:name="com.epicodus.anonrec.ui.MessageActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.epicodus.anonrec.ui.HomePageActivity"/>
+        </activity>
+        <activity android:name="com.epicodus.anonrec.ui.LoginActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.epicodus.anonrec.ui.MainActivity" />
+        </activity>
+        <activity android:name="com.epicodus.anonrec.ui.MeetupDetailActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.epicodus.anonrec.ui.MeetupActivity"/>
+        </activity>
+        <activity android:name="com.epicodus.anonrec.ui.SavedEventListActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.epicodus.anonrec.ui.MeetupActivity"/>
+        </activity>
+
     </application>
 
 </manifest>

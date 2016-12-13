@@ -1,4 +1,4 @@
-package com.epicodus.droid_anonrec_week1;
+package com.epicodus.anonrec;
 
 import org.junit.Test;
 

@@ -1,12 +1,12 @@
-package com.epicodus.droid_anonrec_week1.ui;
+package com.epicodus.anonrec.ui;
 
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.epicodus.droid_anonrec_week1.R;
-import com.epicodus.droid_anonrec_week1.adapters.EventPagerAdapter;
-import com.epicodus.droid_anonrec_week1.models.Event;
+import com.epicodus.anonrec.R;
+import com.epicodus.anonrec.adapters.EventPagerAdapter;
+import com.epicodus.anonrec.models.Event;
 
 import org.parceler.Parcels;
 

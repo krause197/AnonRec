@@ -1,11 +1,11 @@
-package com.epicodus.droid_anonrec_week1.adapters;
+package com.epicodus.anonrec.adapters;
 
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.epicodus.droid_anonrec_week1.models.Event;
-import com.epicodus.droid_anonrec_week1.ui.MeetupDetailFragment;
+import com.epicodus.anonrec.models.Event;
+import com.epicodus.anonrec.ui.MeetupDetailFragment;
 
 import java.util.ArrayList;
 

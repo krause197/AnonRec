@@ -1,9 +1,9 @@
-package com.epicodus.droid_anonrec_week1.services;
+package com.epicodus.anonrec.services;
 
 import android.util.Log;
 
-import com.epicodus.droid_anonrec_week1.MeetupConstants;
-import com.epicodus.droid_anonrec_week1.models.Event;
+import com.epicodus.anonrec.MeetupConstants;
+import com.epicodus.anonrec.models.Event;
 
 
 import org.json.JSONException;

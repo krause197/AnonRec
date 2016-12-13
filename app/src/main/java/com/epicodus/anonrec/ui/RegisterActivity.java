@@ -1,4 +1,4 @@
-package com.epicodus.droid_anonrec_week1.ui;
+package com.epicodus.anonrec.ui;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -13,8 +13,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.epicodus.droid_anonrec_week1.R;
-import com.epicodus.droid_anonrec_week1.models.Profile;
+import com.epicodus.anonrec.R;
+import com.epicodus.anonrec.models.Profile;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -23,8 +23,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.lang.reflect.Member;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

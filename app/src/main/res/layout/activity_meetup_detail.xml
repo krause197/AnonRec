@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.epicodus.droid_anonrec_week1.ui.MeetupDetailActivity"
+    tools:context="com.epicodus.anonrec.ui.MeetupDetailActivity"
     android:background="@drawable/register">
 
     <android.support.v4.view.ViewPager

@@ -1,4 +1,4 @@
-package com.epicodus.droid_anonrec_week1.ui;
+package com.epicodus.anonrec.ui;
 
 
 import android.content.Intent;
@@ -11,18 +11,15 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.epicodus.droid_anonrec_week1.MeetupConstants;
-import com.epicodus.droid_anonrec_week1.R;
-import com.epicodus.droid_anonrec_week1.models.Event;
+import com.epicodus.anonrec.MeetupConstants;
+import com.epicodus.anonrec.R;
+import com.epicodus.anonrec.models.Event;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import org.parceler.Parcels;
-import org.w3c.dom.Text;
-
-import java.sql.Ref;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

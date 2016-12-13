@@ -1,6 +1,5 @@
-package com.epicodus.droid_anonrec_week1.ui;
+package com.epicodus.anonrec.ui;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,30 +8,48 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
-import com.epicodus.droid_anonrec_week1.R;
+import com.epicodus.anonrec.R;
 import com.google.firebase.auth.FirebaseAuth;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class MeetingActivity extends AppCompatActivity implements View.OnClickListener {
-    @Bind(R.id.backButton) Button mbackButton;
+public class HomePageActivity extends AppCompatActivity implements View.OnClickListener {
+
+    @Bind(R.id.meetingButton) Button mMeetingButton;
+    @Bind(R.id.meetupButton) Button mMeetupButton;
+    @Bind(R.id.messageButton) Button mMessageButton;
+    @Bind(R.id.savedMeetupButton) Button mSavedMeetupButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_meeting);
+        setContentView(R.layout.activity_home_page);
         ButterKnife.bind(this);
-        mbackButton.setOnClickListener(this);
+
+        mMeetingButton.setOnClickListener(this);
+        mMeetupButton.setOnClickListener(this);
+        mMessageButton.setOnClickListener(this);
+        mSavedMeetupButton.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        Toast.makeText(MeetingActivity.this, "Accept the Things You Cannot Change", Toast.LENGTH_LONG).show();
-        if (v == mbackButton) {
-            Intent intent = new Intent(MeetingActivity.this, HomePageActivity.class);
+        if (v == mMeetingButton) {
+            Intent intent = new Intent(HomePageActivity.this, MeetingActivity.class);
+            startActivity(intent);
+        }
+        if (v == mMeetupButton) {
+            Intent intent = new Intent(HomePageActivity.this, MeetupActivity.class);
+            startActivity(intent);
+        }
+        if (v == mMessageButton) {
+            Intent intent = new Intent(HomePageActivity.this, MessageActivity.class);
+            startActivity(intent);
+        }
+        if (v == mSavedMeetupButton) {
+            Intent intent = new Intent(HomePageActivity.this, SavedEventListActivity.class);
             startActivity(intent);
         }
     }
@@ -51,32 +68,32 @@ public class MeetingActivity extends AppCompatActivity implements View.OnClickLi
             logout();
             return true;
         }
-        if (id == R.id.action_home) {
-            Intent intent = new Intent(MeetingActivity.this, HomePageActivity.class);
+        if (id == R.id.action_meeting) {
+            Intent intent = new Intent(HomePageActivity.this, MeetingActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();
         }
         if (id == R.id.action_profile) {
-            Intent intent = new Intent(MeetingActivity.this, ProfileActivity.class);
+            Intent intent = new Intent(HomePageActivity.this, ProfileActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();
         }
         if (id == R.id.action_meetup) {
-            Intent intent = new Intent(MeetingActivity.this, MeetupActivity.class);
+            Intent intent = new Intent(HomePageActivity.this, MeetupActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();
         }
         if (id == R.id.action_message) {
-            Intent intent = new Intent(MeetingActivity.this, MessageActivity.class);
+            Intent intent = new Intent(HomePageActivity.this, MessageActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();
         }
         if (id == R.id.action_saved) {
-            Intent intent = new Intent(MeetingActivity.this, SavedEventListActivity.class);
+            Intent intent = new Intent(HomePageActivity.this, SavedEventListActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();
@@ -86,7 +103,7 @@ public class MeetingActivity extends AppCompatActivity implements View.OnClickLi
 
     private void logout() {
         FirebaseAuth.getInstance().signOut();
-        Intent intent = new Intent(MeetingActivity.this, LoginActivity.class);
+        Intent intent = new Intent(HomePageActivity.this, LoginActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();

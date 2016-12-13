@@ -1,4 +1,4 @@
-package com.epicodus.droid_anonrec_week1.models;
+package com.epicodus.anonrec.models;
 
 import org.parceler.Parcel;
 

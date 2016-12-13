@@ -49,6 +49,50 @@
           "status": 2
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:554947176421:android:86f149efec004e57",
+        "android_client_info": {
+          "package_name": "com.epicodus.anonrec"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "554947176421-r1qjm37s8jjq64f5cedm60ceb8956lto.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.epicodus.anonrec",
+            "certificate_hash": "EC3B4138A25F3B9AF33B8851FF7D20F5644CBAF0"
+          }
+        },
+        {
+          "client_id": "554947176421-elr1n8k8e09mlam5fbu8n5ru2ip0iblj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgaIzpA9xuKMnbtf72C4ew0CCB7vH3ukU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "554947176421-elr1n8k8e09mlam5fbu8n5ru2ip0iblj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
     }
   ],
   "configuration_version": "1"

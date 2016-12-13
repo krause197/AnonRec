@@ -1,24 +1,20 @@
-package com.epicodus.droid_anonrec_week1.adapters;
+package com.epicodus.anonrec.adapters;
 
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.epicodus.droid_anonrec_week1.R;
-import com.epicodus.droid_anonrec_week1.models.Event;
-import com.epicodus.droid_anonrec_week1.ui.MeetupDetailActivity;
-import com.squareup.picasso.Picasso;
+import com.epicodus.anonrec.R;
+import com.epicodus.anonrec.models.Event;
+import com.epicodus.anonrec.ui.MeetupDetailActivity;
 
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
