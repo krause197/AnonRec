@@ -7,7 +7,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.epicodus.anonrec.R;
@@ -17,23 +19,47 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MeetingActivity extends AppCompatActivity implements View.OnClickListener {
-    @Bind(R.id.backButton) Button mbackButton;
+    @Bind(R.id.dayParameter) Spinner mDayParameter;
+    @Bind(R.id.regionParameter) Spinner mRegionParameter;
+    @Bind(R.id.searchButton) Button mSearchButton;
+
+    Spinner daySpinner = (Spinner) findViewById(R.id.dayParameter);
+    Spinner regionSpinner = (Spinner) findViewById(R.id.regionParameter);
+
+
+
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meeting);
         ButterKnife.bind(this);
-        mbackButton.setOnClickListener(this);
+        mSearchButton.setOnClickListener(this);
+
+        getDayAdapter();
+        getRegionAdapter();
     }
 
+    public ArrayAdapter<CharSequence> getDayAdapter() {
+        ArrayAdapter.createFromResource(this, R.array.day_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        daySpinner.setAdapter(adapter);
+
+    }
+
+
+   public ArrayAdapter<CharSequence> getRegionAdapter() {
+        ArrayAdapter.createFromResource(this, R.array.region_array, android.R.layout.simple_spinner_item);
+        regionAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        regionSpinner.setAdapter(regionAdapter);
+    }
     @Override
     public void onClick(View v) {
-        Toast.makeText(MeetingActivity.this, "Accept the Things You Cannot Change", Toast.LENGTH_LONG).show();
-        if (v == mbackButton) {
-            Intent intent = new Intent(MeetingActivity.this, HomePageActivity.class);
-            startActivity(intent);
-        }
+
     }
 
     @Override

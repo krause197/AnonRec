@@ -21,18 +21,68 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="AnonRec Apologizes!  This Feature is Currently Under Construction, Thank You for Your Understanding..."
-        android:id="@+id/AnonExplaintextView"
+        android:text="Search by Day, Time, and/or Reigon!"
+        android:id="@+id/searchMessagetextView"
         android:layout_below="@+id/meetingTitle"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="114dp"
+        android:layout_marginTop="15dp"
         android:background="@color/primary_light" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Reigon of Portland"
+        android:id="@+id/regionLabel"
+        android:layout_above="@+id/regionParameter"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent"
+        android:layout_centerHorizontal="true" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/regionParameter"
+        android:layout_above="@+id/dayLabel"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:background="@color/common_plus_signin_btn_text_dark_disabled"
+        android:layout_marginBottom="72dp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Day of the Week"
+        android:id="@+id/dayLabel"
+        android:layout_above="@+id/dayParameter"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent"
+        android:layout_centerHorizontal="true" />
+
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dayParameter"
+        android:layout_above="@+id/searchButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="105dp"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:background="@color/common_plus_signin_btn_text_dark_disabled" />
+
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Back"
-        android:id="@+id/backButton"
+        android:text="Search"
+        android:id="@+id/searchButton"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:background="@color/accent_material_light"
