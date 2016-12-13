@@ -1,6 +1,7 @@
 package com.epicodus.droid_anonrec_week1.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.text.Layout;
 import android.view.LayoutInflater;
@@ -11,7 +12,10 @@ import android.widget.TextView;
 
 import com.epicodus.droid_anonrec_week1.R;
 import com.epicodus.droid_anonrec_week1.models.Event;
+import com.epicodus.droid_anonrec_week1.ui.MeetupDetailActivity;
 import com.squareup.picasso.Picasso;
+
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -50,7 +54,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
         return mEvents.size();
     }
 
-    public class EventViewHolder extends RecyclerView.ViewHolder{
+    public class EventViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @Bind(R.id.nameTextView) TextView mNameTextView;
         @Bind(R.id.timeTextView) TextView mTimeTextView;
         @Bind(R.id.event_urlTextView) TextView mEvent_urlTextView;
@@ -71,16 +75,23 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
             super(itemView);
             ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            int itemPosition = getLayoutPosition();
+            Intent intent = new Intent(mContext, MeetupDetailActivity.class);
+            intent.putExtra("position", itemPosition);
+            intent.putExtra("events", Parcels.wrap(mEvents));
+            mContext.startActivity(intent);
         }
 
         public void bindEvent(Event event) {
             mNameTextView.setText(event.getName());
-            mTimeTextView.setText("Time: " + event.getDateTimeGroup());
+            mTimeTextView.setText("Date and Time: " + event.getDateTimeGroup());
             mEvent_urlTextView.setText("View Event Site: " + event.getEvent_Url());
             mAddressTextView.setText(event.getAddress());
-            mCityTextView.setText(event.getCity());
-            mStateTextView.setText(event.getState());
-            mZipTextView.setText(event.getZip());
             mYes_rsvp_countTextView.setText("People going: " + event.getYes_rsvp_count());
             mMaybe_rsvp_countTextView.setText("People interested in going: " + event.getMaybe_rsvp_count());
             mGroup_nameTextView.setText("MeetUp Group Name: " + event.getGroup_name());

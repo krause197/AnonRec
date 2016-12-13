@@ -75,8 +75,9 @@ public class MeetupService {
                     long time = Long.parseLong(timeStamp);
                     Date date = new Date(time);
                     String dateTimeGroup = new SimpleDateFormat("MM/dd/yyyy HH:mm").format(date);
+                    String fullAddress = address + ", " + city + ", " + state + " " + zip;
 
-                    Event event = new Event(name, dateTimeGroup, event_url, address, city, state, zip, yes_rsvp_count, maybe_rsvp_count, group_name, who );
+                    Event event = new Event(name, dateTimeGroup, event_url, fullAddress, yes_rsvp_count, maybe_rsvp_count, group_name, who );
                     events.add(event);
                 }
             }

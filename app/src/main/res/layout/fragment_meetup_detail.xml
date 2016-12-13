@@ -4,10 +4,148 @@
     android:layout_height="match_parent"
     tools:context="com.epicodus.droid_anonrec_week1.ui.MeetupDetailFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="@drawable/background2">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:paddingTop="20dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Event Name"
+                android:id="@+id/nameTextView"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:textSize="20sp"
+                android:textColor="@color/accent"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Who"
+                android:id="@+id/whoTextView"
+                android:layout_alignTop="@+id/nameTextView"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:textColor="@color/accent"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Group Name"
+                android:id="@+id/group_nameTextView"
+                android:layout_below="@+id/nameTextView"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:textColor="@color/accent"
+                android:textStyle="italic" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_above="@+id/saveEventButton"
+                android:paddingLeft="30dp"
+                android:paddingTop="20dp"
+                android:paddingRight="30dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Visit Event Page on Meetup"
+                    android:id="@+id/websiteTextView"
+                    android:drawableLeft="@mipmap/ic_exit_to_app_white_24dp"
+                    android:drawablePadding="4dp"
+                    android:textColor="@color/primary_text"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center"
+                    android:background="@color/accent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="time"
+                    android:id="@+id/timeTextView"
+                    android:drawablePadding="4dp"
+                    android:textColor="@color/primary_text"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="yes_rsvp_count"
+                    android:id="@+id/yes_rsvp_countTextView"
+                    android:drawablePadding="4dp"
+                    android:textColor="@color/primary_text"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="maybe_rsvp_count"
+                    android:id="@+id/maybe_rsvp_countTextView"
+                    android:drawablePadding="4dp"
+                    android:textColor="@color/primary_text"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="address"
+                    android:drawableLeft="@mipmap/ic_map_white_24dp"
+                    android:drawablePadding="4dp"
+                    android:id="@+id/addressTextView"
+                    android:textColor="@color/primary_text"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center_vertical"
+                    android:background="@color/accent" />
+
+            </LinearLayout>
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Save Event"
+                android:id="@+id/saveEventButton"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:background="@color/accent_material_light"
+                android:textSize="26sp"
+                android:textStyle="bold|italic"/>
+        </RelativeLayout>
+    </LinearLayout>
 
 </FrameLayout>

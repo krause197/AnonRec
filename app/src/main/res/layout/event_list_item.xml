@@ -44,71 +44,6 @@
             android:textSize="20dp"
             android:textStyle="bold"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="address"
-            android:id="@+id/addressTextView"
-            android:layout_below="@+id/event_urlTextView"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:textSize="20dp"
-            android:textStyle="bold"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="city"
-            android:id="@+id/cityTextView"
-            android:layout_below="@+id/addressTextView"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:textSize="20dp"
-            android:textStyle="bold"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="state"
-            android:id="@+id/stateTextView"
-            android:layout_below="@+id/cityTextView"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:textSize="20dp"
-            android:textStyle="bold"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="zip"
-            android:id="@+id/zipTextView"
-            android:layout_below="@+id/stateTextView"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:textSize="20dp"
-            android:textStyle="bold"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="yes_rsvp_count"
-            android:id="@+id/yes_rsvp_countTextView"
-            android:layout_below="@+id/zipTextView"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:textSize="20dp"
-            android:textStyle="bold"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="maybe_rsvp_count"
-            android:id="@+id/maybe_rsvp_countTextView"
-            android:layout_below="@+id/yes_rsvp_countTextView"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:textSize="20dp"
-            android:textStyle="bold"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -116,17 +51,6 @@
             android:text="group_name"
             android:id="@+id/group_nameTextView"
             android:layout_below="@+id/maybe_rsvp_countTextView"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:textSize="20dp"
-            android:textStyle="bold"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="who"
-            android:id="@+id/whoTextView"
-            android:layout_below="@+id/group_nameTextView"
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
             android:textSize="20dp"
