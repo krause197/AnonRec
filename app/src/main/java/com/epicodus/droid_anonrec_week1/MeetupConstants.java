@@ -10,4 +10,5 @@ public class MeetupConstants {
     public static final String SOBER_QUERY_PARAMETER = "group_urlname";
     public static final String MEETUP_SIGN = "sign";
     public static final String FIREBASE_CHILD_EVENTS = "events";
+    public static final String FIREBASE_QUERY_INDEX = "index";
 }

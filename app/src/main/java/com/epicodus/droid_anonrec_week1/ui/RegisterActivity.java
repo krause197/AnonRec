@@ -43,6 +43,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private FirebaseAuth.AuthStateListener mAuthListener;
     private String mName;
     private String mPhotoUrl;
+    private String mEmail;
     private ProgressDialog mAuthProgressDialog;
 
     @Override
@@ -205,7 +206,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         String uid = user.getUid();
         Profile profile = new Profile (name, email, userIcon, uid);
         if (!userIcon.equals("")) {
-            profile.setUserIcon(userIcon);
+            profile.setUserIcon("https://s-media-cache-ak0.pinimg.com/236x/c7/7b/d4/c77bd4b1515e8bf1a535e206468d0196.jpg");
         }
         DatabaseReference memberRef = FirebaseDatabase.getInstance().getReference("profiles").child(uid);
         memberRef.setValue(profile);

@@ -11,17 +11,17 @@ import org.parceler.Parcel;
 @Parcel
 public class Profile {
     String name;
-    String userIcon = "@drawable/icon";
+    String userIcon;
     String pushId;
     String email;
 
     public Profile() {}
 
 
-    public Profile(String name, String userIcon, String email, String uid) {
+    public Profile(String name, String email, String userIcon, String uid) {
         this.name = name;
-        this.userIcon = userIcon;
         this.email = email;
+        this.userIcon = userIcon;
         this.pushId = uid;
     }
 

@@ -13,6 +13,7 @@ import android.view.MenuItem;
 
 import com.epicodus.droid_anonrec_week1.MeetupConstants;
 import com.epicodus.droid_anonrec_week1.R;
+import com.epicodus.droid_anonrec_week1.adapters.EventListAdapter;
 import com.epicodus.droid_anonrec_week1.adapters.SavedEventViewHolder;
 import com.epicodus.droid_anonrec_week1.models.Event;
 import com.epicodus.droid_anonrec_week1.models.Profile;
@@ -21,6 +22,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -46,6 +48,7 @@ public class SavedEventListActivity extends AppCompatActivity {
     }
 
     private void setupFirebaseAdapter() {
+
         mFirebaseAdapter = new FirebaseRecyclerAdapter<Event, SavedEventViewHolder>
                 (Event.class, R.layout.event_list_item, SavedEventViewHolder.class, mEventReference) {
             @Override
@@ -53,6 +56,7 @@ public class SavedEventListActivity extends AppCompatActivity {
                 viewHolder.bindEvent(model);
             }
         };
+
         mRecyclerview.setHasFixedSize(true);
         mRecyclerview.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerview.setAdapter(mFirebaseAdapter);

@@ -22,6 +22,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import org.parceler.Parcels;
 import org.w3c.dom.Text;
 
+import java.sql.Ref;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -94,10 +96,12 @@ public class MeetupDetailFragment extends Fragment implements View.OnClickListen
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             String uid = user.getUid();
             DatabaseReference eventRef = FirebaseDatabase.getInstance().getReference(MeetupConstants.FIREBASE_CHILD_EVENTS).child(uid);
+
             DatabaseReference pushRef = eventRef.push();
             String pushId = pushRef.getKey();
             mEvent.setPushId(pushId);
-            eventRef.setValue(mEvent);
+            pushRef.setValue(mEvent);
+
             Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
         }
     }
