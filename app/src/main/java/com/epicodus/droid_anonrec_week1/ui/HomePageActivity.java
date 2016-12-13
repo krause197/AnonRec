@@ -1,5 +1,6 @@
 package com.epicodus.droid_anonrec_week1.ui;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -72,6 +73,36 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         if (id == R.id.action_logout) {
             logout();
             return true;
+        }
+        if (id == R.id.action_meeting) {
+            Intent intent = new Intent(HomePageActivity.this, MeetingActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
+        }
+        if (id == R.id.action_profile) {
+            Intent intent = new Intent(HomePageActivity.this, ProfileActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
+        }
+        if (id == R.id.action_meetup) {
+            Intent intent = new Intent(HomePageActivity.this, MeetupActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
+        }
+        if (id == R.id.action_message) {
+            Intent intent = new Intent(HomePageActivity.this, MessageActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
+        }
+        if (id == R.id.action_saved) {
+            Intent intent = new Intent(HomePageActivity.this, SavedEventListActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
         }
         return super.onOptionsItemSelected(item);
     }

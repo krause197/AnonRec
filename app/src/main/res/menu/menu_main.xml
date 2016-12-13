@@ -7,4 +7,42 @@
         android:visible="true"
         app:showAsAction="never"/>
 
+    <item
+        android:id="@+id/action_home"
+        android:title="Home Page"
+        android:visible="true"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_profile"
+        android:title="Profile"
+        android:visible="true"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_message"
+        android:title="MessageBoards"
+        android:visible="true"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_meeting"
+        android:title="AA Meetings"
+        android:visible="true"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_meetup"
+        android:title="Sober Meetups"
+        android:visible="true"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_saved"
+        android:title="Saved Meetups"
+        android:visible="true"
+        app:showAsAction="never"/>
+
+
+
 </menu>
