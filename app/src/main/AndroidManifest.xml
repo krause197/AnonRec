@@ -36,7 +36,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.MainActivity" />
         </activity>
-        <activity android:name=".ui.ProfileDetailFragment"></activity>
+        <activity android:name=".ui.ProfileDetailFragment" />
+        <activity android:name=".ui.MeetupDetailActivity"></activity>
     </application>
 
 </manifest>
