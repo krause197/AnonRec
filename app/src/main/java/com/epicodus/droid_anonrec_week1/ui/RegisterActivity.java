@@ -14,12 +14,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.epicodus.droid_anonrec_week1.R;
+import com.epicodus.droid_anonrec_week1.models.Profile;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.lang.reflect.Member;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -74,6 +79,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         if (view == mSubmitButton) {
             createNewUser();
+            createNewProfile();
         }
 
         if (view == mLoginTextView ) {
@@ -188,5 +194,20 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 }
             }
         };
+    }
+
+    private void createNewProfile() {
+        final String email = mEmailEditText.getText().toString().trim();
+        final String name = mUserNameEditText.getText().toString().trim();
+        final String userIcon = mPhotoUrlEditText.getText().toString().trim();
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+        Profile profile = new Profile (name, email, userIcon, uid);
+        if (!userIcon.equals("")) {
+            profile.setUserIcon(userIcon);
+        }
+        DatabaseReference memberRef = FirebaseDatabase.getInstance().getReference("profiles").child(uid);
+        memberRef.setValue(profile);
     }
 }

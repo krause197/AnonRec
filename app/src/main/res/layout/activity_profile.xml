@@ -39,6 +39,16 @@
         android:layout_centerHorizontal="true"
         android:background="@color/highlighted_text_material_dark" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Email"
+        android:id="@+id/email"
+        android:layout_below="@+id/userIconDescription"
+        android:layout_centerHorizontal="true"
+        android:background="@color/highlighted_text_material_dark" />
+
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

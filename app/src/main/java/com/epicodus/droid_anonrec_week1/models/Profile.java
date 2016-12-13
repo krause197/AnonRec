@@ -10,40 +10,39 @@ import org.parceler.Parcel;
  */
 @Parcel
 public class Profile {
-    String name = getUser();
-    String userIcon = getUserImage();
+    String name;
+    String userIcon = "@drawable/icon";
+    String pushId;
+    String email;
 
     public Profile() {}
 
-    public String getUser() {
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String name = "";
-        if (user != null) {
-            name = user.getDisplayName();
-        }
-        return name;
-    }
 
-    public String getUserImage() {
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String userIcon = "";
-        if (user != null) {
-            userIcon = user.getPhotoUrl().toString();
-        }
-        return userIcon;
-    }
-
-    public Profile(String name, String userIcon) {
+    public Profile(String name, String userIcon, String email, String uid) {
         this.name = name;
         this.userIcon = userIcon;
+        this.email = email;
+        this.pushId = uid;
     }
 
     public String getName() {
-
         return name;
     }
 
     public String getUserIcon() {
         return userIcon;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setUserIcon(String userIcon) {
+        this.userIcon = userIcon;
+    }
+
+    public String getPushId() {
+        return pushId;
+    }
+
 }

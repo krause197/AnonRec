@@ -1,5 +1,6 @@
 package com.epicodus.droid_anonrec_week1.ui;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -19,60 +20,67 @@ import com.epicodus.droid_anonrec_week1.R;
 import com.epicodus.droid_anonrec_week1.models.Profile;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
+
+import java.util.Map;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
-    private static final int MAX_WIDTH = 400;
-    private static final int MAX_HEIGHT = 300;
+    private static final int MAX_WIDTH = 200;
+    private static final int MAX_HEIGHT = 200;
+    private Context mContext = this;
 
     @Bind(R.id.homeButton) Button mHomeButton;
     @Bind(R.id.name) TextView mName;
     @Bind(R.id.userIcon) ImageView mUserIcon;
-    public Profile mProfile;
-//    private FirebaseProfileAdapter adapterViewPager;
-//    ArrayList<Profile> mProfile = new ArrayList<>();
+    @Bind(R.id.email) TextView mEmail;
+
+    private DatabaseReference mUserProfileReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-        mName.setText(getUser());
-        ImageView imgView = (ImageView) findViewById(R.id.userIcon);
-        imgView.setImageURI(Uri.parse(getUserImage()));
         ButterKnife.bind(this);
-
-
-//
-//        mProfile = Parcels.unwrap(getIntent().getParcelableExtra("profile"));
-//        int startingPosition = getIntent().getIntExtra("position", 0);
-//
-//        adapterViewPager = new FirebaseProfileAdapter(getSupportFragmentManager(), mProfile);
-//        mViewPager.setAdapter(adapterViewPager);
-//        mViewPager.setCurrentItem(startingPosition);
 
         mHomeButton.setOnClickListener(this);
 
-    }
-    public String getUser() {
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String name = "";
-        if (user != null) {
-            name = user.getDisplayName();
-        }
-        return name;
+        final String userProfileId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        mUserProfileReference = FirebaseDatabase.getInstance().getReference("profiles").child(userProfileId);
+        mUserProfileReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Map<String, Object> map = (Map<String, Object>) dataSnapshot.getValue();
+                String name = (String) map.get("name");
+                String email = (String) map.get("email");
+                String userIcon = (String) map.get("userIcon");
+
+                mName.setText(name);
+                mEmail.setText(email);
+                Picasso.with(mContext)
+                        .load(userIcon)
+                        .resize(MAX_WIDTH, MAX_HEIGHT)
+                        .centerCrop()
+                        .into(mUserIcon);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
     }
 
-    public String getUserImage() {
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String userIcon = "";
-        if (user != null) {
-            userIcon = user.getPhotoUrl().toString();
-        }
-        return userIcon;
-    }
+
 
     @Override
     public void onClick(View v) {
