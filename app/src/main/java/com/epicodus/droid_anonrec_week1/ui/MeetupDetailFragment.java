@@ -14,6 +14,8 @@ import android.widget.Toast;
 import com.epicodus.droid_anonrec_week1.MeetupConstants;
 import com.epicodus.droid_anonrec_week1.R;
 import com.epicodus.droid_anonrec_week1.models.Event;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -89,8 +91,13 @@ public class MeetupDetailFragment extends Fragment implements View.OnClickListen
             startActivity(mapIntent);
         }
         if (v == mSaveEventButton) {
-            DatabaseReference eventRef = FirebaseDatabase.getInstance().getReference(MeetupConstants.FIREBASE_CHILD_EVENTS);
-            eventRef.push().setValue(mEvent);
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            String uid = user.getUid();
+            DatabaseReference eventRef = FirebaseDatabase.getInstance().getReference(MeetupConstants.FIREBASE_CHILD_EVENTS).child(uid);
+            DatabaseReference pushRef = eventRef.push();
+            String pushId = pushRef.getKey();
+            mEvent.setPushId(pushId);
+            eventRef.setValue(mEvent);
             Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
         }
     }

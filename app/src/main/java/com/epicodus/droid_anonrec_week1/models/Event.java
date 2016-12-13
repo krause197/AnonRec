@@ -15,6 +15,7 @@ public class Event {
     String maybe_rsvp_count;
     String group_name;
     String who;
+    private String pushId;
 
     public Event() {}
 
@@ -37,5 +38,6 @@ public class Event {
     public String getMaybe_rsvp_count() { return maybe_rsvp_count;}
     public String getGroup_name() { return group_name;}
     public String getWho() { return who;}
-
+    public String getPushId() {return pushId;}
+    public void setPushId(String pushId) {this.pushId = pushId;}
 }
