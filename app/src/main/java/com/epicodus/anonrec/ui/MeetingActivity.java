@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -23,9 +24,11 @@ public class MeetingActivity extends AppCompatActivity implements View.OnClickLi
     @Bind(R.id.regionParameter) Spinner mRegionParameter;
     @Bind(R.id.searchButton) Button mSearchButton;
 
-    Spinner daySpinner = (Spinner) findViewById(R.id.dayParameter);
-    Spinner regionSpinner = (Spinner) findViewById(R.id.regionParameter);
-
+    Spinner dayParameter;
+    Spinner regionParameter;
+    Button searchButton;
+    String selectDay;
+    String selectRegion;
 
 
 
@@ -40,23 +43,34 @@ public class MeetingActivity extends AppCompatActivity implements View.OnClickLi
         ButterKnife.bind(this);
         mSearchButton.setOnClickListener(this);
 
-        getDayAdapter();
-        getRegionAdapter();
+        dayParameter = (Spinner) findViewById(R.id.dayParameter);
+        regionParameter = (Spinner) findViewById(R.id.regionParameter);
+        searchButton = (Button) findViewById(R.id.searchButton);
+
+        dayParameter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView adapter, View v, int position, long id) {
+               selectDay = adapter.getItemAtPosition(position).toString();
+            }
+            @Override
+            public void onNothingSelected(AdapterView arg0) {
+
+            }
+        });
+
+        regionParameter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView adapter, View v, int position, long id) {
+               selectRegion = adapter.getItemAtPosition(position).toString();
+            }
+            @Override
+            public void onNothingSelected(AdapterView arg0) {
+
+            }
+        });
     }
 
-    public ArrayAdapter<CharSequence> getDayAdapter() {
-        ArrayAdapter.createFromResource(this, R.array.day_array, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        daySpinner.setAdapter(adapter);
 
-    }
-
-
-   public ArrayAdapter<CharSequence> getRegionAdapter() {
-        ArrayAdapter.createFromResource(this, R.array.region_array, android.R.layout.simple_spinner_item);
-        regionAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        regionSpinner.setAdapter(regionAdapter);
-    }
     @Override
     public void onClick(View v) {
 

@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Search by Day, Time, and/or Reigon!"
+        android:text="Search by Day and/or Reigon!"
         android:id="@+id/searchMessagetextView"
         android:layout_below="@+id/meetingTitle"
         android:layout_centerHorizontal="true"
@@ -37,19 +37,22 @@
         android:layout_above="@+id/regionParameter"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/accent"
         android:layout_centerHorizontal="true" />
 
     <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
         android:id="@+id/regionParameter"
         android:layout_above="@+id/dayLabel"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:background="@color/common_plus_signin_btn_text_dark_disabled"
+        android:layout_centerHorizontal="true"
+        android:spinnerMode="dialog"
+        style="@android:style/Widget.Holo.Light.Spinner"
+        android:entries="@array/region_array"
+        android:textSize="30sp"
+        android:textStyle="bold|italic"
+        android:textAlignment="center"
+        android:background="@color/primary_light"
         android:layout_marginBottom="72dp" />
 
 
@@ -62,20 +65,24 @@
         android:layout_above="@+id/dayParameter"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/accent"
         android:layout_centerHorizontal="true" />
 
 
     <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
         android:id="@+id/dayParameter"
         android:layout_above="@+id/searchButton"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="105dp"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:background="@color/common_plus_signin_btn_text_dark_disabled" />
+        android:spinnerMode="dialog"
+        style="@android:style/Widget.Holo.Light.Spinner"
+        android:entries="@array/day_array"
+        android:textSize="30sp"
+        android:textStyle="bold|italic"
+        android:textAlignment="center"
+        android:background="@color/primary_light" />
 
 
     <Button
