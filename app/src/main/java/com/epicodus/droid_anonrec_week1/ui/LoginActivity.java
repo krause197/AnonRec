@@ -26,7 +26,7 @@ import static android.view.View.*;
 
 public class LoginActivity extends AppCompatActivity implements OnClickListener {
     public static final String TAG = LoginActivity.class.getSimpleName();
-    @Bind(R.id.loginTextView) TextView mLoginTextView;
+    @Bind(R.id.registerTextView) TextView mRegisterTextView;
     @Bind(R.id.loginButton) Button mLoginButton;
     @Bind(R.id.emailEditText) EditText mEmailEditText;
     @Bind(R.id.passwordEditText) EditText mPasswordEditText;
@@ -48,7 +48,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
-                    Intent intent = new Intent(LoginActivity.this, HomePageActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                     finish();
@@ -56,7 +56,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
             }
         };
 
-        mLoginTextView.setOnClickListener(this);
+        mRegisterTextView.setOnClickListener(this);
         mLoginButton.setOnClickListener(this);
 
         createAuthProgressDialog();
@@ -71,7 +71,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
 
     @Override
     public void onClick(View view) {
-        if (view == mLoginTextView) {
+        if (view == mRegisterTextView) {
             Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
             startActivity(intent);
             finish();

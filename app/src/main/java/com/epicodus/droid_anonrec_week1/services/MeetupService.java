@@ -61,7 +61,6 @@ public class MeetupService {
                 for (int i = 0; i < listJSON.length(); i++) {
                     JSONObject eventJSON = listJSON.getJSONObject(i);
                     String name = eventJSON.getString("name") + "";
-                    String description = eventJSON.getString("description");
                     String timeStamp = eventJSON.getString("time") + "";
                     String event_url = eventJSON.getString("event_url");
                     String address = eventJSON.getJSONObject("venue").getString("address_1") + "";
@@ -77,7 +76,7 @@ public class MeetupService {
                     Date date = new java.util.Date(time);
                     String dateTimeGroup = new SimpleDateFormat("MM dd, yyyy hh:mma").format(date);
 
-                    Event event = new Event(name, description, dateTimeGroup, event_url, address, city, state, zip, yes_rsvp_count, maybe_rsvp_count, group_name, who );
+                    Event event = new Event(name, dateTimeGroup, event_url, address, city, state, zip, yes_rsvp_count, maybe_rsvp_count, group_name, who );
                     events.add(event);
                 }
             }

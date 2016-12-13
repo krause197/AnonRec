@@ -53,7 +53,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Need to Register a Profile?  Click here to go to Register Page."
-        android:id="@+id/loginTextView"
+        android:id="@+id/registerTextView"
         android:layout_above="@+id/loginButton"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="250dp"
