@@ -2,8 +2,10 @@ package com.epicodus.droid_anonrec_week1.ui;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -11,10 +13,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.epicodus.droid_anonrec_week1.MeetupConstants;
 import com.epicodus.droid_anonrec_week1.R;
 
 import com.epicodus.droid_anonrec_week1.models.Profile;
@@ -37,11 +41,15 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private static final int MAX_WIDTH = 400;
     private static final int MAX_HEIGHT = 400;
     private Context mContext = this;
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
 
     @Bind(R.id.homeButton) Button mHomeButton;
     @Bind(R.id.name) TextView mName;
     @Bind(R.id.userIcon) ImageView mUserIcon;
     @Bind(R.id.email) TextView mEmail;
+    @Bind(R.id.soberDate) EditText mSoberDate;
+    @Bind(R.id.saveDate) Button mSaveDate;
 
     private DatabaseReference mUserProfileReference;
 
@@ -50,6 +58,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         ButterKnife.bind(this);
+
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mSharedPreferences.edit();
 
         mHomeButton.setOnClickListener(this);
 
@@ -84,11 +95,22 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
-        Toast.makeText(ProfileActivity.this, "More Will Be Revealed", Toast.LENGTH_LONG).show();
+
         if (v == mHomeButton) {
+            Toast.makeText(ProfileActivity.this, "More Will Be Revealed", Toast.LENGTH_LONG).show();
             Intent intent = new Intent(ProfileActivity.this, HomePageActivity.class);
             startActivity(intent);
         }
+        if (v == mSaveDate) {
+            String soberDate = mSoberDate.getText().toString();
+            addToSharedPreferences(soberDate);
+            Toast.makeText(ProfileActivity.this, "CONGRATS!!! Keep On Keeping On ...", Toast.LENGTH_SHORT).show();
+
+        }
+    }
+
+    private void addToSharedPreferences(String soberDate) {
+        mEditor.putString(MeetupConstants.TOKEN_SHARED_PREFERENCE, soberDate).apply();
     }
 
     @Override

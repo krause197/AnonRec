@@ -2,6 +2,7 @@ package com.epicodus.droid_anonrec_week1.ui;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -20,6 +21,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class HomePageActivity extends AppCompatActivity implements View.OnClickListener {
+
     @Bind(R.id.meetingButton) Button mMeetingButton;
     @Bind(R.id.meetupButton) Button mMeetupButton;
     @Bind(R.id.messageButton) Button mMessageButton;

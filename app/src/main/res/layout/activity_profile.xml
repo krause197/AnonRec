@@ -52,6 +52,17 @@
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:text="Save your Sobriety Date"
+        android:id="@+id/saveDate"
+        android:layout_above="@+id/homeButton"
+        android:layout_centerHorizontal="true"
+        android:background="@color/accent_material_light"
+        android:textSize="26sp"
+        android:textStyle="bold|italic" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:text="Home"
         android:id="@+id/homeButton"
         android:layout_alignParentBottom="true"
@@ -59,5 +70,17 @@
         android:background="@color/accent_material_light"
         android:textSize="26sp"
         android:textStyle="bold|italic" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:hint="Sobriety Date yyyymmdd"
+        android:id="@+id/soberDate"
+        android:layout_above="@+id/saveDate"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="20dp" />
+
 
 </RelativeLayout>

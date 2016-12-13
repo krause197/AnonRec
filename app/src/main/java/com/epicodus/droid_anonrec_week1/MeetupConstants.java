@@ -11,4 +11,5 @@ public class MeetupConstants {
     public static final String MEETUP_SIGN = "sign";
     public static final String FIREBASE_CHILD_EVENTS = "events";
     public static final String FIREBASE_QUERY_INDEX = "index";
+    public static final String TOKEN_SHARED_PREFERENCE = "sobriety date";
 }
