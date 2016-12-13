@@ -34,8 +34,8 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
-    private static final int MAX_WIDTH = 200;
-    private static final int MAX_HEIGHT = 200;
+    private static final int MAX_WIDTH = 400;
+    private static final int MAX_HEIGHT = 400;
     private Context mContext = this;
 
     @Bind(R.id.homeButton) Button mHomeButton;

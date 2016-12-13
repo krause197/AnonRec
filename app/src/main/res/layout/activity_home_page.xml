@@ -10,8 +10,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/defaultUserIcon"
-        android:layout_marginTop="24dp"
-        android:src="@drawable/icon"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/preamble"
         android:layout_below="@+id/name"
         android:layout_centerHorizontal="true" />
 
