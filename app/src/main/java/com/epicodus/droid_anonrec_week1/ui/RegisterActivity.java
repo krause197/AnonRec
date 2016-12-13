@@ -200,14 +200,16 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private void createNewProfile() {
         final String email = mEmailEditText.getText().toString().trim();
         final String name = mUserNameEditText.getText().toString().trim();
-        final String userIcon = mPhotoUrlEditText.getText().toString().trim();
+        String userIcon = mPhotoUrlEditText.getText().toString().trim();
+        if (!userIcon.equals("")) {
+            userIcon = "https://s-media-cache-ak0.pinimg.com/236x/c7/7b/d4/c77bd4b1515e8bf1a535e206468d0196.jpg";
+        }
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String uid = user.getUid();
+
         Profile profile = new Profile (name, email, userIcon, uid);
-        if (!userIcon.equals("")) {
-            profile.setUserIcon("https://s-media-cache-ak0.pinimg.com/236x/c7/7b/d4/c77bd4b1515e8bf1a535e206468d0196.jpg");
-        }
+
         DatabaseReference memberRef = FirebaseDatabase.getInstance().getReference("profiles").child(uid);
         memberRef.setValue(profile);
     }

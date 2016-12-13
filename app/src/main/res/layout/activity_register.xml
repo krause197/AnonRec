@@ -57,15 +57,25 @@
         android:layout_marginTop="15dp"
         android:background="@color/highlighted_text_material_dark" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/photoUrlHint"
+        android:background="@color/highlighted_text_material_dark"
+        android:layout_below="@id/confirmPasswordEditText"
+        android:layout_marginTop="15dp"
+        android:text="Enter URL of image for your user Icon below. Default Icon is already input" />
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/photoUrlEditText"
         android:background="@color/highlighted_text_material_dark"
-        android:layout_below="@id/confirmPasswordEditText"
+        android:layout_below="@id/photoUrlHint"
         android:layout_marginTop="15dp"
         android:hint="URL of image for Icon. Leave Blank for Default"
-        android:inputType="text"/>
+        android:text="https://s-media-cache-ak0.pinimg.com/236x/c7/7b/d4/c77bd4b1515e8bf1a535e206468d0196.jpg"
+        android:inputType="text" />
 
 
     <Button
