@@ -3,13 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="100dp"
     tools:context=".ui.MeetupActivity">
 
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="@android:color/transparent">
 
         <TextView
@@ -19,7 +19,7 @@
             android:id="@+id/nameTextView"
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
-            android:textSize="30dp"
+            android:textSize="20dp"
             android:textStyle="bold"/>
 
         <TextView
@@ -27,21 +27,10 @@
             android:layout_height="wrap_content"
             android:text="time"
             android:id="@+id/timeTextView"
-            android:layout_below="@+id/nameTextView"
+            android:layout_below="@+id/group_nameTextView"
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
-            android:textSize="20dp"
-            android:textStyle="bold"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="event_url"
-            android:id="@+id/event_urlTextView"
-            android:layout_below="@+id/timeTextView"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:textSize="20dp"
+            android:textSize="10dp"
             android:textStyle="bold"/>
 
 
@@ -50,10 +39,10 @@
             android:layout_height="wrap_content"
             android:text="group_name"
             android:id="@+id/group_nameTextView"
-            android:layout_below="@+id/maybe_rsvp_countTextView"
+            android:layout_below="@+id/nameTextView"
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
-            android:textSize="20dp"
+            android:textSize="10dp"
             android:textStyle="bold"/>
 
 

@@ -1,6 +1,8 @@
 package com.epicodus.droid_anonrec_week1.ui;
 
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -20,7 +22,7 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MeetupDetailFragment extends Fragment {
+public class MeetupDetailFragment extends Fragment implements View.OnClickListener {
     @Bind(R.id.nameTextView) TextView mNameLabel;
     @Bind(R.id.whoTextView) TextView mWhoLabel;
     @Bind(R.id.group_nameTextView) TextView mGroupNameLabel;
@@ -49,8 +51,7 @@ public class MeetupDetailFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_meetup_detail, container, false);
         ButterKnife.bind(this, view);
 
@@ -58,12 +59,30 @@ public class MeetupDetailFragment extends Fragment {
         mWhoLabel.setText(mEvent.getWho());
         mGroupNameLabel.setText(mEvent.getGroup_name());
         mWebsiteLabel.setText(mEvent.getEvent_Url());
-        mTimeLabel.setText(mEvent.getDateTimeGroup());
-        mYesLabel.setText(mEvent.getYes_rsvp_count());
-        mMaybeLabel.setText(mEvent.getMaybe_rsvp_count());
+        mTimeLabel.setText("Date and Time: " + mEvent.getDateTimeGroup());
+        mYesLabel.setText("People going: " + mEvent.getYes_rsvp_count());
+        mMaybeLabel.setText("People interested in going: " + mEvent.getMaybe_rsvp_count());
         mAddressLabel.setText(mEvent.getAddress());
 
+        mWebsiteLabel.setOnClickListener(this);
+        mAddressLabel.setOnClickListener(this);
+
         return view;
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v == mWebsiteLabel) {
+            Intent webIntent = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse(mEvent.getEvent_Url()));
+            startActivity(webIntent);
+        }
+        if (v == mAddressLabel) {
+            String addressNoSpace = mEvent.getAddress().replaceAll("\\s+", "");
+            Intent mapIntent = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse("geo:0,0?q=" + addressNoSpace));
+            startActivity(mapIntent);
+        }
     }
 
 }

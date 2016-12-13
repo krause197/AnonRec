@@ -57,15 +57,8 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
     public class EventViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @Bind(R.id.nameTextView) TextView mNameTextView;
         @Bind(R.id.timeTextView) TextView mTimeTextView;
-        @Bind(R.id.event_urlTextView) TextView mEvent_urlTextView;
-        @Bind(R.id.addressTextView) TextView mAddressTextView;
-        @Bind(R.id.cityTextView) TextView mCityTextView;
-        @Bind(R.id.stateTextView) TextView mStateTextView;
-        @Bind(R.id.zipTextView) TextView mZipTextView;
-        @Bind(R.id.yes_rsvp_countTextView) TextView mYes_rsvp_countTextView;
-        @Bind(R.id.maybe_rsvp_countTextView) TextView mMaybe_rsvp_countTextView;
         @Bind(R.id.group_nameTextView) TextView mGroup_nameTextView;
-        @Bind(R.id.whoTextView) TextView mWhoTextView;
+
 
 
 
@@ -90,12 +83,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
         public void bindEvent(Event event) {
             mNameTextView.setText(event.getName());
             mTimeTextView.setText("Date and Time: " + event.getDateTimeGroup());
-            mEvent_urlTextView.setText("View Event Site: " + event.getEvent_Url());
-            mAddressTextView.setText(event.getAddress());
-            mYes_rsvp_countTextView.setText("People going: " + event.getYes_rsvp_count());
-            mMaybe_rsvp_countTextView.setText("People interested in going: " + event.getMaybe_rsvp_count());
             mGroup_nameTextView.setText("MeetUp Group Name: " + event.getGroup_name());
-            mWhoTextView.setText("Who is invited: " + event.getWho());
         }
     }
 }

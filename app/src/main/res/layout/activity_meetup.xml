@@ -19,7 +19,7 @@
 
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="50dp"
         android:id="@+id/listView"
         android:layout_below="@+id/meetupTitle"
         android:layout_alignParentRight="true"
@@ -28,6 +28,8 @@
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/recyclerView" />
+        android:id="@+id/recyclerView"
+        android:layout_below="@+id/meetupTitle"
+        android:layout_alignParentBottom="true" />
 
 </RelativeLayout>
