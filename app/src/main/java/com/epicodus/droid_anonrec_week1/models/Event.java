@@ -5,7 +5,6 @@ package com.epicodus.droid_anonrec_week1.models;
  */
 public class Event {
     private String mName;
-    private String mDescription;
     private String mDateTimeGroup;
     private String mEvent_Url;
     private String mAddress;
@@ -17,9 +16,8 @@ public class Event {
     private String mGroup_name;
     private String mWho;
 
-    public Event (String name, String description, String dateTimeGroup, String event_url, String address, String state, String city, String zip, String yes_rsvp_count, String maybe_rsvp_count, String group_name, String who) {
+    public Event (String name, String dateTimeGroup, String event_url, String address, String state, String city, String zip, String yes_rsvp_count, String maybe_rsvp_count, String group_name, String who) {
         this.mName = name;
-        this.mDescription = description;
         this.mDateTimeGroup = dateTimeGroup;
         this.mEvent_Url = event_url;
         this.mAddress = address;
@@ -34,7 +32,6 @@ public class Event {
 
     public String getName() { return mName;}
     public String getDateTimeGroup() { return mDateTimeGroup;}
-    public String getDescription() { return mDescription;}
     public String getEvent_Url() { return mEvent_Url;}
     public String getAddress() { return mAddress;}
     public String getState() { return mState;}

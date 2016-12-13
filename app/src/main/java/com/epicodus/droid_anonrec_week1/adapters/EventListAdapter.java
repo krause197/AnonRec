@@ -52,7 +52,6 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
 
     public class EventViewHolder extends RecyclerView.ViewHolder{
         @Bind(R.id.nameTextView) TextView mNameTextView;
-        @Bind(R.id.descriptionTextView) TextView mDescriptionTextView;
         @Bind(R.id.timeTextView) TextView mTimeTextView;
         @Bind(R.id.event_urlTextView) TextView mEvent_urlTextView;
         @Bind(R.id.addressTextView) TextView mAddressTextView;
@@ -76,7 +75,6 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
 
         public void bindEvent(Event event) {
             mNameTextView.setText(event.getName());
-            mDescriptionTextView.setText(event.getDescription());
             mTimeTextView.setText("Time: " + event.getDateTimeGroup());
             mEvent_urlTextView.setText("View Event Site: " + event.getEvent_Url());
             mAddressTextView.setText(event.getAddress());
