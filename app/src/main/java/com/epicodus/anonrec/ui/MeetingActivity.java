@@ -84,6 +84,7 @@ public class MeetingActivity extends AppCompatActivity implements View.OnClickLi
             String region = selectRegion.replaceAll("[^A-Za-z]+", "").toLowerCase();
             addRegionToSharedPreferences(region);
             Intent intent = new Intent(MeetingActivity.this, MeetingListActivity.class);
+            intent.putExtra("regionTitle", selectRegion);
             startActivity(intent);
         }
 

@@ -3,7 +3,6 @@
 
 
     <string-array name="day_array">
-        <item>Anyday</item>
         <item>Sunday</item>
         <item>Monday</item>
         <item>Tuesday</item>
@@ -15,12 +14,11 @@
 
 
     <string-array name="region_array">
-        <item>Anywhere</item>
         <item>Aloha</item>
         <item>Banks</item>
         <item>Beaverton</item>
         <item>Canby</item>
-        <item>Clackamas/Happy Valley</item>
+        <item>Clackamas</item>
         <item>Clatskanie</item>
         <item>Colton</item>
         <item>Corbett</item>

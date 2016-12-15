@@ -1,6 +1,7 @@
 package com.epicodus.anonrec.ui;
 
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.epicodus.anonrec.MeetingConstants;
 import com.epicodus.anonrec.R;
@@ -29,14 +31,16 @@ public class MeetingListActivity extends AppCompatActivity {
     public static final String TAG = MeetingListActivity.class.getSimpleName();
     private DatabaseReference mMeetingReference;
     private FirebaseRecyclerAdapter mFirebaseAdapter;
-
+    private String regionTitle;
 
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
+    @Bind(R.id.regionTitle) TextView mRegionTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meeting_list);
+        regionTitle = getIntent().getExtras().getString("regionTitle");
         ButterKnife.bind(this);
 
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -44,6 +48,8 @@ public class MeetingListActivity extends AppCompatActivity {
         Log.d("Shared Pref Day", mRecentDay);
         mRecentRegion = mSharedPreferences.getString(MeetingConstants.FIREBASE_QUERY_REGION, null);
         Log.d("Shared Pref Region", mRecentRegion);
+
+        mRegionTitle.setText(regionTitle);
 
 
         setUpFirebaseAdaper();

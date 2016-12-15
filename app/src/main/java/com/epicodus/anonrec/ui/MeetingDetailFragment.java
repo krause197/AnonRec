@@ -29,6 +29,7 @@ public class MeetingDetailFragment extends Fragment implements View.OnClickListe
     @Bind(R.id.groupnameTextView) TextView mGroupNameLabel;
     @Bind(R.id.dayTextView) TextView mDayLabel;
     @Bind(R.id.timeTextView) TextView mTimeLabel;
+    @Bind(R.id.cityTextView) TextView mCityLabel;
     @Bind(R.id.locationTextView) TextView mLocationLabel;
     @Bind(R.id.fullAddressTextView) TextView mFullAddressLabel;
     @Bind(R.id.saveMeetingButton) TextView mSaveMeetingButton;
@@ -61,6 +62,7 @@ public class MeetingDetailFragment extends Fragment implements View.OnClickListe
         mTimeLabel.setText(mMeeting.getTime());
         mLocationLabel.setText(mMeeting.getLocation());
         mFullAddressLabel.setText(mMeeting.getFullAddress());
+        mCityLabel.setText(mMeeting.getCity());
 
         mSaveMeetingButton.setOnClickListener(this);
         mFullAddressLabel.setOnClickListener(this);
