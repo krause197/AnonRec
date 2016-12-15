@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="75dp"
+    tools:context=".ui.messages.MessageListActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/titleTextView"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:text="Title"
+        android:textColor="@color/colorPrimary"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/authorTextView"
+        android:layout_below="@+id/titleTextView"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:text="Author"
+        android:textColor="@color/colorPrimary"/>
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/userIconImageView"
+        android:src="@drawable/icon"
+        android:paddingLeft="125dp"
+        android:layout_gravity="top|right" />
+
+</LinearLayout>

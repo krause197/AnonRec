@@ -44,6 +44,7 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
         }
         if (v == mNewPostButton) {
             Intent intent = new Intent(MessageActivity.this, NewPostActivity.class);
+            startActivity(intent);
         }
     }
 

@@ -32,11 +32,14 @@
         android:layout_height="200dp"
         android:id="@+id/bodyEditText"
         android:layout_below="@+id/postTitleEditText"
-        android:hint="Body of Post"
+        android:hint="Write Your Post Here"
         android:layout_marginTop="40dp"
-        android:inputType="text"
+        android:inputType="textMultiLine"
+        android:ems="10"
         android:background="@color/highlighted_text_material_dark"
-        android:gravity="top|left" />
+        android:gravity="top|left"
+        android:singleLine="false"
+        android:autoLink="all" />
 
     <Spinner
         android:layout_width="fill_parent"

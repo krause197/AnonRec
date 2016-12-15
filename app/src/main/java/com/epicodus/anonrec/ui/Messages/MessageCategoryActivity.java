@@ -3,6 +3,8 @@ package com.epicodus.anonrec.ui.messages;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.epicodus.anonrec.R;
+
 public class MessageCategoryActivity extends AppCompatActivity {
 
     @Override
