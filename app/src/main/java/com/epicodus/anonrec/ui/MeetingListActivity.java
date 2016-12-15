@@ -51,7 +51,7 @@ public class MeetingListActivity extends AppCompatActivity {
 
     private void setUpFirebaseAdaper() {
 
-        mMeetingReference = FirebaseDatabase.getInstance().getReference(MeetingConstants.FIREBASE_CHILD_MEETINGS).child((MeetingConstants.FIREBASE_QUERY_DAY)).child((MeetingConstants.FIREBASE_QUERY_REGION));
+        mMeetingReference = FirebaseDatabase.getInstance().getReference(MeetingConstants.FIREBASE_CHILD_MEETINGS).child(MeetingConstants.FIREBASE_QUERY_DAY).child(MeetingConstants.FIREBASE_QUERY_REGION);
 
         Log.d(TAG, mMeetingReference + "");
 
