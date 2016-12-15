@@ -59,7 +59,11 @@
                 android:value="com.epicodus.anonrec.ui.MeetupActivity" />
         </activity>
         <activity android:name=".ui.MeetingListActivity" />
-        <activity android:name=".ui.MeetingDetailActivity"></activity>
+        <activity android:name=".ui.MeetingDetailActivity" />
+        <activity android:name=".ui.MessageCategoryActivity" />
+        <activity android:name=".ui.NewPostActivity" />
+        <activity android:name=".ui.MessageListActivity" />
+        <activity android:name=".ui.MessageDetailActivity"></activity>
     </application>
 
 </manifest>

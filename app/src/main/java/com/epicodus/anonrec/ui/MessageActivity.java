@@ -17,23 +17,27 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MessageActivity extends AppCompatActivity implements View.OnClickListener {
-    @Bind(R.id.backButton)
-    Button mbackButton;
+    @Bind(R.id.discussionButton) Button mDiscussionButton;
+    @Bind(R.id.newPostButton) Button mNewPostButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
         ButterKnife.bind(this);
-        mbackButton.setOnClickListener(this);
+        mDiscussionButton.setOnClickListener(this);
+        mNewPostButton.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         Toast.makeText(MessageActivity.this, "Accept the Things You Cannot Change", Toast.LENGTH_LONG).show();
-        if (v == mbackButton) {
-            Intent intent = new Intent(MessageActivity.this, HomePageActivity.class);
+        if (v == mDiscussionButton) {
+            Intent intent = new Intent(MessageActivity.this, MessageCategoryActivity.class);
             startActivity(intent);
+        }
+        if (v == mNewPostButton) {
+            Intent intent = new Intent(MessageActivity.this, NewPostActivity.class);
         }
     }
 

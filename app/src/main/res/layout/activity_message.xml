@@ -9,30 +9,42 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="AnonRec Message Boards"
+        android:text="AnonRec Discussion Boards"
         android:id="@+id/messageTitle"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:textSize="32sp"
+        android:textSize="28sp"
         android:textStyle="bold"
         android:textColor="@color/colorPrimary" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="AnonRec Apologizes!  This Feature is Currently Under Construction, Thank You for Your Understanding..."
-        android:id="@+id/underConstructionTextView"
-        android:layout_below="@+id/messageTitle"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="114dp"
-        android:background="@color/primary_light" />
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Back"
-        android:id="@+id/backButton"
+        android:text="Visit Discussion Boards"
+        android:id="@+id/discussionButton"
+        android:layout_below="@+id/messageTitle"
+        android:layout_centerHorizontal="true"
+        android:background="@color/accent_material_light"
+        android:textSize="26sp"
+        android:layout_marginTop="130dp"
+        android:textStyle="bold|italic" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/boardsButton"
+        android:src="@drawable/messageimage"
+        android:layout_below="@+id/discussionButton"
+        android:layout_above="@+id/newPostButton"
+        android:layout_centerHorizontal="true"
+        />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Create New Post"
+        android:id="@+id/newPostButton"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:background="@color/accent_material_light"
