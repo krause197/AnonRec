@@ -2,14 +2,11 @@ package com.epicodus.anonrec.adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
-import com.epicodus.anonrec.R;
 import com.epicodus.anonrec.models.Meeting;
 import com.epicodus.anonrec.ui.MeetingDetailActivity;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -24,13 +21,13 @@ import java.util.ArrayList;
 /**
  * Created by Guest on 12/14/16.
  */
-public class MeetingListAdapter extends RecyclerView.Adapter<MeetingViewHolder>  {
+public class MeetingListAdapter extends FirebaseRecyclerAdapter<Meeting, MeetingViewHolder> {
     private DatabaseReference mRef;
     private ChildEventListener mChildEventListener;
     private ArrayList<Meeting> mMeetings = new ArrayList<>();
     private Context mContext;
 
-    public MeetingListAdapter(Class<Meeting> modelClass, int modelLayout, Class<MeetingViewHolder> viewHolderClass, Query ref, Context context)  {
+    public MeetingListAdapter(Class<Meeting> modelClass, int modelLayout, Class<MeetingViewHolder> viewHolderClass, Query ref, Context context) {
         super(modelClass, modelLayout, viewHolderClass, ref);
         mRef = ref.getRef();
         mContext = context;
@@ -63,28 +60,20 @@ public class MeetingListAdapter extends RecyclerView.Adapter<MeetingViewHolder> 
         });
     }
 
-    @Override
-    protected void populateViewHolder(final MeetingViewHolder viewHolder, Meeting model, int position) {
-        viewHolder.bindMeeting(model);
-        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(mContext, MeetingDetailActivity.class);
-                intent.putExtra("position", viewHolder.getAdapterPosition());
-                intent.putExtra("meetings", Parcels.wrap(mMeetings));
-                mContext.startActivity(intent);
-            }
-        });
-    }
+        @Override
+        protected void populateViewHolder(final MeetingViewHolder viewHolder, Meeting model, int position){
+            viewHolder.bindMeeting(model);
+            viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
 
-    @Override
-    public void onBindViewHolder(MeetingViewHolder holder, int position) {
-        holder.bindMeeting(mMeetings.get(position));
-    }
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(mContext, MeetingDetailActivity.class);
+                    intent.putExtra("position", viewHolder.getAdapterPosition());
+                    intent.putExtra("meetings", Parcels.wrap(mMeetings));
+                    mContext.startActivity(intent);
+                }
+            });
+        }
 
-    @Override
-    public int getItemCount() {
-        return mMeetings.size();
-    }
 }

@@ -14,6 +14,7 @@ public class Meeting {
     String street;
     String city;
     String state;
+    private String pushId;
 
     public Meeting() {}
 
@@ -26,6 +27,8 @@ public class Meeting {
         this.city = city;
         this.state = state;
     }
+
+    String fullAddress = street + ", " + city + ", " + state;
 
     public String getDay() {
         return day;
@@ -54,4 +57,13 @@ public class Meeting {
     public String getState() {
         return state;
     }
+
+    public String getFullAddress() {
+        return fullAddress;
+    }
+
+    public String getPushId() {return pushId;}
+    public void setPushId(String pushId) {this.pushId = pushId;}
 }
+
+

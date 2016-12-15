@@ -58,7 +58,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.epicodus.anonrec.ui.MeetupActivity" />
         </activity>
-        <activity android:name=".ui.MeetingListActivity"></activity>
+        <activity android:name=".ui.MeetingListActivity" />
+        <activity android:name=".ui.MeetingDetailActivity"></activity>
     </application>
 
 </manifest>

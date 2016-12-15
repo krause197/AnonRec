@@ -41,9 +41,9 @@ public class MeetingViewHolder extends RecyclerView.ViewHolder implements View.O
         TextView dayTextView = (TextView) mView.findViewById(R.id.dayTextView);
         TextView timeTextView = (TextView) mView.findViewById(R.id.timeTextView);
         TextView locationTextView = (TextView) mView.findViewById(R.id.locationTextView);
-        TextView streetTextView = (TextView) mView.findViewById(R.id.streetTextView);
+//        TextView streetTextView = (TextView) mView.findViewById(R.id.streetTextView);
         TextView cityTextView = (TextView) mView.findViewById(R.id.cityTextView);
-        TextView stateTextView = (TextView) mView.findViewById(R.id.stateTextView);
+//        TextView stateTextView = (TextView) mView.findViewById(R.id.stateTextView);
     }
 
     @Override
