@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
+    android:layout_height="110dp"
     tools:context=".ui.MeetingListActivity">
 
 
@@ -26,9 +26,20 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Day and Time"
+            android:text="Day"
             android:id="@+id/dayTextView"
             android:layout_below="@+id/group_nameTextView"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Time"
+            android:id="@+id/timeTextView"
+            android:layout_below="@+id/dayTextView"
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
             android:textSize="20dp"
@@ -40,7 +51,7 @@
             android:layout_height="wrap_content"
             android:text="Region of PDX"
             android:id="@+id/cityTextView"
-            android:layout_below="@+id/dayTextView"
+            android:layout_below="@+id/timeTextView"
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
             android:textSize="20dp"

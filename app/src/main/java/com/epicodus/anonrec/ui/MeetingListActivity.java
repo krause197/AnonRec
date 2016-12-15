@@ -8,11 +8,16 @@ import android.support.v7.widget.RecyclerView;
 
 import com.epicodus.anonrec.MeetingConstants;
 import com.epicodus.anonrec.R;
+import com.epicodus.anonrec.adapters.MeetingListAdapter;
 import com.epicodus.anonrec.adapters.MeetingViewHolder;
 import com.epicodus.anonrec.models.Meeting;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -31,21 +36,20 @@ public class MeetingListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_meeting_list);
         ButterKnife.bind(this);
 
-        mMeetingReference = FirebaseDatabase.getInstance().getReference(MeetingConstants.FIREBASE_CHILD_MEETINGS);
-        m
+
         setUpFirebaseAdaper();
     }
 
     private void setUpFirebaseAdaper() {
-        mFirebaseAdapter = new FirebaseRecyclerAdapter<Meeting, MeetingViewHolder>(Meeting.class, R.layout.activity_meeting_list, MeeingViewHolder.class, mMeetingReference) {
+
+        mMeetingReference = FirebaseDatabase.getInstance().getReference(MeetingConstants.FIREBASE_CHILD_MEETINGS).child((MeetingConstants.FIREBASE_QUERY_DAY)).child((MeetingConstants.FIREBASE_QUERY_REGION));
 
 
-            @Override
-            protected void populateViewHolder(MeetingViewHolder viewHolder, Meeting model, int position) {
-                viewHolder.bindMeeting(model);
+        Query query = mMeetingReference.orderByChild("time");
 
-                }
-            };
+
+        mFirebaseAdapter = new MeetingListAdapter(Meeting.class, R.layout.meeting_list_item, MeetingViewHolder.class, query, this, this);
+
 
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
