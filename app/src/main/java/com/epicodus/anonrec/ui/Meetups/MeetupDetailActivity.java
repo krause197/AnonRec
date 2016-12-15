@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.epicodus.anonrec.R;
-import com.epicodus.anonrec.adapters.EventPagerAdapter;
+import com.epicodus.anonrec.adapters.meetups.EventPagerAdapter;
 import com.epicodus.anonrec.models.Event;
 
 import org.parceler.Parcels;

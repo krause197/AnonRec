@@ -11,7 +11,7 @@ import android.view.MenuItem;
 
 import com.epicodus.anonrec.services.MeetupService;
 import com.epicodus.anonrec.R;
-import com.epicodus.anonrec.adapters.EventListAdapter;
+import com.epicodus.anonrec.adapters.meetups.EventListAdapter;
 import com.epicodus.anonrec.models.Event;
 import com.epicodus.anonrec.ui.general.HomePageActivity;
 import com.epicodus.anonrec.ui.general.LoginActivity;

@@ -12,8 +12,8 @@ import android.widget.TextView;
 
 import com.epicodus.anonrec.constants.MeetingConstants;
 import com.epicodus.anonrec.R;
-import com.epicodus.anonrec.adapters.MeetingListAdapter;
-import com.epicodus.anonrec.adapters.MeetingViewHolder;
+import com.epicodus.anonrec.adapters.meetings.MeetingListAdapter;
+import com.epicodus.anonrec.adapters.meetings.MeetingViewHolder;
 import com.epicodus.anonrec.models.Meeting;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;

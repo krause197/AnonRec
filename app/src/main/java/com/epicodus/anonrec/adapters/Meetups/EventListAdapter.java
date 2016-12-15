@@ -1,4 +1,4 @@
-package com.epicodus.anonrec.adapters;
+package com.epicodus.anonrec.adapters.meetups;
 
 import android.content.Context;
 import android.content.Intent;

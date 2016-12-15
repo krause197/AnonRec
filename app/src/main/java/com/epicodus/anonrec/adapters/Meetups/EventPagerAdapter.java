@@ -1,4 +1,4 @@
-package com.epicodus.anonrec.adapters;
+package com.epicodus.anonrec.adapters.meetups;
 
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.Fragment;

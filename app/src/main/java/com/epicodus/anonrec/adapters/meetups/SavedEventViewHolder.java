@@ -1,4 +1,4 @@
-package com.epicodus.anonrec.adapters;
+package com.epicodus.anonrec.adapters.meetups;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,10 +6,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-import com.epicodus.anonrec.constants.MeetingConstants;
+import com.epicodus.anonrec.constants.MeetupConstants;
 import com.epicodus.anonrec.R;
-import com.epicodus.anonrec.models.Meeting;
-import com.epicodus.anonrec.ui.meetings.MeetingDetailActivity;
+import com.epicodus.anonrec.models.Event;
+import com.epicodus.anonrec.ui.meetups.MeetupDetailActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -21,56 +21,53 @@ import org.parceler.Parcels;
 import java.util.ArrayList;
 
 /**
- * Created by Guest on 12/14/16.
+ * Created by Guest on 12/13/16.
  */
-public class MeetingViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-
+public class SavedEventViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     View mView;
     Context mContext;
 
-    public MeetingViewHolder(View itemView) {
+    public SavedEventViewHolder(View itemView) {
         super(itemView);
         mView = itemView;
         mContext = itemView.getContext();
         itemView.setOnClickListener(this);
-
     }
 
-    public void bindMeeting (Meeting meeting) {
-        TextView groupnameTextView = (TextView) mView.findViewById(R.id.groupnameTextView);
-        TextView dayTextView = (TextView) mView.findViewById(R.id.dayTextView);
+    public void bindEvent(Event event) {
+        TextView nameTextView = (TextView) mView.findViewById(R.id.nameTextView);
         TextView timeTextView = (TextView) mView.findViewById(R.id.timeTextView);
+        TextView group_nameTextView = (TextView) mView.findViewById(R.id.group_nameTextView);
 
-        groupnameTextView.setText(meeting.getGroupname());
-        dayTextView.setText(meeting.getDay());
-        timeTextView.setText(meeting.getTime());
+        nameTextView.setText(event.getName());
+        timeTextView.setText("Date and Time: " + event.getDateTimeGroup());
+        group_nameTextView.setText("MeetUp Group Name: " + event.getGroup_name());
     }
 
     @Override
     public void onClick(View view) {
-        final ArrayList<Meeting> meetings = new ArrayList<>();
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(MeetingConstants.FIREBASE_CHILD_MEETINGS);
+        final ArrayList<Event> events = new ArrayList<>();
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(MeetupConstants.FIREBASE_CHILD_EVENTS);
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
-
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    meetings.add(snapshot.getValue(Meeting.class));
+                    events.add(snapshot.getValue(Event.class));
                 }
-
                 int itemPosition = getLayoutPosition();
 
-                Intent intent = new Intent(mContext, MeetingDetailActivity.class);
+                Intent intent = new Intent(mContext, MeetupDetailActivity.class);
                 intent.putExtra("position", itemPosition + "");
-                intent.putExtra("meetings", Parcels.wrap(meetings));
+                intent.putExtra("events", Parcels.wrap(events));
 
                 mContext.startActivity(intent);
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
+            public void onCancelled(DatabaseError databaseError){
 
             }
+
         });
     }
 }
