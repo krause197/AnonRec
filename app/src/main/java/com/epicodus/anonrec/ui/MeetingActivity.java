@@ -79,20 +79,24 @@ public class MeetingActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
 
         if (v == mSearchButton) {
+            String day = selectDay.replaceAll("[^A-Za-z]+", "").toLowerCase();
+            addDayToSharedPreferences(day);
+            String region = selectRegion.replaceAll("[^A-Za-z]+", "").toLowerCase();
+            addRegionToSharedPreferences(region);
             Intent intent = new Intent(MeetingActivity.this, MeetingListActivity.class);
-            addDayToSharedPreferences(selectDay);
-            addRegionToSharedPreferences(selectRegion);
             startActivity(intent);
         }
 
     }
-    private void addDayToSharedPreferences(String selectDay) {
-        mEditor.putString(MeetingConstants.FIREBASE_QUERY_DAY, selectDay).apply();
+
+    private void addDayToSharedPreferences(String day) {
+        mEditor.putString(MeetingConstants.FIREBASE_QUERY_DAY, day).apply();
     }
 
-    public void addRegionToSharedPreferences(String selectRegion) {
-        mEditor.putString(MeetingConstants.FIREBASE_QUERY_REGION, selectRegion).apply();
+    public void addRegionToSharedPreferences(String region) {
+        mEditor.putString(MeetingConstants.FIREBASE_QUERY_REGION, region).apply();
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();

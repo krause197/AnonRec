@@ -1,10 +1,13 @@
 package com.epicodus.anonrec.ui;
 
 
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import com.epicodus.anonrec.MeetingConstants;
 import com.epicodus.anonrec.R;
@@ -20,6 +23,10 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MeetingListActivity extends AppCompatActivity {
+    private SharedPreferences mSharedPreferences;
+    private String mRecentDay;
+    private String mRecentRegion;
+    public static final String TAG = MeetingListActivity.class.getSimpleName();
     private DatabaseReference mMeetingReference;
     private FirebaseRecyclerAdapter mFirebaseAdapter;
 
@@ -32,6 +39,12 @@ public class MeetingListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_meeting_list);
         ButterKnife.bind(this);
 
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mRecentDay = mSharedPreferences.getString(MeetingConstants.FIREBASE_QUERY_DAY, null);
+        Log.d("Shared Pref Day", mRecentDay);
+        mRecentRegion = mSharedPreferences.getString(MeetingConstants.FIREBASE_QUERY_REGION, null);
+        Log.d("Shared Pref Region", mRecentRegion);
+
 
         setUpFirebaseAdaper();
     }
@@ -40,9 +53,11 @@ public class MeetingListActivity extends AppCompatActivity {
 
         mMeetingReference = FirebaseDatabase.getInstance().getReference(MeetingConstants.FIREBASE_CHILD_MEETINGS).child((MeetingConstants.FIREBASE_QUERY_DAY)).child((MeetingConstants.FIREBASE_QUERY_REGION));
 
+        Log.d(TAG, mMeetingReference + "");
 
         Query query = mMeetingReference.orderByChild("time");
 
+        Log.d(TAG, query + "");
 
         mFirebaseAdapter = new MeetingListAdapter(Meeting.class, R.layout.meeting_list_item, MeetingViewHolder.class, query, this);
 
