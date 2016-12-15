@@ -12,6 +12,16 @@
         <item>Saturday</item>
     </string-array>
 
+    <string-array name="category_array">
+        <item>General Discussion</item>
+        <item>Service Opportunities</item>
+        <item>Social Events</item>
+        <item>AA Literature</item>
+        <item>Meetings in PDX</item>
+        <item>Personal Stories</item>
+        <item>AA Announcements</item>
+    </string-array>
+
 
     <string-array name="region_array">
         <item>Aloha</item>
@@ -61,6 +71,4 @@
         <item>Woodburn</item>
     </string-array>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

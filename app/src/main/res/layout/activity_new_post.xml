@@ -3,10 +3,66 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".ui.messages.NewPostActivity">
+    tools:context=".ui.messages.NewPostActivity"
+    android:background="@drawable/background2">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create a New Post!"
+        android:id="@+id/newPostTitle"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/postTitleEditText"
+        android:layout_below="@+id/newPostTitle"
+        android:hint="Post Title"
+        android:layout_marginTop="40dp"
+        android:inputType="text"
+        android:background="@color/highlighted_text_material_dark" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/bodyEditText"
+        android:layout_below="@+id/postTitleEditText"
+        android:hint="Body of Post"
+        android:layout_marginTop="40dp"
+        android:inputType="text"
+        android:background="@color/highlighted_text_material_dark"
+        android:gravity="top|left" />
+
+    <Spinner
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:id="@+id/dayParameter"
+        android:layout_below="@+id/bodyEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="105dp"
+        android:spinnerMode="dialog"
+        style="@android:style/Widget.Holo.Light.Spinner"
+        android:entries="@array/category_array"
+        android:hint="Select Category for Post"
+        android:textSize="30sp"
+        android:textStyle="bold|italic"
+        android:textAlignment="center"
+        android:background="@color/primary_light" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Create Post"
+        android:id="@+id/createPostButton"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/accent_material_light"
+        android:textSize="26sp"
+        android:textStyle="bold|italic"/>
 
 </RelativeLayout>
