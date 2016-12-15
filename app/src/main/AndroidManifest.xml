@@ -10,60 +10,60 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.MainActivity">
+        <activity android:name=".ui.general.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.RegisterActivity">
+        <activity android:name=".ui.general.RegisterActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.anonrec.ui.MainActivity" />
+                android:value=".ui.general.MainActivity" />
         </activity>
-        <activity android:name=".ui.ProfileActivity">
+        <activity android:name=".ui.general.ProfileActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.anonrec.ui.HomePageActivity" />
+                android:value=".ui.general.HomePageActivity" />
         </activity>
-        <activity android:name=".ui.HomePageActivity" />
-        <activity android:name=".ui.MeetingActivity">
+        <activity android:name=".ui.general.HomePageActivity" />
+        <activity android:name=".ui.meetings.MeetingActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.anonrec.ui.HomePageActivity" />
+                android:value=".ui.general.HomePageActivity" />
         </activity>
-        <activity android:name=".ui.MeetupActivity">
+        <activity android:name=".ui.meetups.MeetupActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.anonrec.ui.HomePageActivity" />
+                android:value=".ui.general.HomePageActivity" />
         </activity>
-        <activity android:name=".ui.MessageActivity">
+        <activity android:name=".ui.messages.MessageActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.anonrec.ui.HomePageActivity" />
+                android:value=".ui.general.HomePageActivity" />
         </activity>
-        <activity android:name=".ui.LoginActivity">
+        <activity android:name=".ui.general.LoginActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.anonrec.ui.MainActivity" />
+                android:value=".ui.general.MainActivity" />
         </activity>
-        <activity android:name=".ui.MeetupDetailActivity">
+        <activity android:name=".ui.meetups.MeetupDetailActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.anonrec.ui.MeetupActivity" />
+                android:value=".ui.meetups.MeetupActivity" />
         </activity>
-        <activity android:name=".ui.SavedEventListActivity">
+        <activity android:name=".ui.meetups.SavedEventListActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.anonrec.ui.MeetupActivity" />
+                android:value=".ui.meetups.MeetupActivity" />
         </activity>
-        <activity android:name=".ui.MeetingListActivity" />
-        <activity android:name=".ui.MeetingDetailActivity" />
-        <activity android:name=".ui.MessageCategoryActivity" />
-        <activity android:name=".ui.NewPostActivity" />
-        <activity android:name=".ui.MessageListActivity" />
-        <activity android:name=".ui.MessageDetailActivity"></activity>
+        <activity android:name=".ui.meetings.MeetingListActivity" />
+        <activity android:name=".ui.meetings.MeetingDetailActivity" />
+        <activity android:name=".ui.messages.MessageCategoryActivity" />
+        <activity android:name=".ui.messages.NewPostActivity" />
+        <activity android:name=".ui.messages.MessageListActivity" />
+        <activity android:name=".ui.messages.MessageDetailActivity"></activity>
     </application>
 
 </manifest>

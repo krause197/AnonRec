@@ -1,4 +1,4 @@
-package com.epicodus.anonrec.ui;
+package com.epicodus.anonrec.ui.meetings;
 
 
 import android.content.Intent;
@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.epicodus.anonrec.MeetingConstants;
+import com.epicodus.anonrec.constants.MeetingConstants;
 import com.epicodus.anonrec.R;
 import com.epicodus.anonrec.models.Meeting;
 import com.google.firebase.auth.FirebaseAuth;

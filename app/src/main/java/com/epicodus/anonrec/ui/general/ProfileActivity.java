@@ -1,4 +1,4 @@
-package com.epicodus.anonrec.ui;
+package com.epicodus.anonrec.ui.general;
 
 import android.content.Context;
 import android.content.Intent;
@@ -16,9 +16,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.epicodus.anonrec.MeetupConstants;
+import com.epicodus.anonrec.constants.MeetupConstants;
 import com.epicodus.anonrec.R;
 
+import com.epicodus.anonrec.ui.meetups.SavedEventListActivity;
+import com.epicodus.anonrec.ui.meetings.MeetingActivity;
+import com.epicodus.anonrec.ui.meetups.MeetupActivity;
+import com.epicodus.anonrec.ui.messages.MessageActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

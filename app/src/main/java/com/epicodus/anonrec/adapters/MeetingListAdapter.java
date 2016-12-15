@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.view.View;
 
 import com.epicodus.anonrec.models.Meeting;
-import com.epicodus.anonrec.ui.MeetingDetailActivity;
+import com.epicodus.anonrec.ui.meetings.MeetingDetailActivity;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;

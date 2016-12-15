@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.epicodus.anonrec.models.Event;
-import com.epicodus.anonrec.ui.MeetupDetailFragment;
+import com.epicodus.anonrec.ui.meetups.MeetupDetailFragment;
 
 import java.util.ArrayList;
 

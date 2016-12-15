@@ -1,4 +1,4 @@
-package com.epicodus.anonrec.ui;
+package com.epicodus.anonrec.ui.meetups;
 
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;

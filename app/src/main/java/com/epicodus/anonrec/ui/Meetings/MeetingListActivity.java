@@ -1,7 +1,6 @@
-package com.epicodus.anonrec.ui;
+package com.epicodus.anonrec.ui.meetings;
 
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -11,7 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.TextView;
 
-import com.epicodus.anonrec.MeetingConstants;
+import com.epicodus.anonrec.constants.MeetingConstants;
 import com.epicodus.anonrec.R;
 import com.epicodus.anonrec.adapters.MeetingListAdapter;
 import com.epicodus.anonrec.adapters.MeetingViewHolder;

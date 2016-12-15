@@ -1,15 +1,13 @@
-package com.epicodus.anonrec.ui;
+package com.epicodus.anonrec.ui.messages;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.epicodus.anonrec.R;
-
-public class MessageListActivity extends AppCompatActivity {
+public class MessageDetailActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_message_list);
+        setContentView(R.layout.activity_message_detail);
     }
 }

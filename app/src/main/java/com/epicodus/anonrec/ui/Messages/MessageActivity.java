@@ -1,4 +1,4 @@
-package com.epicodus.anonrec.ui;
+package com.epicodus.anonrec.ui.messages;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +11,12 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.epicodus.anonrec.R;
+import com.epicodus.anonrec.ui.general.HomePageActivity;
+import com.epicodus.anonrec.ui.general.LoginActivity;
+import com.epicodus.anonrec.ui.meetings.MeetingActivity;
+import com.epicodus.anonrec.ui.meetups.MeetupActivity;
+import com.epicodus.anonrec.ui.general.ProfileActivity;
+import com.epicodus.anonrec.ui.meetups.SavedEventListActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 import butterknife.Bind;

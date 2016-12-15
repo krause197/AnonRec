@@ -1,4 +1,4 @@
-package com.epicodus.anonrec.ui;
+package com.epicodus.anonrec.ui.general;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

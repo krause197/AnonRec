@@ -2,7 +2,7 @@ package com.epicodus.anonrec.services;
 
 import android.util.Log;
 
-import com.epicodus.anonrec.MeetupConstants;
+import com.epicodus.anonrec.constants.MeetupConstants;
 import com.epicodus.anonrec.models.Event;
 
 

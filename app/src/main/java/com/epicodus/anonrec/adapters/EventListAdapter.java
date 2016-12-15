@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.epicodus.anonrec.R;
 import com.epicodus.anonrec.models.Event;
-import com.epicodus.anonrec.ui.MeetupDetailActivity;
+import com.epicodus.anonrec.ui.meetups.MeetupDetailActivity;
 
 import org.parceler.Parcels;
 

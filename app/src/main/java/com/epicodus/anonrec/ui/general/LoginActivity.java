@@ -1,4 +1,4 @@
-package com.epicodus.anonrec.ui;
+package com.epicodus.anonrec.ui.general;
 
 import android.app.ProgressDialog;
 import android.content.Intent;

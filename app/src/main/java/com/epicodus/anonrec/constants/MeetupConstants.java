@@ -1,4 +1,6 @@
-package com.epicodus.anonrec;
+package com.epicodus.anonrec.constants;
+
+import com.epicodus.anonrec.BuildConfig;
 
 /**
  * Created by Guest on 12/2/16.

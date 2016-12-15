@@ -6,10 +6,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-import com.epicodus.anonrec.MeetingConstants;
+import com.epicodus.anonrec.constants.MeetingConstants;
 import com.epicodus.anonrec.R;
 import com.epicodus.anonrec.models.Meeting;
-import com.epicodus.anonrec.ui.MeetingDetailActivity;
+import com.epicodus.anonrec.ui.meetings.MeetingDetailActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

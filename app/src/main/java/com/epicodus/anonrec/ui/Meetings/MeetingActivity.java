@@ -1,4 +1,4 @@
-package com.epicodus.anonrec.ui;
+package com.epicodus.anonrec.ui.meetings;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,13 +10,17 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.Toast;
 
-import com.epicodus.anonrec.MeetingConstants;
+import com.epicodus.anonrec.constants.MeetingConstants;
 import com.epicodus.anonrec.R;
+import com.epicodus.anonrec.ui.general.HomePageActivity;
+import com.epicodus.anonrec.ui.general.LoginActivity;
+import com.epicodus.anonrec.ui.meetups.MeetupActivity;
+import com.epicodus.anonrec.ui.messages.MessageActivity;
+import com.epicodus.anonrec.ui.general.ProfileActivity;
+import com.epicodus.anonrec.ui.meetups.SavedEventListActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 import butterknife.Bind;

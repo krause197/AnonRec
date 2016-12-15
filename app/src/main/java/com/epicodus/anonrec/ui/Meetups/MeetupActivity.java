@@ -1,4 +1,4 @@
-package com.epicodus.anonrec.ui;
+package com.epicodus.anonrec.ui.meetups;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +13,11 @@ import com.epicodus.anonrec.services.MeetupService;
 import com.epicodus.anonrec.R;
 import com.epicodus.anonrec.adapters.EventListAdapter;
 import com.epicodus.anonrec.models.Event;
+import com.epicodus.anonrec.ui.general.HomePageActivity;
+import com.epicodus.anonrec.ui.general.LoginActivity;
+import com.epicodus.anonrec.ui.meetings.MeetingActivity;
+import com.epicodus.anonrec.ui.messages.MessageActivity;
+import com.epicodus.anonrec.ui.general.ProfileActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.io.IOException;

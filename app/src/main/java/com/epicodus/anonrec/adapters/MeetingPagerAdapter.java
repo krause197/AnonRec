@@ -5,7 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.epicodus.anonrec.models.Meeting;
-import com.epicodus.anonrec.ui.MeetingDetailFragment;
+import com.epicodus.anonrec.ui.meetings.MeetingDetailFragment;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.epicodus.anonrec;
+package com.epicodus.anonrec.constants;
 
 /**
  * Created by Guest on 12/14/16.
