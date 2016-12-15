@@ -1,6 +1,8 @@
 package com.epicodus.anonrec.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -13,6 +15,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.epicodus.anonrec.MeetingConstants;
 import com.epicodus.anonrec.R;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -30,10 +33,8 @@ public class MeetingActivity extends AppCompatActivity implements View.OnClickLi
     String selectDay;
     String selectRegion;
 
-
-
-
-
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
 
 
     @Override
@@ -68,14 +69,30 @@ public class MeetingActivity extends AppCompatActivity implements View.OnClickLi
 
             }
         });
+
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mSharedPreferences.edit();
     }
 
 
     @Override
     public void onClick(View v) {
 
+        if (v == mSearchButton) {
+            Intent intent = new Intent(MeetingActivity.this, MeetingListActivity.class);
+            addDayToSharedPreferences(selectDay);
+            addRegionToSharedPreferences(selectRegion);
+            startActivity(intent);
+        }
+
+    }
+    private void addDayToSharedPreferences(String selectDay) {
+        mEditor.putString(MeetingConstants.FIREBASE_QUERY_DAY, selectDay).apply();
     }
 
+    public void addRegionToSharedPreferences(String selectRegion) {
+        mEditor.putString(MeetingConstants.FIREBASE_QUERY_REGION, selectRegion).apply();
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();

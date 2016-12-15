@@ -8,6 +8,7 @@ import org.parceler.Parcel;
 @Parcel
 public class Meeting {
     String day;
+    String time;
     String group_name;
     String location;
     String street;
@@ -16,8 +17,9 @@ public class Meeting {
 
     public Meeting() {}
 
-    public Meeting(String day, String group_name, String location, String street, String city, String state) {
+    public Meeting(String day, String time, String group_name, String location, String street, String city, String state) {
         this.day = day;
+        this.time = time;
         this.group_name = group_name;
         this.location = location;
         this.street = street;
@@ -27,6 +29,10 @@ public class Meeting {
 
     public String getDay() {
         return day;
+    }
+
+    public String getTime() {
+        return time;
     }
 
     public String getGroup_name() {
