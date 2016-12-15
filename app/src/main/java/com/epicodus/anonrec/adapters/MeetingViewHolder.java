@@ -37,13 +37,13 @@ public class MeetingViewHolder extends RecyclerView.ViewHolder implements View.O
     }
 
     public void bindMeeting (Meeting meeting) {
-        TextView group_nameTextView = (TextView) mView.findViewById(R.id.group_nameTextView);
+        TextView groupnameTextView = (TextView) mView.findViewById(R.id.groupnameTextView);
         TextView dayTextView = (TextView) mView.findViewById(R.id.dayTextView);
         TextView timeTextView = (TextView) mView.findViewById(R.id.timeTextView);
-        TextView locationTextView = (TextView) mView.findViewById(R.id.locationTextView);
-//        TextView streetTextView = (TextView) mView.findViewById(R.id.streetTextView);
-        TextView cityTextView = (TextView) mView.findViewById(R.id.cityTextView);
-//        TextView stateTextView = (TextView) mView.findViewById(R.id.stateTextView);
+
+        groupnameTextView.setText(meeting.getGroupname());
+        dayTextView.setText(meeting.getDay());
+        timeTextView.setText(meeting.getTime());
     }
 
     @Override

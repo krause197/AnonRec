@@ -23,7 +23,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Group Name"
-                android:id="@+id/group_nameTextView"
+                android:id="@+id/groupnameTextView"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:textSize="20sp"
@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:text="Day"
                 android:id="@+id/dayTextView"
-                android:layout_alignTop="@+id/group_nameTextView"
+                android:layout_alignTop="@+id/groupnameTextView"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
                 android:textColor="@color/accent"
@@ -46,11 +46,23 @@
                 android:layout_height="wrap_content"
                 android:text="Time"
                 android:id="@+id/timeTextView"
-                android:layout_below="@+id/group_nameTextView"
+                android:layout_below="@+id/groupnameTextView"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:textColor="@color/accent"
                 android:textStyle="italic" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Region of PDX"
+                android:id="@+id/cityTextView"
+                android:layout_below="@+id/timeTextView"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:textSize="15dp"
+                android:textStyle="bold"/>
+
         </RelativeLayout>
 
         <RelativeLayout

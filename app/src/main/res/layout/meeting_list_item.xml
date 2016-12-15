@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="110dp"
+    android:layout_height="100dp"
     tools:context=".ui.MeetingListActivity">
 
 
@@ -16,8 +16,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Group Name"
-            android:id="@+id/group_nameTextView"
-            android:textSize="30dp"
+            android:id="@+id/groupnameTextView"
+            android:textSize="20dp"
             android:textStyle="bold"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
@@ -28,10 +28,10 @@
             android:layout_height="wrap_content"
             android:text="Day"
             android:id="@+id/dayTextView"
-            android:layout_below="@+id/group_nameTextView"
+            android:layout_below="@+id/groupnameTextView"
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
-            android:textSize="20dp"
+            android:textSize="15dp"
             android:textStyle="bold"/>
 
         <TextView
@@ -42,19 +42,7 @@
             android:layout_below="@+id/dayTextView"
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
-            android:textSize="20dp"
-            android:textStyle="bold"/>
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Region of PDX"
-            android:id="@+id/cityTextView"
-            android:layout_below="@+id/timeTextView"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:textSize="20dp"
+            android:textSize="15dp"
             android:textStyle="bold"/>
 
         <ImageView
@@ -64,9 +52,9 @@
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:src="@drawable/logo"
-            android:layout_toEndOf="@+id/group_nameTextView"
-            android:layout_toRightOf="@+id/group_nameTextView"/>
+            android:src="@drawable/logo2"
+            android:layout_toEndOf="@+id/groupnameTextView"
+            android:layout_toRightOf="@+id/groupnameTextView"/>
 
 
     </RelativeLayout>

@@ -9,26 +9,25 @@ import org.parceler.Parcel;
 public class Meeting {
     String day;
     String time;
-    String group_name;
+    String groupname;
     String location;
     String street;
     String city;
     String state;
+    private String fullAddress;
     private String pushId;
 
     public Meeting() {}
 
-    public Meeting(String day, String time, String group_name, String location, String street, String city, String state) {
+    public Meeting(String day, String time, String groupname, String location, String street, String city, String state) {
         this.day = day;
         this.time = time;
-        this.group_name = group_name;
+        this.groupname = groupname;
         this.location = location;
         this.street = street;
         this.city = city;
         this.state = state;
     }
-
-    String fullAddress = street + ", " + city + ", " + state;
 
     public String getDay() {
         return day;
@@ -38,8 +37,8 @@ public class Meeting {
         return time;
     }
 
-    public String getGroup_name() {
-        return group_name;
+    public String getGroupname() {
+        return groupname;
     }
 
     public String getLocation() {
@@ -59,6 +58,7 @@ public class Meeting {
     }
 
     public String getFullAddress() {
+        fullAddress = street + ", " + city + ", " + state;
         return fullAddress;
     }
 

@@ -32,6 +32,6 @@ public class MeetingPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return mMeetings.get(position).getGroup_name();
+        return mMeetings.get(position).getGroupname();
     }
 }

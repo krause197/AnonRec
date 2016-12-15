@@ -26,7 +26,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MeetingDetailFragment extends Fragment implements View.OnClickListener {
-    @Bind(R.id.group_nameTextView) TextView mGroup_NameLabel;
+    @Bind(R.id.groupnameTextView) TextView mGroupNameLabel;
     @Bind(R.id.dayTextView) TextView mDayLabel;
     @Bind(R.id.timeTextView) TextView mTimeLabel;
     @Bind(R.id.locationTextView) TextView mLocationLabel;
@@ -56,7 +56,7 @@ public class MeetingDetailFragment extends Fragment implements View.OnClickListe
         View view = inflater.inflate(R.layout.fragment_meeting_detail, container, false);
         ButterKnife.bind(this, view);
 
-        mGroup_NameLabel.setText(mMeeting.getGroup_name());
+        mGroupNameLabel.setText(mMeeting.getGroupname());
         mDayLabel.setText(mMeeting.getDay());
         mTimeLabel.setText(mMeeting.getTime());
         mLocationLabel.setText(mMeeting.getLocation());
