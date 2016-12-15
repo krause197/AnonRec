@@ -25,7 +25,6 @@ import butterknife.ButterKnife;
 public class MeetingListActivity extends AppCompatActivity {
     private DatabaseReference mMeetingReference;
     private FirebaseRecyclerAdapter mFirebaseAdapter;
-    private DatabaseReference m
 
 
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
