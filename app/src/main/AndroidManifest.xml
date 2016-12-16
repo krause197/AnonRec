@@ -60,7 +60,6 @@
         </activity>
         <activity android:name=".ui.meetings.MeetingListActivity" />
         <activity android:name=".ui.meetings.MeetingDetailActivity" />
-        <activity android:name=".ui.messages.MessageCategoryActivity" />
         <activity android:name=".ui.messages.NewPostActivity" />
         <activity android:name=".ui.messages.MessageListActivity" />
         <activity android:name=".ui.messages.MessageDetailActivity"></activity>

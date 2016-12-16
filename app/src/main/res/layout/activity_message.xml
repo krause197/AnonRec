@@ -17,6 +17,21 @@
         android:textStyle="bold"
         android:textColor="@color/colorPrimary" />
 
+    <Spinner
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:id="@+id/categoryParameter"
+        android:layout_below="@+id/messageTitle"
+        android:layout_centerHorizontal="true"
+        android:spinnerMode="dialog"
+        style="@android:style/Widget.Holo.Light.Spinner"
+        android:entries="@array/category_array"
+        android:textSize="30sp"
+        android:textStyle="bold|italic"
+        android:textAlignment="center"
+        android:layout_marginTop="70dp"
+        android:background="@color/primary_light" />
+
 
     <Button
         android:layout_width="fill_parent"

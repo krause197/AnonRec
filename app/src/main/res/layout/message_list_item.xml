@@ -3,34 +3,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="75dp"
+    android:layout_height="100dp"
     tools:context=".ui.messages.MessageListActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/titleTextView"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:text="Title"
-        android:textColor="@color/colorPrimary"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/authorTextView"
-        android:layout_below="@+id/titleTextView"
-        android:textSize="15dp"
-        android:textStyle="bold"
-        android:text="Author"
-        android:textColor="@color/colorPrimary"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/titleTextView"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:text="Title"
+            android:textColor="@color/colorPrimary"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
 
-    <ImageView
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/userIconImageView"
-        android:src="@drawable/icon"
-        android:paddingLeft="125dp"
-        android:layout_gravity="top|right" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/authorTextView"
+            android:layout_below="@+id/titleTextView"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:text="Author"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/colorPrimary"/>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/commentsNumber"
+            android:layout_below="@+id/authorTextView"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:text="Comments Count"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/colorPrimary"/>
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView"
+            android:src="@drawable/icon"
+            android:paddingLeft="125dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="false" />
+
+    </RelativeLayout>
 </LinearLayout>
