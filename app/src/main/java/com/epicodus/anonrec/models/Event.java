@@ -16,6 +16,7 @@ public class Event {
     String group_name;
     String who;
     private String pushId;
+    String index;
 
     public Event() {}
 
@@ -28,6 +29,7 @@ public class Event {
         this.maybe_rsvp_count = maybe_rsvp_count;
         this.group_name = group_name;
         this.who = who;
+        this.index = "not_specified";
     }
 
     public String getName() { return name;}
@@ -40,4 +42,10 @@ public class Event {
     public String getWho() { return who;}
     public String getPushId() {return pushId;}
     public void setPushId(String pushId) {this.pushId = pushId;}
+    public String getIndex() {
+        return index;
+    }
+    public void setIndex(String index) {
+        this.index = index;
+    }
 }

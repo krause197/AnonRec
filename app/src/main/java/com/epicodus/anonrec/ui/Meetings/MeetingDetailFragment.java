@@ -40,7 +40,7 @@ public class MeetingDetailFragment extends Fragment implements View.OnClickListe
     public static MeetingDetailFragment newInstance(Meeting meeting) {
         MeetingDetailFragment meetingDetailFragment = new MeetingDetailFragment();
         Bundle args = new Bundle();
-        args.putParcelable("meeting", Parcels.wrap(meeting));
+        args.putParcelable("Meeting", Parcels.wrap(meeting));
         meetingDetailFragment.setArguments(args);
         return meetingDetailFragment;
     }
@@ -49,7 +49,7 @@ public class MeetingDetailFragment extends Fragment implements View.OnClickListe
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mMeeting = Parcels.unwrap(getArguments().getParcelable("meeting"));
+        mMeeting = Parcels.unwrap(getArguments().getParcelable("Meeting"));
         }
 
     @Override

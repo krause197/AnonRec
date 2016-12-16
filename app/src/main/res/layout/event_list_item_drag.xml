@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="100dp"
+    tools:context=".ui.meetups.MeetupActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="name"
+            android:id="@+id/nameTextView"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="time"
+            android:id="@+id/timeTextView"
+            android:layout_below="@+id/group_nameTextView"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:textSize="10dp"
+            android:textStyle="bold"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="group_name"
+            android:id="@+id/group_nameTextView"
+            android:layout_below="@+id/nameTextView"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:textSize="10dp"
+            android:textStyle="bold"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="130dp"
+                android:layout_height="100dp"
+                android:id="@+id/soberPDXIcon"
+                android:src="@drawable/soberpdxicon"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+            <ImageView
+                android:id="@+id/dragIcon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@mipmap/ic_reorder_white_24dp"
+                android:gravity="bottom|end"
+                android:layout_alignParentBottom="true"
+                android:layout_alignRight="@+id/soberPDXIcon"
+                android:layout_alignEnd="@+id/soberPDXIcon" />
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+</LinearLayout>
