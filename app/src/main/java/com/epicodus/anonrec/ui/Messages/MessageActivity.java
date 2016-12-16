@@ -105,7 +105,6 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
             return true;
         }
         if (id == R.id.action_home) {
-            getToast();
             Intent intent = new Intent(MessageActivity.this, HomePageActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);

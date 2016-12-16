@@ -99,7 +99,6 @@ public class MeetupActivity extends AppCompatActivity implements ToastMessage {
             return true;
         }
         if (id == R.id.action_home) {
-            getToast();
             Intent intent = new Intent(MeetupActivity.this, HomePageActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);

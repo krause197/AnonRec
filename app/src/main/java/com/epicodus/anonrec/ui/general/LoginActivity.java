@@ -84,7 +84,6 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener,
             finish();
         }
         if (view == mLoginButton) {
-            getToast();
             loginWithPassword();
         }
     }

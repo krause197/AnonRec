@@ -25,6 +25,17 @@
         android:layout_below="@+id/homePageTitle"
         android:layout_centerHorizontal="true" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Shake your device for a message!"
+        android:id="@+id/magicEightBall"
+        android:layout_below="@+id/defaultUserIcon"
+        android:layout_centerHorizontal="true"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary" />
+
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
