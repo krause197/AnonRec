@@ -11,6 +11,7 @@ import com.epicodus.anonrec.constants.MeetupConstants;
 import com.epicodus.anonrec.R;
 import com.epicodus.anonrec.models.Event;
 import com.epicodus.anonrec.ui.meetups.MeetupDetailActivity;
+import com.epicodus.anonrec.util.ItemTouchHelperViewHolder;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,7 +25,7 @@ import java.util.ArrayList;
 /**
  * Created by Guest on 12/13/16.
  */
-public class SavedEventViewHolder extends RecyclerView.ViewHolder {
+public class SavedEventViewHolder extends RecyclerView.ViewHolder implements ItemTouchHelperViewHolder {
     View mView;
     Context mContext;
     public ImageView mSoberPDXIcon;
@@ -44,6 +45,27 @@ public class SavedEventViewHolder extends RecyclerView.ViewHolder {
         nameTextView.setText(event.getName());
         timeTextView.setText("Date and Time: " + event.getDateTimeGroup());
         group_nameTextView.setText("MeetUp Group Name: " + event.getGroup_name());
+    }
+
+    @Override
+    public void onItemSelected() {
+        itemView.animate()
+                .alpha(0.8f)
+                .scaleX(0.7f)
+                .scaleY(0.7f)
+                .rotation(180f)
+                .setDuration(500);
+
+    }
+
+    @Override
+    public void onItemClear() {
+        itemView.animate()
+                .alpha(1f)
+                .scaleX(0.5f)
+                .scaleY(0.5f)
+                .rotation(540f)
+                .setDuration(750);
     }
 
 }
