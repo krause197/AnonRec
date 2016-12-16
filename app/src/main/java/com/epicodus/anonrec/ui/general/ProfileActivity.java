@@ -19,10 +19,12 @@ import android.widget.Toast;
 import com.epicodus.anonrec.constants.MeetupConstants;
 import com.epicodus.anonrec.R;
 
+import com.epicodus.anonrec.models.Profile;
 import com.epicodus.anonrec.ui.meetups.SavedEventListActivity;
 import com.epicodus.anonrec.ui.meetings.MeetingActivity;
 import com.epicodus.anonrec.ui.meetups.MeetupActivity;
 import com.epicodus.anonrec.ui.messages.MessageActivity;
+import com.epicodus.anonrec.util.ToastMessage;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -37,7 +39,7 @@ import java.util.Map;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
+public class ProfileActivity extends AppCompatActivity implements View.OnClickListener, ToastMessage {
     private static final int MAX_WIDTH = 400;
     private static final int MAX_HEIGHT = 400;
     private Context mContext = this;
@@ -91,13 +93,18 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
     }
 
+    @Override
+    public void getToast(){
+        Toast.makeText(ProfileActivity.this, toastMessages[randomMsgIndex], Toast.LENGTH_LONG).show();
+    }
+
 
 
     @Override
     public void onClick(View v) {
 
         if (v == mHomeButton) {
-            Toast.makeText(ProfileActivity.this, "More Will Be Revealed", Toast.LENGTH_LONG).show();
+            getToast();
             Intent intent = new Intent(ProfileActivity.this, HomePageActivity.class);
             startActivity(intent);
         }
@@ -128,30 +135,35 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             return true;
         }
         if (id == R.id.action_home) {
+            getToast();
             Intent intent = new Intent(ProfileActivity.this, HomePageActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();
         }
         if (id == R.id.action_message) {
+            getToast();
             Intent intent = new Intent(ProfileActivity.this, MessageActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();
         }
         if (id == R.id.action_meetup) {
+            getToast();
             Intent intent = new Intent(ProfileActivity.this, MeetupActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();
         }
         if (id == R.id.action_meeting) {
+            getToast();
             Intent intent = new Intent(ProfileActivity.this, MeetingActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();
         }
         if (id == R.id.action_saved) {
+            getToast();
             Intent intent = new Intent(ProfileActivity.this, SavedEventListActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);

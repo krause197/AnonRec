@@ -8,12 +8,13 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.epicodus.anonrec.R;
+import com.epicodus.anonrec.util.ToastMessage;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, ToastMessage{
     @Bind(R.id.welcomeButton) Button mWelcomeButton;
 
     @Override
@@ -26,8 +27,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
+    public void getToast(){
+        Toast.makeText(MainActivity.this, toastMessages[randomMsgIndex], Toast.LENGTH_LONG).show();
+    }
+
+    @Override
     public void onClick(View v) {
-        Toast.makeText(MainActivity.this, "One Day At A Time", Toast.LENGTH_LONG).show();
+        getToast();
         if (v == mWelcomeButton) {
             Intent intent = new Intent(MainActivity.this, LoginActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

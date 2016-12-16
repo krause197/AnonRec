@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.epicodus.anonrec.R;
+import com.epicodus.anonrec.util.ToastMessage;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -24,7 +25,7 @@ import butterknife.ButterKnife;
 
 import static android.view.View.*;
 
-public class LoginActivity extends AppCompatActivity implements OnClickListener {
+public class LoginActivity extends AppCompatActivity implements OnClickListener, ToastMessage {
     public static final String TAG = LoginActivity.class.getSimpleName();
     @Bind(R.id.registerTextView) TextView mRegisterTextView;
     @Bind(R.id.loginButton) Button mLoginButton;
@@ -70,13 +71,20 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
     }
 
     @Override
+    public void getToast(){
+        Toast.makeText(LoginActivity.this, toastMessages[randomMsgIndex], Toast.LENGTH_LONG).show();
+    }
+
+    @Override
     public void onClick(View view) {
         if (view == mRegisterTextView) {
+            getToast();
             Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
             startActivity(intent);
             finish();
         }
         if (view == mLoginButton) {
+            getToast();
             loginWithPassword();
         }
     }

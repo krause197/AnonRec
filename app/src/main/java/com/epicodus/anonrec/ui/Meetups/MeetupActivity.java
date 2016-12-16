@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.epicodus.anonrec.services.MeetupService;
 import com.epicodus.anonrec.R;
@@ -18,6 +19,7 @@ import com.epicodus.anonrec.ui.general.LoginActivity;
 import com.epicodus.anonrec.ui.meetings.MeetingActivity;
 import com.epicodus.anonrec.ui.messages.MessageActivity;
 import com.epicodus.anonrec.ui.general.ProfileActivity;
+import com.epicodus.anonrec.util.ToastMessage;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.io.IOException;
@@ -29,7 +31,7 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
-public class MeetupActivity extends AppCompatActivity {
+public class MeetupActivity extends AppCompatActivity implements ToastMessage {
     public static final String TAG = MeetupActivity.class.getSimpleName();
 
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
@@ -85,6 +87,11 @@ public class MeetupActivity extends AppCompatActivity {
     }
 
     @Override
+    public void getToast(){
+        Toast.makeText(MeetupActivity.this, toastMessages[randomMsgIndex], Toast.LENGTH_LONG).show();
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_logout) {
@@ -92,30 +99,35 @@ public class MeetupActivity extends AppCompatActivity {
             return true;
         }
         if (id == R.id.action_home) {
+            getToast();
             Intent intent = new Intent(MeetupActivity.this, HomePageActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();
         }
         if (id == R.id.action_profile) {
+            getToast();
             Intent intent = new Intent(MeetupActivity.this, ProfileActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();
         }
         if (id == R.id.action_meeting) {
+            getToast();
             Intent intent = new Intent(MeetupActivity.this, MeetingActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();
         }
         if (id == R.id.action_message) {
+            getToast();
             Intent intent = new Intent(MeetupActivity.this, MessageActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();
         }
         if (id == R.id.action_saved) {
+            getToast();
             Intent intent = new Intent(MeetupActivity.this, SavedEventListActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);

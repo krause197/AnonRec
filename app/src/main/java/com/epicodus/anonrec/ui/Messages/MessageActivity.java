@@ -1,5 +1,6 @@
 package com.epicodus.anonrec.ui.messages;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
@@ -22,12 +23,13 @@ import com.epicodus.anonrec.ui.meetings.MeetingActivity;
 import com.epicodus.anonrec.ui.meetups.MeetupActivity;
 import com.epicodus.anonrec.ui.general.ProfileActivity;
 import com.epicodus.anonrec.ui.meetups.SavedEventListActivity;
+import com.epicodus.anonrec.util.ToastMessage;
 import com.google.firebase.auth.FirebaseAuth;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class MessageActivity extends AppCompatActivity implements View.OnClickListener {
+public class MessageActivity extends AppCompatActivity implements View.OnClickListener, ToastMessage {
     @Bind(R.id.discussionButton) Button mDiscussionButton;
     @Bind(R.id.newPostButton) Button mNewPostButton;
     @Bind(R.id.categoryParameter) Spinner mCategoryParameter;
@@ -64,16 +66,21 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         mEditor = mSharedPreferences.edit();
     }
+    @Override
+    public void getToast(){
+        Toast.makeText(MessageActivity.this, toastMessages[randomMsgIndex], Toast.LENGTH_LONG).show();
+    }
 
     @Override
     public void onClick(View v) {
-        Toast.makeText(MessageActivity.this, "Accept the Things You Cannot Change", Toast.LENGTH_LONG).show();
+        getToast();
         if (v == mDiscussionButton) {
             addCategoryToSharedPreferences(selectCategory);
             Intent intent = new Intent(MessageActivity.this, MessageListActivity.class);
             startActivity(intent);
         }
         if (v == mNewPostButton) {
+            getToast();
             Intent intent = new Intent(MessageActivity.this, NewPostActivity.class);
             startActivity(intent);
         }
@@ -98,30 +105,35 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
             return true;
         }
         if (id == R.id.action_home) {
+            getToast();
             Intent intent = new Intent(MessageActivity.this, HomePageActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();
         }
         if (id == R.id.action_profile) {
+            getToast();
             Intent intent = new Intent(MessageActivity.this, ProfileActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();
         }
         if (id == R.id.action_meetup) {
+            getToast();
             Intent intent = new Intent(MessageActivity.this, MeetupActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();
         }
         if (id == R.id.action_meeting) {
+            getToast();
             Intent intent = new Intent(MessageActivity.this, MeetingActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();
         }
         if (id == R.id.action_saved) {
+            getToast();
             Intent intent = new Intent(MessageActivity.this, SavedEventListActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);

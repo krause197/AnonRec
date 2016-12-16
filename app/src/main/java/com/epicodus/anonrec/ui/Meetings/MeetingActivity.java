@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.epicodus.anonrec.constants.MeetingConstants;
 import com.epicodus.anonrec.R;
@@ -21,12 +22,13 @@ import com.epicodus.anonrec.ui.meetups.MeetupActivity;
 import com.epicodus.anonrec.ui.messages.MessageActivity;
 import com.epicodus.anonrec.ui.general.ProfileActivity;
 import com.epicodus.anonrec.ui.meetups.SavedEventListActivity;
+import com.epicodus.anonrec.util.ToastMessage;
 import com.google.firebase.auth.FirebaseAuth;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class MeetingActivity extends AppCompatActivity implements View.OnClickListener {
+public class MeetingActivity extends AppCompatActivity implements View.OnClickListener, ToastMessage {
     @Bind(R.id.dayParameter) Spinner mDayParameter;
     @Bind(R.id.regionParameter) Spinner mRegionParameter;
     @Bind(R.id.searchButton) Button mSearchButton;
@@ -78,11 +80,17 @@ public class MeetingActivity extends AppCompatActivity implements View.OnClickLi
         mEditor = mSharedPreferences.edit();
     }
 
+    @Override
+    public void getToast(){
+        Toast.makeText(MeetingActivity.this, toastMessages[randomMsgIndex], Toast.LENGTH_LONG).show();
+    }
+
 
     @Override
     public void onClick(View v) {
 
         if (v == mSearchButton) {
+            getToast();
             String day = selectDay.replaceAll("[^A-Za-z]+", "").toLowerCase();
             addDayToSharedPreferences(day);
             String region = selectRegion.replaceAll("[^A-Za-z]+", "").toLowerCase();
@@ -117,30 +125,35 @@ public class MeetingActivity extends AppCompatActivity implements View.OnClickLi
             return true;
         }
         if (id == R.id.action_home) {
+            getToast();
             Intent intent = new Intent(MeetingActivity.this, HomePageActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();
         }
         if (id == R.id.action_profile) {
+            getToast();
             Intent intent = new Intent(MeetingActivity.this, ProfileActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();
         }
         if (id == R.id.action_meetup) {
+            getToast();
             Intent intent = new Intent(MeetingActivity.this, MeetupActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();
         }
         if (id == R.id.action_message) {
+            getToast();
             Intent intent = new Intent(MeetingActivity.this, MessageActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();
         }
         if (id == R.id.action_saved) {
+            getToast();
             Intent intent = new Intent(MeetingActivity.this, SavedEventListActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
