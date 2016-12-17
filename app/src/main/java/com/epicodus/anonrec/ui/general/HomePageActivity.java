@@ -10,11 +10,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.GestureDetector;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -48,6 +50,11 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
     private static final int SHAKE_THRESHOLD = 500;
     private ImageView mLogo;
 
+    View toastView = getLayoutInflater().inflate(R.layout.toast, (ViewGroup)findViewById(R.id.toastLayout));
+
+
+
+
     Context context;
 
     @Override
@@ -69,24 +76,56 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         mSensorManager.registerListener(this, mSensor, mSensorManager.SENSOR_DELAY_NORMAL);
 
+
+
         Android_Gesture_Detector android_gesture_detector = new Android_Gesture_Detector(){
             @Override
             public void onSwipeUp() {
+                Toast toast = new Toast(context);
+                ImageView upImage = (ImageView)toastView.findViewById(R.id.toastImage);
+                upImage.setImageResource(R.drawable.upimage);
+                toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                toast.setDuration(Toast.LENGTH_LONG);
+                toast.setView(toastView);
+
+                toast.show();
 
             }
 
             @Override
             public void onSwipeDown() {
+                Toast toast = new Toast(context);
+                ImageView downImage = (ImageView)toastView.findViewById(R.id.toastImage);
+                downImage.setImageResource(R.drawable.downimage);
+                toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                toast.setDuration(Toast.LENGTH_LONG);
+                toast.setView(toastView);
 
+                toast.show();
             }
 
             @Override
             public void onSwipeLeft() {
+                Toast toast = new Toast(context);
+                ImageView leftImage = (ImageView)toastView.findViewById(R.id.toastImage);
+                leftImage.setImageResource(R.drawable.leftimage);
+                toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                toast.setDuration(Toast.LENGTH_LONG);
+                toast.setView(toastView);
 
+                toast.show();
             }
 
             @Override
             public void onSwipeRight() {
+                Toast toast = new Toast(context);
+                ImageView rightImage = (ImageView)toastView.findViewById(R.id.toastImage);
+                rightImage.setImageResource(R.drawable.rightimage);
+                toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                toast.setDuration(Toast.LENGTH_LONG);
+                toast.setView(toastView);
+
+                toast.show();
 
             }
 
