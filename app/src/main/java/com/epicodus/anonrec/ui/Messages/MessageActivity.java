@@ -1,9 +1,7 @@
 package com.epicodus.anonrec.ui.messages;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -63,8 +61,8 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
             }
         });
 
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        mEditor = mSharedPreferences.edit();
+//        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+//        mEditor = mSharedPreferences.edit();
     }
     @Override
     public void getToast(){
@@ -74,16 +72,16 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
         getToast();
-        if (v == mDiscussionButton) {
-            addCategoryToSharedPreferences(selectCategory);
-            Intent intent = new Intent(MessageActivity.this, MessageListActivity.class);
-            startActivity(intent);
-        }
-        if (v == mNewPostButton) {
-            getToast();
-            Intent intent = new Intent(MessageActivity.this, NewPostActivity.class);
-            startActivity(intent);
-        }
+//        if (v == mDiscussionButton) {
+//            addCategoryToSharedPreferences(selectCategory);
+//            Intent intent = new Intent(MessageActivity.this, MessageListActivity.class);
+//            startActivity(intent);
+//        }
+//        if (v == mNewPostButton) {
+//            getToast();
+//            Intent intent = new Intent(MessageActivity.this, NewPostActivity.class);
+//            startActivity(intent);
+//        }
     }
 
     private void addCategoryToSharedPreferences(String selectCategory) {
