@@ -25,24 +25,21 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
-import butterknife.ButterKnife;
+
 
 
 public class MeetingListActivity extends AppCompatActivity {
     private SharedPreferences mSharedPreferences;
-    private String mUserRegion;
-    private DatabaseReference mRegionReference;
     private String mRecentDay;
     private String mRecentRegion;
     public static final String TAG = MeetingListActivity.class.getSimpleName();
     private DatabaseReference mMeetingReference;
     private FirebaseRecyclerAdapter mFirebaseAdapter;
-    private FirebaseRecyclerAdapter mNewFirebaseAdapter;
     private String regionTitle;
     private TextView mRegionTitle;
     private RecyclerView mRecyclerView;
     private Menu menu;
-//    private ListView mMeetingListView;
+
 
 
     @Override
@@ -85,20 +82,6 @@ public class MeetingListActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mFirebaseAdapter);
         }
 
-//    private void manualFirebaseAdapter() {
-//        mRegionReference = FirebaseDatabase.getInstance().getReference(MeetingConstants.FIREBASE_CHILD_MEETINGS).child(mRecentDay).child(mUserRegion);
-//
-//
-//        Query regionQuery = mRegionReference.orderByChild("time");
-//
-//
-//        mNewFirebaseAdapter = new MeetingListAdapter(Meeting.class, R.layout.meeting_list_item, MeetingViewHolder.class, regionQuery, this);
-//
-//
-//        mRecyclerView.setHasFixedSize(true);
-//        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-//        mRecyclerView.setAdapter(mNewFirebaseAdapter);
-//    }
 
 
     @Override
