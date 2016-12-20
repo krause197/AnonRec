@@ -110,14 +110,12 @@ public class MeetingListActivity extends AppCompatActivity {
 
 
 
+
         final MenuItem menuItem = menu.findItem(R.id.action_search);
         final SearchView userRegion = (SearchView) MenuItemCompat.getActionView(menuItem);
         userRegion.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                mRegionTitle = (TextView) findViewById(R.id.regionTitle);
-                mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-                setContentView(R.layout.activity_meeting_list);
 
                 final String searchRegion = userRegion.getQuery().toString();
                 mRecentRegion = searchRegion.replaceAll("[^A-Za-z]+", "").toLowerCase();
