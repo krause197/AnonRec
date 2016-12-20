@@ -25,12 +25,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
-import butterknife.Bind;
 import butterknife.ButterKnife;
+
 
 public class MeetingListActivity extends AppCompatActivity {
     private SharedPreferences mSharedPreferences;
-    private SharedPreferences.Editor mEditor;
     private String mUserRegion;
     private DatabaseReference mRegionReference;
     private String mRecentDay;
@@ -40,17 +39,21 @@ public class MeetingListActivity extends AppCompatActivity {
     private FirebaseRecyclerAdapter mFirebaseAdapter;
     private FirebaseRecyclerAdapter mNewFirebaseAdapter;
     private String regionTitle;
+    private TextView mRegionTitle;
+    private RecyclerView mRecyclerView;
+    private Menu menu;
+//    private ListView mMeetingListView;
 
-
-    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
-    @Bind(R.id.regionTitle) TextView mRegionTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meeting_list);
+        mRegionTitle = (TextView) findViewById(R.id.regionTitle);
+        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+//        mMeetingListView = (ListView) findViewById(R.id.meetingListView);
+
         regionTitle = getIntent().getExtras().getString("regionTitle");
-        ButterKnife.bind(this);
 
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         mRecentDay = mSharedPreferences.getString(MeetingConstants.FIREBASE_QUERY_DAY, null);
@@ -82,42 +85,50 @@ public class MeetingListActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mFirebaseAdapter);
         }
 
-    private void manualFirebaseAdapter() {
-        mRegionReference = FirebaseDatabase.getInstance().getReference(MeetingConstants.FIREBASE_CHILD_MEETINGS).child(mRecentDay).child(mUserRegion);
-
-
-        Query regionQuery = mRegionReference.orderByChild("time");
-
-
-        mNewFirebaseAdapter = new MeetingListAdapter(Meeting.class, R.layout.meeting_list_item, MeetingViewHolder.class, regionQuery, this);
-
-
-        mRecyclerView.setHasFixedSize(true);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mRecyclerView.setAdapter(mNewFirebaseAdapter);
-    }
+//    private void manualFirebaseAdapter() {
+//        mRegionReference = FirebaseDatabase.getInstance().getReference(MeetingConstants.FIREBASE_CHILD_MEETINGS).child(mRecentDay).child(mUserRegion);
+//
+//
+//        Query regionQuery = mRegionReference.orderByChild("time");
+//
+//
+//        mNewFirebaseAdapter = new MeetingListAdapter(Meeting.class, R.layout.meeting_list_item, MeetingViewHolder.class, regionQuery, this);
+//
+//
+//        mRecyclerView.setHasFixedSize(true);
+//        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        mRecyclerView.setAdapter(mNewFirebaseAdapter);
+//    }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_search, menu);
-        ButterKnife.bind(this);
+        this.menu = menu;
 
 
-        MenuItem menuItem = menu.findItem(R.id.action_search);
+
+        final MenuItem menuItem = menu.findItem(R.id.action_search);
         final SearchView userRegion = (SearchView) MenuItemCompat.getActionView(menuItem);
-        mUserRegion = userRegion.toString().replaceAll("[^A-Za-z]+", "").toLowerCase();
         userRegion.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            public boolean onQueryTextSubmit(String mUserRegion) {
+            public boolean onQueryTextSubmit(String query) {
+                mRegionTitle = (TextView) findViewById(R.id.regionTitle);
+                mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+                setContentView(R.layout.activity_meeting_list);
 
-                final String selectRegion = userRegion.toString();
+                final String searchRegion = userRegion.getQuery().toString();
+                mRecentRegion = searchRegion.replaceAll("[^A-Za-z]+", "").toLowerCase();
 
-                mRegionTitle.setText(selectRegion);
+
+                mRegionTitle.setText(searchRegion);
 
 
-                manualFirebaseAdapter();
+                setUpFirebaseAdapter();
+
+                mRecyclerView.setAdapter(mFirebaseAdapter);
                 return false;
             }
 
