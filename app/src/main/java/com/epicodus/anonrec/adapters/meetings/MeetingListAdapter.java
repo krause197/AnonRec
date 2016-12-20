@@ -35,7 +35,7 @@ public class MeetingListAdapter extends FirebaseRecyclerAdapter<Meeting, Meeting
         mChildEventListener = mRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-//                mMeetings.add(dataSnapshot.getValue(Meeting.class));
+                mMeetings.add(dataSnapshot.getValue(Meeting.class));
             }
 
             @Override

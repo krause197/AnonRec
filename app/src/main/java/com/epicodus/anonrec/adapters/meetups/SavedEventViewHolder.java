@@ -53,7 +53,7 @@ public class SavedEventViewHolder extends RecyclerView.ViewHolder implements Ite
                 .alpha(0.8f)
                 .scaleX(0.7f)
                 .scaleY(0.7f)
-                .rotation(180f)
+                .rotation(360f)
                 .setDuration(500);
 
     }
@@ -62,9 +62,9 @@ public class SavedEventViewHolder extends RecyclerView.ViewHolder implements Ite
     public void onItemClear() {
         itemView.animate()
                 .alpha(1f)
-                .scaleX(0.5f)
-                .scaleY(0.5f)
-                .rotation(540f)
+                .scaleX(1f)
+                .scaleY(1f)
+                .rotation(360f)
                 .setDuration(750);
     }
 
