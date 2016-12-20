@@ -2,13 +2,18 @@ package com.epicodus.anonrec.adapters.meetups;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.MotionEventCompat;
 import android.view.MotionEvent;
 import android.view.View;
 
+import com.epicodus.anonrec.R;
 import com.epicodus.anonrec.constants.MeetupConstants;
 import com.epicodus.anonrec.models.Event;
 import com.epicodus.anonrec.ui.meetups.MeetupDetailActivity;
+import com.epicodus.anonrec.ui.meetups.MeetupDetailFragment;
 import com.epicodus.anonrec.util.ItemTouchHelperAdapter;
 import com.epicodus.anonrec.util.OnStartDragListener;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -34,6 +39,7 @@ public class SavedEventListAdapter extends FirebaseRecyclerAdapter<Event, SavedE
     private Context mContext;
     private ChildEventListener mChildEventListener;
     private ArrayList<Event> mEvents = new ArrayList<>();
+    private int mOrientation;
 
 
     public SavedEventListAdapter(Class<Event> modelClass, int modelLayout, Class<SavedEventViewHolder> viewHolderClass, Query ref, OnStartDragListener onStartDragListener, Context context) {
@@ -73,6 +79,11 @@ public class SavedEventListAdapter extends FirebaseRecyclerAdapter<Event, SavedE
     @Override
     protected void populateViewHolder(final SavedEventViewHolder viewHolder, Event model, int position) {
         viewHolder.bindEvent(model);
+
+        mOrientation = viewHolder.itemView.getResources().getConfiguration().orientation;
+        if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
+            createDetailFragment(0);
+        }
         viewHolder.mSoberPDXIcon.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -86,12 +97,25 @@ public class SavedEventListAdapter extends FirebaseRecyclerAdapter<Event, SavedE
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext, MeetupDetailActivity.class);
-                intent.putExtra("position", viewHolder.getAdapterPosition());
-                intent.putExtra("events", Parcels.wrap(mEvents));
-                mContext.startActivity(intent);
+                int itemPosition = viewHolder.getAdapterPosition();
+                if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
+                    createDetailFragment(itemPosition);
+                } else {
+                    Intent intent = new Intent(mContext, MeetupDetailActivity.class);
+                    intent.putExtra("position", viewHolder.getAdapterPosition());
+                    intent.putExtra("events", Parcels.wrap(mEvents));
+                    mContext.startActivity(intent);
+                }
+
             }
         });
+    }
+
+    private void createDetailFragment(int position) {
+        MeetupDetailFragment detailFragment = MeetupDetailFragment.newInstance(mEvents, position);
+        FragmentTransaction ft = ((FragmentActivity) mContext).getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.meetupDetailContainer, detailFragment);
+        ft.commit();
     }
 
     @Override

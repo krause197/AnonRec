@@ -22,7 +22,7 @@ public class EventPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return MeetupDetailFragment.newInstance(mEvents.get(position));
+        return MeetupDetailFragment.newInstance(mEvents, position);
     }
 
     @Override

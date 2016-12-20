@@ -2,6 +2,10 @@ package com.epicodus.anonrec.adapters.meetups;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.graphics.Bitmap;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,8 +13,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.epicodus.anonrec.R;
+import com.epicodus.anonrec.constants.MeetupConstants;
 import com.epicodus.anonrec.models.Event;
 import com.epicodus.anonrec.ui.meetups.MeetupDetailActivity;
+import com.epicodus.anonrec.ui.meetups.MeetupDetailFragment;
 
 import org.parceler.Parcels;
 
@@ -55,9 +61,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
         @Bind(R.id.timeTextView) TextView mTimeTextView;
         @Bind(R.id.group_nameTextView) TextView mGroup_nameTextView;
 
-
-
-
+        private int mOrientation;
         private Context mContext;
 
         public EventViewHolder(View itemView){
@@ -65,15 +69,31 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
             ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
             itemView.setOnClickListener(this);
+            mOrientation = itemView.getResources().getConfiguration().orientation;
+            if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
+                createDetailFragment(0);
+            }
+        }
+
+        private void createDetailFragment(int position) {
+            MeetupDetailFragment detailFragment = MeetupDetailFragment.newInstance(mEvents, position);
+            FragmentTransaction ft = ((FragmentActivity) mContext).getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.meetupDetailContainer, detailFragment);
+            ft.commit();
         }
 
         @Override
         public void onClick(View v) {
             int itemPosition = getLayoutPosition();
-            Intent intent = new Intent(mContext, MeetupDetailActivity.class);
-            intent.putExtra("position", itemPosition);
-            intent.putExtra("events", Parcels.wrap(mEvents));
-            mContext.startActivity(intent);
+            if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
+                createDetailFragment(itemPosition);
+            } else {
+                Intent intent = new Intent(mContext, MeetupDetailActivity.class);
+                intent.putExtra(MeetupConstants.EXTRA_KEY_POSITION, itemPosition);
+                intent.putExtra(MeetupConstants.EXTRA_KEY_EVENTS, Parcels.wrap(mEvents));
+                mContext.startActivity(intent);
+            }
+
         }
 
         public void bindEvent(Event event) {

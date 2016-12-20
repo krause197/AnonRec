@@ -21,6 +21,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import org.parceler.Parcels;
 
+import java.util.ArrayList;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -39,11 +41,14 @@ public class MeetupDetailFragment extends Fragment implements View.OnClickListen
     @Bind(R.id.saveEventButton) TextView mSaveEventButton;
 
     private Event mEvent;
+    private ArrayList<Event> mEvents;
+    private int mPosition;
 
-    public static MeetupDetailFragment newInstance(Event event) {
+    public static MeetupDetailFragment newInstance(ArrayList<Event> events, Integer position) {
         MeetupDetailFragment meetupDetailFragment = new MeetupDetailFragment();
         Bundle args = new Bundle();
-        args.putParcelable("event", Parcels.wrap(event));
+        args.putParcelable(MeetupConstants.EXTRA_KEY_EVENTS, Parcels.wrap(events));
+        args.putInt(MeetupConstants.EXTRA_KEY_POSITION, position);
         meetupDetailFragment.setArguments(args);
         return meetupDetailFragment;
     }
@@ -51,7 +56,9 @@ public class MeetupDetailFragment extends Fragment implements View.OnClickListen
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mEvent = Parcels.unwrap(getArguments().getParcelable("event"));
+        mEvents = Parcels.unwrap(getArguments().getParcelable(MeetupConstants.EXTRA_KEY_EVENTS));
+        mPosition = getArguments().getInt(MeetupConstants.EXTRA_KEY_POSITION);
+        mEvent = mEvents.get(mPosition);
     }
 
 
