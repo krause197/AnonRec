@@ -59,7 +59,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-         Toast.makeText(HomePageActivity.this, "Swipe any direction or Double Tap on AA Logo for a surprise!", Toast.LENGTH_LONG).show();
+         Toast.makeText(HomePageActivity.this, "Swipe any direction on AA Logo for a surprise!", Toast.LENGTH_LONG).show();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
         mLogo = (ImageView) findViewById(R.id.defaultUserIcon);

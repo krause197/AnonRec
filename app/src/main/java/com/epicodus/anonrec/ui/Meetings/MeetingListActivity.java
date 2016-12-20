@@ -31,13 +31,14 @@ import butterknife.ButterKnife;
 public class MeetingListActivity extends AppCompatActivity {
     private SharedPreferences mSharedPreferences;
     private SharedPreferences.Editor mEditor;
-    private String mGroupName;
-    private DatabaseReference mGroupReference;
+    private String mUserRegion;
+    private DatabaseReference mRegionReference;
     private String mRecentDay;
     private String mRecentRegion;
     public static final String TAG = MeetingListActivity.class.getSimpleName();
     private DatabaseReference mMeetingReference;
     private FirebaseRecyclerAdapter mFirebaseAdapter;
+    private FirebaseRecyclerAdapter mNewFirebaseAdapter;
     private String regionTitle;
 
 
@@ -81,19 +82,19 @@ public class MeetingListActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mFirebaseAdapter);
         }
 
-    private void groupFirebaseAdapter() {
-        mGroupReference = FirebaseDatabase.getInstance().getReference(MeetingConstants.FIREBASE_CHILD_MEETINGS).child(mRecentDay);
+    private void manualFirebaseAdapter() {
+        mRegionReference = FirebaseDatabase.getInstance().getReference(MeetingConstants.FIREBASE_CHILD_MEETINGS).child(mRecentDay).child(mUserRegion);
 
 
-        Query groupQuery = mGroupReference.orderByChild("group_name").startAt("#" + mGroupName);
+        Query regionQuery = mRegionReference.orderByChild("time");
 
 
-        mFirebaseAdapter = new MeetingListAdapter(Meeting.class, R.layout.meeting_list_item, MeetingViewHolder.class, groupQuery, this);
+        mNewFirebaseAdapter = new MeetingListAdapter(Meeting.class, R.layout.meeting_list_item, MeetingViewHolder.class, regionQuery, this);
 
 
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mRecyclerView.setAdapter(mFirebaseAdapter);
+        mRecyclerView.setAdapter(mNewFirebaseAdapter);
     }
 
 
@@ -105,12 +106,18 @@ public class MeetingListActivity extends AppCompatActivity {
 
 
         MenuItem menuItem = menu.findItem(R.id.action_search);
-        SearchView groupName = (SearchView) MenuItemCompat.getActionView(menuItem);
-
-        groupName.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        final SearchView userRegion = (SearchView) MenuItemCompat.getActionView(menuItem);
+        mUserRegion = userRegion.toString().replaceAll("[^A-Za-z]+", "").toLowerCase();
+        final String selectRegion = menuItem.toString();
+        userRegion.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            public boolean onQueryTextSubmit(String mGroupName) {
-                groupFirebaseAdapter();
+            public boolean onQueryTextSubmit(String mUserRegion) {
+                setContentView(R.layout.activity_meeting_list);
+
+                mRegionTitle.setText(selectRegion);
+
+
+                manualFirebaseAdapter();
                 return false;
             }
 
