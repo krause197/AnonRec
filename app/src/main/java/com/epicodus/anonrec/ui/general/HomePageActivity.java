@@ -185,6 +185,8 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void getToast(){
+        Random random = new Random();
+        int randomMsgIndex = random.nextInt(toastMessages.length -1);
         Toast.makeText(HomePageActivity.this, toastMessages[randomMsgIndex], Toast.LENGTH_LONG).show();
     }
 

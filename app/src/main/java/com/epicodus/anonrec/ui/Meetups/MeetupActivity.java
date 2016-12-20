@@ -24,6 +24,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Random;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -88,6 +89,8 @@ public class MeetupActivity extends AppCompatActivity implements ToastMessage {
 
     @Override
     public void getToast(){
+        Random random = new Random();
+        int randomMsgIndex = random.nextInt(toastMessages.length -1);
         Toast.makeText(MeetupActivity.this, toastMessages[randomMsgIndex], Toast.LENGTH_LONG).show();
     }
 

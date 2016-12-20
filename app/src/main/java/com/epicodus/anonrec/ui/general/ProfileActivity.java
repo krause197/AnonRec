@@ -35,6 +35,7 @@ import com.squareup.picasso.Picasso;
 
 
 import java.util.Map;
+import java.util.Random;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -95,6 +96,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void getToast(){
+        Random random = new Random();
+        int randomMsgIndex = random.nextInt(toastMessages.length -1);
         Toast.makeText(ProfileActivity.this, toastMessages[randomMsgIndex], Toast.LENGTH_LONG).show();
     }
 

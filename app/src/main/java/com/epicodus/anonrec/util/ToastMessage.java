@@ -6,7 +6,7 @@ import java.util.Random;
  * Created by Guest on 12/16/16.
  */
 public interface ToastMessage {
-    final Random random = new Random();
+
     String[] toastMessages = new String[] {"Pain is the touchstone of spiritual growth.",
             "Happiness is appreciating what you have, not getting what you want.", "Alcoholic drinking's three stages: impulsive, compulsive, repulsive.",
             "I spent a lifetime in hell and it only took me twelve steps to get to heaven.", "When I came to recovery I realized that being a child for 28 years nearly killed me",
@@ -17,7 +17,7 @@ public interface ToastMessage {
             "Sereneity is what we get when we quit hoping for a better past.", "An excuse is nothing more than a thin skin stretched over a bald faced lie.",
             "It all works out in the end...if it hasn't worked out yet, it's not the end.", "If I could drink like a regular person...I'd drink all the time. Therein lies our paradox...",
             "My best thinking got me drunk."};
-    int randomMsgIndex = random.nextInt(toastMessages.length -1);
+
 
     void getToast();
 }

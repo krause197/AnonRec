@@ -24,6 +24,8 @@ import com.epicodus.anonrec.ui.meetups.SavedEventListActivity;
 import com.epicodus.anonrec.util.ToastMessage;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.Random;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -66,6 +68,8 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
     }
     @Override
     public void getToast(){
+        Random random = new Random();
+        int randomMsgIndex = random.nextInt(toastMessages.length -1);
         Toast.makeText(MessageActivity.this, toastMessages[randomMsgIndex], Toast.LENGTH_LONG).show();
     }
 

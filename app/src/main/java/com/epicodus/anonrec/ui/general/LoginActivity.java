@@ -20,6 +20,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.Random;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -72,6 +74,8 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener,
 
     @Override
     public void getToast(){
+        Random random = new Random();
+        int randomMsgIndex = random.nextInt(toastMessages.length -1);
         Toast.makeText(LoginActivity.this, toastMessages[randomMsgIndex], Toast.LENGTH_LONG).show();
     }
 

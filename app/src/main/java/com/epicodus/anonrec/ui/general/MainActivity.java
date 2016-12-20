@@ -10,6 +10,8 @@ import android.widget.Toast;
 import com.epicodus.anonrec.R;
 import com.epicodus.anonrec.util.ToastMessage;
 
+import java.util.Random;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -28,6 +30,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void getToast(){
+        Random random = new Random();
+        int randomMsgIndex = random.nextInt(toastMessages.length -1);
         Toast.makeText(MainActivity.this, toastMessages[randomMsgIndex], Toast.LENGTH_LONG).show();
     }
 
