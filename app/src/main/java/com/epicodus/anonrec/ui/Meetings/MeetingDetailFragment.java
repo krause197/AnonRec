@@ -32,7 +32,7 @@ public class MeetingDetailFragment extends Fragment implements View.OnClickListe
     @Bind(R.id.cityTextView) TextView mCityLabel;
     @Bind(R.id.locationTextView) TextView mLocationLabel;
     @Bind(R.id.fullAddressTextView) TextView mFullAddressLabel;
-    @Bind(R.id.saveMeetingButton) TextView mSaveMeetingButton;
+//    @Bind(R.id.saveMeetingButton) TextView mSaveMeetingButton;
 
 
     private Meeting mMeeting;
@@ -64,7 +64,7 @@ public class MeetingDetailFragment extends Fragment implements View.OnClickListe
         mFullAddressLabel.setText(mMeeting.getFullAddress());
         mCityLabel.setText(mMeeting.getCity());
 
-        mSaveMeetingButton.setOnClickListener(this);
+//        mSaveMeetingButton.setOnClickListener(this);
         mFullAddressLabel.setOnClickListener(this);
 
         return view;
@@ -78,17 +78,17 @@ public class MeetingDetailFragment extends Fragment implements View.OnClickListe
                     Uri.parse("geo:0,0q=" + addressNoSpace));
             startActivity(mapIntent);
         }
-        if (v == mSaveMeetingButton) {
-            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-            String uid = user.getUid();
-            DatabaseReference meetingRef = FirebaseDatabase.getInstance().getReference(MeetingConstants.FIREBASE_CHILD_MEETINGS).child(uid);
-
-            DatabaseReference pushRef = meetingRef.push();
-            String pushId = pushRef.getKey();
-            mMeeting.setPushId(pushId);
-            pushRef.setValue(mMeeting);
-
-            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
-        }
+//        if (v == mSaveMeetingButton) {
+//            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//            String uid = user.getUid();
+//            DatabaseReference meetingRef = FirebaseDatabase.getInstance().getReference(MeetingConstants.FIREBASE_CHILD_MEETINGS).child(uid);
+//
+//            DatabaseReference pushRef = meetingRef.push();
+//            String pushId = pushRef.getKey();
+//            mMeeting.setPushId(pushId);
+//            pushRef.setValue(mMeeting);
+//
+//            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
+//        }
     }
 }
