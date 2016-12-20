@@ -30,6 +30,7 @@
         android:name="com.epicodus.anonrec.ui.meetups.MeetupListFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/meetupTitle"
         tools:layout="@layout/fragment_meetup_list" />
 
 

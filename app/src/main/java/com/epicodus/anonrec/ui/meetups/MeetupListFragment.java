@@ -14,6 +14,7 @@ import com.epicodus.anonrec.R;
 import com.epicodus.anonrec.adapters.meetups.EventListAdapter;
 import com.epicodus.anonrec.models.Event;
 import com.epicodus.anonrec.services.MeetupService;
+import com.epicodus.anonrec.util.OnEventSelectedListener;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -30,6 +31,8 @@ public class MeetupListFragment extends Fragment {
 
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
 
+    private OnEventSelectedListener mOnEventSelectedListener;
+
     private EventListAdapter mEventAdapter;
 
     public ArrayList<Event> mEvents = new ArrayList<>();
@@ -37,6 +40,16 @@ public class MeetupListFragment extends Fragment {
 
     public MeetupListFragment() {
         // Required empty public constructor
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        try {
+            mOnEventSelectedListener = (OnEventSelectedListener) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString() + e.getMessage());
+        }
     }
 
     @Override
@@ -75,7 +88,7 @@ public class MeetupListFragment extends Fragment {
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        mEventAdapter = new EventListAdapter(getActivity(), mEvents);
+                        mEventAdapter = new EventListAdapter(getActivity(), mEvents, mOnEventSelectedListener);
                         mRecyclerView.setAdapter(mEventAdapter);
                         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
                         mRecyclerView.setLayoutManager(layoutManager);

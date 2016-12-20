@@ -1,6 +1,7 @@
 package com.epicodus.anonrec.ui.meetups;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,6 +11,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.epicodus.anonrec.constants.MeetupConstants;
 import com.epicodus.anonrec.services.MeetupService;
 import com.epicodus.anonrec.R;
 import com.epicodus.anonrec.adapters.meetups.EventListAdapter;
@@ -19,8 +21,11 @@ import com.epicodus.anonrec.ui.general.LoginActivity;
 import com.epicodus.anonrec.ui.meetings.MeetingActivity;
 import com.epicodus.anonrec.ui.messages.MessageActivity;
 import com.epicodus.anonrec.ui.general.ProfileActivity;
+import com.epicodus.anonrec.util.OnEventSelectedListener;
 import com.epicodus.anonrec.util.ToastMessage;
 import com.google.firebase.auth.FirebaseAuth;
+
+import org.parceler.Parcels;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -32,7 +37,10 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
-public class MeetupActivity extends AppCompatActivity implements ToastMessage {
+public class MeetupActivity extends AppCompatActivity implements ToastMessage, OnEventSelectedListener {
+
+    private Integer mPosition;
+    ArrayList<Event> mEvents;
 //    public static final String TAG = MeetupActivity.class.getSimpleName();
 //
 //    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
@@ -45,40 +53,39 @@ public class MeetupActivity extends AppCompatActivity implements ToastMessage {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meetup);
-//        ButterKnife.bind(this);
-//
-//        String groupName = "pdx-sober";
-//
-//        getEvents(groupName);
+
+        if (savedInstanceState != null) {
+            if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+                mPosition = savedInstanceState.getInt(MeetupConstants.EXTRA_KEY_POSITION);
+                mEvents = Parcels.unwrap(savedInstanceState.getParcelable(MeetupConstants.EXTRA_KEY_EVENTS));
+
+                if(mPosition != null && mEvents != null) {
+                    Intent intent = new Intent(this, MeetupDetailActivity.class);
+                    intent.putExtra(MeetupConstants.EXTRA_KEY_POSITION, mPosition);
+                    intent.putExtra(MeetupConstants.EXTRA_KEY_EVENTS, mEvents);
+                    startActivity(intent);
+                }
+            }
+        }
+
     }
 
-//    private void getEvents(String groupName) {
-//        final MeetupService meetupService = new MeetupService();
-//        meetupService.findEvents(groupName, new Callback() {
-//
-//            @Override
-//            public void onFailure(Call call, IOException e) {
-//                e.printStackTrace();
-//            }
-//
-//            @Override
-//            public void onResponse(Call call, Response response) throws IOException {
-//
-//                mEvents = meetupService.processResults(response);
-//
-//                MeetupActivity.this.runOnUiThread(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        mEventAdapter = new EventListAdapter(getApplicationContext(), mEvents);
-//                        mRecyclerView.setAdapter(mEventAdapter);
-//                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MeetupActivity.this);
-//                        mRecyclerView.setLayoutManager(layoutManager);
-//                        mRecyclerView.setHasFixedSize(true);
-//                    }
-//                });
-//            }
-//        });
-//    }
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        if (mPosition != null && mEvents != null) {
+            outState.putInt(MeetupConstants.EXTRA_KEY_POSITION, mPosition);
+            outState.putParcelable(MeetupConstants.EXTRA_KEY_EVENTS, Parcels.wrap(mEvents));
+        }
+    }
+    @Override
+    public void OnEventSelected(Integer position, ArrayList<Event> events) {
+        mPosition = position;
+        mEvents = events;
+    }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

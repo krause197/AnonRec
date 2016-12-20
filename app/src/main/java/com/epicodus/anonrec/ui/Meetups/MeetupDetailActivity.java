@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import com.epicodus.anonrec.R;
 import com.epicodus.anonrec.adapters.meetups.EventPagerAdapter;
+import com.epicodus.anonrec.constants.MeetupConstants;
 import com.epicodus.anonrec.models.Event;
 
 import org.parceler.Parcels;
@@ -27,8 +28,8 @@ public class MeetupDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_meetup_detail);
         ButterKnife.bind(this);
 
-        mEvents = Parcels.unwrap(getIntent().getParcelableExtra("events"));
-        int startingPosition = getIntent().getIntExtra("position", 0);
+        mEvents = Parcels.unwrap(getIntent().getParcelableExtra(MeetupConstants.EXTRA_KEY_EVENTS));
+        int startingPosition = getIntent().getIntExtra(MeetupConstants.EXTRA_KEY_POSITION, 0);
 
         adapterViewPager = new EventPagerAdapter(getSupportFragmentManager(), mEvents);
         mMeetupDetailViewPager.setAdapter(adapterViewPager);

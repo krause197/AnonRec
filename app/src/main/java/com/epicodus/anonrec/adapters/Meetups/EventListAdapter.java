@@ -17,6 +17,7 @@ import com.epicodus.anonrec.constants.MeetupConstants;
 import com.epicodus.anonrec.models.Event;
 import com.epicodus.anonrec.ui.meetups.MeetupDetailActivity;
 import com.epicodus.anonrec.ui.meetups.MeetupDetailFragment;
+import com.epicodus.anonrec.util.OnEventSelectedListener;
 
 import org.parceler.Parcels;
 
@@ -33,16 +34,18 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
     private ArrayList<Event> mEvents = new ArrayList<>();
 
     private Context mContext;
+    private OnEventSelectedListener mOnEventSelectedListener;
 
-    public EventListAdapter(Context context, ArrayList<Event> events) {
+    public EventListAdapter(Context context, ArrayList<Event> events, OnEventSelectedListener restaurantSelectedListener) {
         mContext = context;
         mEvents = events;
+        mOnEventSelectedListener = restaurantSelectedListener;
     }
 
     @Override
     public EventListAdapter.EventViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.event_list_item, parent, false);
-        EventViewHolder viewHolder = new EventViewHolder(view);
+        EventViewHolder viewHolder = new EventViewHolder(view, mEvents, mOnEventSelectedListener);
         return viewHolder;
     }
 
@@ -63,16 +66,21 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
 
         private int mOrientation;
         private Context mContext;
+        private ArrayList<Event> mEvents = new ArrayList<>();
+        private OnEventSelectedListener mEventSelectedListener;
 
-        public EventViewHolder(View itemView){
+        public EventViewHolder(View itemView, ArrayList<Event> events, OnEventSelectedListener eventSelectedListener){
             super(itemView);
             ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
             itemView.setOnClickListener(this);
             mOrientation = itemView.getResources().getConfiguration().orientation;
+            mEvents = events;
+            mEventSelectedListener = eventSelectedListener;
             if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
                 createDetailFragment(0);
             }
+            itemView.setOnClickListener(this);
         }
 
         private void createDetailFragment(int position) {
@@ -85,6 +93,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
         @Override
         public void onClick(View v) {
             int itemPosition = getLayoutPosition();
+            mEventSelectedListener.OnEventSelected(itemPosition, mEvents);
             if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
                 createDetailFragment(itemPosition);
             } else {
