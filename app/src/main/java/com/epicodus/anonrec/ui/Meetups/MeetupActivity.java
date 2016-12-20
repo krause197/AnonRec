@@ -33,52 +33,52 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 public class MeetupActivity extends AppCompatActivity implements ToastMessage {
-    public static final String TAG = MeetupActivity.class.getSimpleName();
-
-    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
-
-    private EventListAdapter mEventAdapter;
-
-    public ArrayList<Event> mEvents = new ArrayList<>();
+//    public static final String TAG = MeetupActivity.class.getSimpleName();
+//
+//    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
+//
+//    private EventListAdapter mEventAdapter;
+//
+//    public ArrayList<Event> mEvents = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meetup);
-        ButterKnife.bind(this);
-
-        String groupName = "pdx-sober";
-
-        getEvents(groupName);
+//        ButterKnife.bind(this);
+//
+//        String groupName = "pdx-sober";
+//
+//        getEvents(groupName);
     }
 
-    private void getEvents(String groupName) {
-        final MeetupService meetupService = new MeetupService();
-        meetupService.findEvents(groupName, new Callback() {
-
-            @Override
-            public void onFailure(Call call, IOException e) {
-                e.printStackTrace();
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-
-                mEvents = meetupService.processResults(response);
-
-                MeetupActivity.this.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        mEventAdapter = new EventListAdapter(getApplicationContext(), mEvents);
-                        mRecyclerView.setAdapter(mEventAdapter);
-                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MeetupActivity.this);
-                        mRecyclerView.setLayoutManager(layoutManager);
-                        mRecyclerView.setHasFixedSize(true);
-                    }
-                });
-            }
-        });
-    }
+//    private void getEvents(String groupName) {
+//        final MeetupService meetupService = new MeetupService();
+//        meetupService.findEvents(groupName, new Callback() {
+//
+//            @Override
+//            public void onFailure(Call call, IOException e) {
+//                e.printStackTrace();
+//            }
+//
+//            @Override
+//            public void onResponse(Call call, Response response) throws IOException {
+//
+//                mEvents = meetupService.processResults(response);
+//
+//                MeetupActivity.this.runOnUiThread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        mEventAdapter = new EventListAdapter(getApplicationContext(), mEvents);
+//                        mRecyclerView.setAdapter(mEventAdapter);
+//                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MeetupActivity.this);
+//                        mRecyclerView.setLayoutManager(layoutManager);
+//                        mRecyclerView.setHasFixedSize(true);
+//                    }
+//                });
+//            }
+//        });
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
