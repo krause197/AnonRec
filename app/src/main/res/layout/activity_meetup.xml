@@ -25,11 +25,12 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/recyclerView"
-        android:layout_below="@+id/meetupTitle"
-        android:layout_alignParentBottom="true" />
+    <fragment
+        android:id="@+id/fragmentMeetupList"
+        android:name="com.epicodus.anonrec.ui.meetups.MeetupListFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout="@layout/fragment_meetup_list" />
+
 
 </RelativeLayout>

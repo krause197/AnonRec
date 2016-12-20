@@ -32,50 +32,50 @@ import com.google.firebase.database.Query;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class SavedEventListActivity extends AppCompatActivity implements OnStartDragListener {
-    private DatabaseReference mEventReference;
-    private SavedEventListAdapter mFirebaseAdapter;
-    private ItemTouchHelper mItemTouchHelper;
-
-    @Bind(R.id.recyclerView) RecyclerView mRecyclerview;
+public class SavedEventListActivity extends AppCompatActivity  {
+//    private DatabaseReference mEventReference;
+//    private SavedEventListAdapter mFirebaseAdapter;
+//    private ItemTouchHelper mItemTouchHelper;
+//
+//    @Bind(R.id.recyclerView) RecyclerView mRecyclerview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_meetup);
-        ButterKnife.bind(this);
-
-        setupFirebaseAdapter();
+        setContentView(R.layout.activity_saved_event_list);
+//        ButterKnife.bind(this);
+//
+//        setupFirebaseAdapter();
     }
 
-    private void setupFirebaseAdapter() {
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String uid = user.getUid();
-
-        Query query = FirebaseDatabase.getInstance().getReference(MeetupConstants.FIREBASE_CHILD_EVENTS).child(uid).orderByChild(MeetupConstants.FIREBASE_QUERY_INDEX);
-
-        mFirebaseAdapter = new SavedEventListAdapter(Event.class, R.layout.event_list_item_drag, SavedEventViewHolder.class, query, this, this);
-
-        mRecyclerview.setHasFixedSize(true);
-        mRecyclerview.setLayoutManager(new LinearLayoutManager(this));
-        mRecyclerview.setAdapter(mFirebaseAdapter);
-
-        ItemTouchHelper.Callback callback = new SimpleItemTouchHelperCallback(mFirebaseAdapter);
-        mItemTouchHelper = new ItemTouchHelper(callback);
-        mItemTouchHelper.attachToRecyclerView(mRecyclerview);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mFirebaseAdapter.cleanup();
-    }
-
-    @Override
-    public void onStartDrag(RecyclerView.ViewHolder viewHolder) {
-        mItemTouchHelper.startDrag(viewHolder);
-    }
+//    private void setupFirebaseAdapter() {
+//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//        String uid = user.getUid();
+//
+//        Query query = FirebaseDatabase.getInstance().getReference(MeetupConstants.FIREBASE_CHILD_EVENTS).child(uid).orderByChild(MeetupConstants.FIREBASE_QUERY_INDEX);
+//
+//        mFirebaseAdapter = new SavedEventListAdapter(Event.class, R.layout.event_list_item_drag, SavedEventViewHolder.class, query, this, this);
+//
+//        mRecyclerview.setHasFixedSize(true);
+//        mRecyclerview.setLayoutManager(new LinearLayoutManager(this));
+//        mRecyclerview.setAdapter(mFirebaseAdapter);
+//
+//        ItemTouchHelper.Callback callback = new SimpleItemTouchHelperCallback(mFirebaseAdapter);
+//        mItemTouchHelper = new ItemTouchHelper(callback);
+//        mItemTouchHelper.attachToRecyclerView(mRecyclerview);
+//    }
+//
+//    @Override
+//    protected void onDestroy() {
+//        super.onDestroy();
+//        mFirebaseAdapter.cleanup();
+//    }
+//
+//    @Override
+//    public void onStartDrag(RecyclerView.ViewHolder viewHolder) {
+//        mItemTouchHelper.startDrag(viewHolder);
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
