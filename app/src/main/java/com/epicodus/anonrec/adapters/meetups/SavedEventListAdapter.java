@@ -102,8 +102,9 @@ public class SavedEventListAdapter extends FirebaseRecyclerAdapter<Event, SavedE
                     createDetailFragment(itemPosition);
                 } else {
                     Intent intent = new Intent(mContext, MeetupDetailActivity.class);
-                    intent.putExtra("position", viewHolder.getAdapterPosition());
-                    intent.putExtra("events", Parcels.wrap(mEvents));
+                    intent.putExtra(MeetupConstants.EXTRA_KEY_POSITION, itemPosition);
+                    intent.putExtra(MeetupConstants.EXTRA_KEY_EVENTS, Parcels.wrap(mEvents));
+                    intent.putExtra(MeetupConstants.KEY_SOURCE, MeetupConstants.SOURCE_SAVED);
                     mContext.startActivity(intent);
                 }
 
@@ -112,7 +113,7 @@ public class SavedEventListAdapter extends FirebaseRecyclerAdapter<Event, SavedE
     }
 
     private void createDetailFragment(int position) {
-        MeetupDetailFragment detailFragment = MeetupDetailFragment.newInstance(mEvents, position);
+        MeetupDetailFragment detailFragment = MeetupDetailFragment.newInstance(mEvents, position, MeetupConstants.SOURCE_SAVED);
         FragmentTransaction ft = ((FragmentActivity) mContext).getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.meetupDetailContainer, detailFragment);
         ft.commit();

@@ -43,12 +43,14 @@ public class MeetupDetailFragment extends Fragment implements View.OnClickListen
     private Event mEvent;
     private ArrayList<Event> mEvents;
     private int mPosition;
+    private String mSource;
 
-    public static MeetupDetailFragment newInstance(ArrayList<Event> events, Integer position) {
+    public static MeetupDetailFragment newInstance(ArrayList<Event> events, Integer position, String source) {
         MeetupDetailFragment meetupDetailFragment = new MeetupDetailFragment();
         Bundle args = new Bundle();
         args.putParcelable(MeetupConstants.EXTRA_KEY_EVENTS, Parcels.wrap(events));
         args.putInt(MeetupConstants.EXTRA_KEY_POSITION, position);
+        args.putString(MeetupConstants.KEY_SOURCE, source);
         meetupDetailFragment.setArguments(args);
         return meetupDetailFragment;
     }
@@ -58,6 +60,7 @@ public class MeetupDetailFragment extends Fragment implements View.OnClickListen
         super.onCreate(savedInstanceState);
         mEvents = Parcels.unwrap(getArguments().getParcelable(MeetupConstants.EXTRA_KEY_EVENTS));
         mPosition = getArguments().getInt(MeetupConstants.EXTRA_KEY_POSITION);
+        mSource = getArguments().getString(MeetupConstants.KEY_SOURCE);
         mEvent = mEvents.get(mPosition);
     }
 
@@ -78,8 +81,11 @@ public class MeetupDetailFragment extends Fragment implements View.OnClickListen
 
         mWebsiteLabel.setOnClickListener(this);
         mAddressLabel.setOnClickListener(this);
-        mSaveEventButton.setOnClickListener(this);
-
+        if (mSource.equals(MeetupConstants.SOURCE_SAVED)) {
+            mSaveEventButton.setVisibility(View.GONE);
+        } else {
+            mSaveEventButton.setOnClickListener(this);
+        }
         return view;
     }
 

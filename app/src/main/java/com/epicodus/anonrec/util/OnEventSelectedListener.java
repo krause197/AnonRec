@@ -8,5 +8,5 @@ import java.util.ArrayList;
  * Created by Guest on 12/20/16.
  */
 public interface OnEventSelectedListener {
-    public void OnEventSelected(Integer position, ArrayList<Event> events);
+    public void OnEventSelected(Integer position, ArrayList<Event> events, String source);
 }

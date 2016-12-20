@@ -84,7 +84,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
         }
 
         private void createDetailFragment(int position) {
-            MeetupDetailFragment detailFragment = MeetupDetailFragment.newInstance(mEvents, position);
+            MeetupDetailFragment detailFragment = MeetupDetailFragment.newInstance(mEvents, position, MeetupConstants.SOURCE_FIND);
             FragmentTransaction ft = ((FragmentActivity) mContext).getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.meetupDetailContainer, detailFragment);
             ft.commit();
@@ -93,13 +93,14 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
         @Override
         public void onClick(View v) {
             int itemPosition = getLayoutPosition();
-            mEventSelectedListener.OnEventSelected(itemPosition, mEvents);
+            mEventSelectedListener.OnEventSelected(itemPosition, mEvents, MeetupConstants.SOURCE_FIND);
             if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
                 createDetailFragment(itemPosition);
             } else {
                 Intent intent = new Intent(mContext, MeetupDetailActivity.class);
                 intent.putExtra(MeetupConstants.EXTRA_KEY_POSITION, itemPosition);
                 intent.putExtra(MeetupConstants.EXTRA_KEY_EVENTS, Parcels.wrap(mEvents));
+                intent.putExtra(MeetupConstants.KEY_SOURCE, MeetupConstants.SOURCE_FIND);
                 mContext.startActivity(intent);
             }
 

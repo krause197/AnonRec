@@ -41,6 +41,7 @@ public class MeetupActivity extends AppCompatActivity implements ToastMessage, O
 
     private Integer mPosition;
     ArrayList<Event> mEvents;
+    String mSource;
 //    public static final String TAG = MeetupActivity.class.getSimpleName();
 //
 //    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
@@ -58,11 +59,13 @@ public class MeetupActivity extends AppCompatActivity implements ToastMessage, O
             if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
                 mPosition = savedInstanceState.getInt(MeetupConstants.EXTRA_KEY_POSITION);
                 mEvents = Parcels.unwrap(savedInstanceState.getParcelable(MeetupConstants.EXTRA_KEY_EVENTS));
+                mSource = savedInstanceState.getString(MeetupConstants.KEY_SOURCE);
 
                 if(mPosition != null && mEvents != null) {
                     Intent intent = new Intent(this, MeetupDetailActivity.class);
                     intent.putExtra(MeetupConstants.EXTRA_KEY_POSITION, mPosition);
                     intent.putExtra(MeetupConstants.EXTRA_KEY_EVENTS, mEvents);
+                    intent.putExtra(MeetupConstants.KEY_SOURCE, mSource);
                     startActivity(intent);
                 }
             }
@@ -77,12 +80,15 @@ public class MeetupActivity extends AppCompatActivity implements ToastMessage, O
         if (mPosition != null && mEvents != null) {
             outState.putInt(MeetupConstants.EXTRA_KEY_POSITION, mPosition);
             outState.putParcelable(MeetupConstants.EXTRA_KEY_EVENTS, Parcels.wrap(mEvents));
+            outState.putString(MeetupConstants.KEY_SOURCE, mSource);
         }
     }
     @Override
-    public void OnEventSelected(Integer position, ArrayList<Event> events) {
+    public void OnEventSelected(Integer position, ArrayList<Event> events, String source) {
         mPosition = position;
         mEvents = events;
+        mSource = source;
+
     }
 
 

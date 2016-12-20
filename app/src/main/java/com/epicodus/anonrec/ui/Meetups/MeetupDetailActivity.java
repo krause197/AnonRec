@@ -20,6 +20,7 @@ public class MeetupDetailActivity extends AppCompatActivity {
     @Bind(R.id.meetupDetailViewPager) ViewPager mMeetupDetailViewPager;
     private EventPagerAdapter adapterViewPager;
     ArrayList<Event> mEvents = new ArrayList<>();
+    private String mSource;
 
 
     @Override
@@ -28,10 +29,12 @@ public class MeetupDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_meetup_detail);
         ButterKnife.bind(this);
 
+        mSource = getIntent().getStringExtra(MeetupConstants.KEY_SOURCE);
+
         mEvents = Parcels.unwrap(getIntent().getParcelableExtra(MeetupConstants.EXTRA_KEY_EVENTS));
         int startingPosition = getIntent().getIntExtra(MeetupConstants.EXTRA_KEY_POSITION, 0);
 
-        adapterViewPager = new EventPagerAdapter(getSupportFragmentManager(), mEvents);
+        adapterViewPager = new EventPagerAdapter(getSupportFragmentManager(), mEvents, mSource);
         mMeetupDetailViewPager.setAdapter(adapterViewPager);
         mMeetupDetailViewPager.setCurrentItem(startingPosition);
     }

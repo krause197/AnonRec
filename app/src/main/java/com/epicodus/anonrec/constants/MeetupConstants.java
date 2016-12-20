@@ -16,4 +16,7 @@ public class MeetupConstants {
     public static final String TOKEN_SHARED_PREFERENCE = "sobriety date";
     public static final String EXTRA_KEY_POSITION = "position";
     public static final String EXTRA_KEY_EVENTS = "events";
+    public static final String KEY_SOURCE = "source";
+    public static final String SOURCE_SAVED = "saved";
+    public static final String SOURCE_FIND = "find";
 }
