@@ -19,7 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 /**
  * Created by Guest on 12/15/16.
  */
-public class MessageViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class MessageViewHolder extends RecyclerView.ViewHolder {
     View mView;
     Context mContext;
     public ValueEventListener mValueEventListener;
@@ -33,37 +33,36 @@ public class MessageViewHolder extends RecyclerView.ViewHolder implements View.O
         super(itemView);
         mView = itemView;
         mContext = itemView.getContext();
-        itemView.setOnClickListener(this);
     }
 
     public void bindMessage (Message message) {
-        TextView titleTextView = (TextView) mView.findViewById(R.id.titleTextView);
-        TextView authorTextView = (TextView) mView.findViewById(R.id.authorTextView);
-        ImageView userIconImageView = (ImageView) mView.findViewById(R.id.userIconImageView);
-        final TextView commentNumber = (TextView) mView.findViewById(R.id.commentNumber);
+//        TextView titleTextView = (TextView) mView.findViewById(R.id.titleTextView);
+//        TextView authorTextView = (TextView) mView.findViewById(R.id.authorTextView);
+//        ImageView userIconImageView = (ImageView) mView.findViewById(R.id.userIconImageView);
+//        final TextView commentNumber = (TextView) mView.findViewById(R.id.commentNumber);
 
-        mMessageAuthorRef = FirebaseDatabase.getInstance().getReference("profiles").child("pushId").equalTo(Message.PushId());
-        author = mMessageAuthorRef
+//        mMessageAuthorRef = FirebaseDatabase.getInstance().getReference("profiles").child("pushId").equalTo(Message.PushId());
+//        author = mMessageAuthorRef;
+//
+//        mUserIconRef =
+//
+//        mCommentNumberRef = FirebaseDatabase.getInstance().getReference(MessageConstants.FIREBASE_QUERY_COMMENTS).child("messageId").equalTo(Message.getId());
+//        mValueEventListener = mCommentNumberRef.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                commentNumber.setText("Comments: " + dataSnapshot.getChildrenCount() +"");
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//
+//            }
+//        });
 
-        mUserIconRef =
-
-        mCommentNumberRef = FirebaseDatabase.getInstance().getReference(MessageConstants.FIREBASE_QUERY_COMMENTS).child("messageId").equalTo(Message.getId());
-        mValueEventListener = mCommentNumberRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                commentNumber.setText("Comments: " + dataSnapshot.getChildrenCount() +"");
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
 
 
-
-        titleTextView.setText(message.getTitle());
-        authorTextView.setText(message.getAuthor());
+//        titleTextView.setText(message.getTitle());
+//        authorTextView.setText(message.getAuthor());
 
 
     }

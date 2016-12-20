@@ -50,7 +50,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
     private static final int SHAKE_THRESHOLD = 500;
     private ImageView mLogo;
 
-    View toastView = getLayoutInflater().inflate(R.layout.toast, (ViewGroup)findViewById(R.id.toastLayout));
+
 
 
 
@@ -79,6 +79,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
 
 
         Android_Gesture_Detector android_gesture_detector = new Android_Gesture_Detector(){
+            View toastView = getLayoutInflater().inflate(R.layout.toast, (ViewGroup)findViewById(R.id.toastLayout));
             @Override
             public void onSwipeUp() {
                 Toast toast = new Toast(context);
