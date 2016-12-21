@@ -4,17 +4,13 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.epicodus.anonrec.constants.MeetupConstants;
-import com.epicodus.anonrec.services.MeetupService;
 import com.epicodus.anonrec.R;
-import com.epicodus.anonrec.adapters.meetups.EventListAdapter;
 import com.epicodus.anonrec.models.Event;
 import com.epicodus.anonrec.ui.general.HomePageActivity;
 import com.epicodus.anonrec.ui.general.LoginActivity;
@@ -27,15 +23,8 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import org.parceler.Parcels;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
-
-import butterknife.Bind;
-import butterknife.ButterKnife;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Response;
 
 public class MeetupActivity extends AppCompatActivity implements ToastMessage, OnEventSelectedListener {
 

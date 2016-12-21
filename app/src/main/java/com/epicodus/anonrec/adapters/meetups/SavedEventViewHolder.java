@@ -1,26 +1,14 @@
 package com.epicodus.anonrec.adapters.meetups;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.epicodus.anonrec.constants.MeetupConstants;
 import com.epicodus.anonrec.R;
 import com.epicodus.anonrec.models.Event;
-import com.epicodus.anonrec.ui.meetups.MeetupDetailActivity;
 import com.epicodus.anonrec.util.ItemTouchHelperViewHolder;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import org.parceler.Parcels;
-
-import java.util.ArrayList;
 
 /**
  * Created by Guest on 12/13/16.

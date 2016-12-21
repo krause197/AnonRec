@@ -19,7 +19,6 @@ import android.widget.Toast;
 import com.epicodus.anonrec.constants.MeetupConstants;
 import com.epicodus.anonrec.R;
 
-import com.epicodus.anonrec.models.Profile;
 import com.epicodus.anonrec.ui.meetups.SavedEventListActivity;
 import com.epicodus.anonrec.ui.meetings.MeetingActivity;
 import com.epicodus.anonrec.ui.meetups.MeetupActivity;

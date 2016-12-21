@@ -3,34 +3,17 @@ package com.epicodus.anonrec.ui.meetups;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import com.epicodus.anonrec.adapters.meetups.SavedEventListAdapter;
-import com.epicodus.anonrec.constants.MeetupConstants;
 import com.epicodus.anonrec.R;
-import com.epicodus.anonrec.adapters.meetups.SavedEventViewHolder;
-import com.epicodus.anonrec.models.Event;
 import com.epicodus.anonrec.ui.general.HomePageActivity;
 import com.epicodus.anonrec.ui.general.LoginActivity;
 import com.epicodus.anonrec.ui.general.ProfileActivity;
 import com.epicodus.anonrec.ui.meetings.MeetingActivity;
 import com.epicodus.anonrec.ui.messages.MessageActivity;
-import com.epicodus.anonrec.util.OnStartDragListener;
-import com.epicodus.anonrec.util.SimpleItemTouchHelperCallback;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-
-import butterknife.Bind;
-import butterknife.ButterKnife;
 
 public class SavedEventListActivity extends AppCompatActivity  {
 //    private DatabaseReference mEventReference;
